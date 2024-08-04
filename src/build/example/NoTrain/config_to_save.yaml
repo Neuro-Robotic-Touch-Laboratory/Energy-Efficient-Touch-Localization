@@ -1,0 +1,5 @@
+# list of the neurons whose state is to be saved at each time step
+
+- S:        [0,1]
+
+- T:        [3,5,7]

@@ -1,0 +1,9 @@
+# weights of connections TO :name:
+
+- name:         S
+  S:             -1.2         # S receives inhibitory inputs from S
+  ext:           0.45         # S receives excitatory inputs from ext
+
+- name:         T
+  S:             0.3          # T receives excitatory inputs from S
+  ext:           0.1          # T receives excitatory inputs from ext

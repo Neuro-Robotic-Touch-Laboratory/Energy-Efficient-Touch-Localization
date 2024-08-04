@@ -1,0 +1,63 @@
+# list of the populations with their parameters
+
+- name:                   S
+  neuron_model:           aeif_cond_exp
+  desidered_output_path:  none
+  specific_I_e_file:      none
+  offset_I_e_file:        none
+  train_offset_I_e:       false
+  train_order:            -1
+  N:                      100
+  C_m:                    40.                   # pF
+  E_L:                    -55.1                 # mV
+  E_ex:                   0.                    # mV
+  E_in:                   -65.                  # mV
+  V_res:                  -60.                  # mV
+  V_th:                   -54.7                 # mV
+  g_L:                    1.                    # nS
+  t_ref:                  0.0                   # ms
+  I_e:                    -38.0                 # pA
+  osc_amp:                5.0                   # pA
+  osc_omega:              0.314                 # kHz  (50 Hz)
+  dev_ext_weight:         0.05                  # nS
+  ext_in_rate:            0.25                  # kHz
+  osc_amp_poiss:          0.                    # kHz
+  osc_omega_poiss:        0.                    # kHz
+  tau_syn_ex:             10.                   # ms
+  tau_syn_in:             5.5                   # ms
+  a_adaptive:             2.5                   # nS
+  b_adaptive:             70.                   # pA
+  tau_w_adaptive:         20.                   # ms
+  delta_T_aeif_cond_exp:  1.7                   # mV
+  V_peak:                 15.                   # mV
+
+- name:                   T
+  neuron_model:           aeif_cond_exp
+  desidered_output_path:  none
+  specific_I_e_file:      none
+  offset_I_e_file:        none
+  train_offset_I_e:       false
+  train_order:            -1
+  N:                      200
+  C_m:                    40.
+  E_L:                    -55.1
+  E_ex:                   0.
+  E_in:                   -65.
+  V_res:                  -60.
+  V_th:                   -54.7
+  g_L:                    1.
+  t_ref:                  0.0
+  I_e:                    -150.0
+  osc_amp:                0.0
+  osc_omega:              0.0
+  dev_ext_weight:         0.05
+  ext_in_rate:            0.1
+  osc_amp_poiss:          0.
+  osc_omega_poiss:        0.
+  tau_syn_ex:             10.
+  tau_syn_in:             5.5
+  a_adaptive:             2.5
+  b_adaptive:             70.
+  tau_w_adaptive:         20.
+  delta_T_aeif_cond_exp:  1.7
+  V_peak:                 15.

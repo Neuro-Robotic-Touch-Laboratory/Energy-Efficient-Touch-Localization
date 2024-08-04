@@ -1,0 +1,13 @@
+# Connections probabilities and delays FROM "name"
+
+- name:        S
+  S:                0.2       # each S neuron project to each S neuron with probability 0.2
+  S_delay:          0.5
+  S_file:           none
+  S_train:          false
+  S_quant_alpha:    -1.
+  T:                0.8       # each S neuron project to each T neuron with probability 0.8
+  T_delay:          1.0
+  T_file:           none
+  T_train:          false
+  T_quant_alpha:    -1.

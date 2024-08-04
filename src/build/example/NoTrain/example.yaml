@@ -1,0 +1,13 @@
+t_end:                          10000  # ms
+dt:                             0.1    # ms
+n_step:                         20
+out_dir:                        example/NoTrain/sim
+subnets_config_yaml:            example/NoTrain/config.yaml
+weights_config_yaml:            example/NoTrain/config_weights.yaml
+connections_config_yaml:        example/NoTrain/config_connections.yaml
+to_save_config_yaml:            example/NoTrain/config_to_save.yaml
+training_config_yaml:           none
+input_mode:                     0
+input_mode_config:              unused
+train:                          false
+repeat_specific_I_e:            1
