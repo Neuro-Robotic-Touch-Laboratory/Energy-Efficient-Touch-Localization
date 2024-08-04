@@ -3,7 +3,7 @@ sys.path.append('..')
 import python_utils as utils
 
 
-s = utils.SpikeSim(".example/NoTrain/sim", 'example.yaml', 500, 10000., 'config.yaml')
+s = utils.SpikeSim("example/NoTrain/sim", 'example.yaml', 500, 10000., 'config.yaml')
 
 s.info()
 
