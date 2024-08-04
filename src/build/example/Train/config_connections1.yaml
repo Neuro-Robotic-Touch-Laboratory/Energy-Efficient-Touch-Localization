@@ -1,12 +1,12 @@
 - name:        L1
   L2:                   1.          # probability
   L2_delay:             2.
-  L2_file:              example_config/Train/specific_w/L1_to_L2.txt
+  L2_file:              example/Train/specific_w/L1_to_L2.txt
   L2_train:             true
   L2_quant_alpha:       -1.
 - name:        L2
   L3:                   1.          # probability
   L3_delay:             2.
-  L3_file:              example_config/Train/specific_w/L2_to_L3.txt
+  L3_file:              example/Train/specific_w/L2_to_L3.txt
   L3_train:             true
   L3_quant_alpha:       -1.

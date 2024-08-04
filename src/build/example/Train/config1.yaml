@@ -3,7 +3,7 @@
 - name:                   L1
   neuron_model:           iaf_curr_exp
   desidered_output_path:  none
-  specific_I_e_file:      example_config/Train/specific_Ie/L1.txt
+  specific_I_e_file:      example/Train/specific_Ie/L1.txt
   offset_I_e_file:        none
   train_offset_I_e:       false
   offset_I_e_min:         0.
@@ -37,7 +37,7 @@
   neuron_model:           iaf_curr_exp
   desidered_output_path:  none
   specific_I_e_file:      none
-  offset_I_e_file:        example_config/Train/specific_w/L2.txt
+  offset_I_e_file:        example/Train/specific_w/L2.txt
   train_offset_I_e:       true
   offset_I_e_min:         -100
   offset_I_e_max:         100.
@@ -68,7 +68,7 @@
 
 - name:                   L3
   neuron_model:           iaf_curr_exp
-  desidered_output_path:  example_config/Train/desired_out/L3.txt
+  desidered_output_path:  example/Train/desired_out/L3.txt
   specific_I_e_file:      none
   offset_I_e_file:        none
   train_offset_I_e:       false
