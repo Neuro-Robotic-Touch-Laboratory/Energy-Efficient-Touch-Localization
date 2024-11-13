@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="namespacepython__utils" kind="namespace" language="Python">
+    <compoundname>python_utils</compoundname>
+    <innerclass refid="classpython__utils_1_1_spike_sim" prot="public">python_utils::SpikeSim</innerclass>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="python__utils_8py_1a1a007f664b33378e9abd859eee882244" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def python_utils.save_pkl</definition>
+        <argsstring>(obj, path)</argsstring>
+        <name>save_pkl</name>
+        <param>
+          <type>obj</type>
+          <defname>obj</defname>
+        </param>
+        <param>
+          <type>path</type>
+          <defname>path</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Function saving an object as a pickle file.
+
+:param obj: python object (list, dictionary...) to be saved
+:type obj: generic
+
+:param path: path to the object to be saved
+:type path: string
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/python_utils.py" line="11" column="1" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/python_utils.py" bodystart="11" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="python__utils_8py_1a8e05c3eafa1fb4076d6e8e0068082ace" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def python_utils.load_pkl</definition>
+        <argsstring>(path)</argsstring>
+        <name>load_pkl</name>
+        <param>
+          <type>path</type>
+          <defname>path</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Function loading an object from a pickle file.
+
+:param path: path to the object to be loaded
+:type path: string
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/python_utils.py" line="23" column="1" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/python_utils.py" bodystart="23" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="python__utils_8py_1ab4db9b28f8b7671ce1807833ca55da57" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def python_utils.readSpikes</definition>
+        <argsstring>(file)</argsstring>
+        <name>readSpikes</name>
+        <param>
+          <type>file</type>
+          <defname>file</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Function reading spike times in the format produced by the simulation
+
+:param file: path to the file with spike times
+:type file: string
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/python_utils.py" line="33" column="1" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/python_utils.py" bodystart="33" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="python__utils_8py_1a69a84632921270c459168309f083ba3e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def python_utils.newReadSpikes</definition>
+        <argsstring>(file, n)</argsstring>
+        <name>newReadSpikes</name>
+        <param>
+          <type>file</type>
+          <defname>file</defname>
+        </param>
+        <param>
+          <type>n</type>
+          <defname>n</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Function reading spike times in the format produced by the simulation
+
+:param file: path to the file with spike times
+:type file: string
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/python_utils.py" line="53" column="1" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/python_utils.py" bodystart="53" bodyend="75"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/python_utils.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

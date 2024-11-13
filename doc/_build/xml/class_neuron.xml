@@ -1,0 +1,437 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="class_neuron" kind="class" language="C++" prot="public">
+    <compoundname>Neuron</compoundname>
+    <includes local="no">model.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_neuron_1aee36e4204e871c0137a8dc7b09240d8b" prot="public" static="no" mutable="no">
+        <type>vector&lt; double &gt;</type>
+        <definition>vector&lt;double&gt; Neuron::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <briefdescription>
+<para>State vector. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="81" column="29" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_neuron_1a4ab553cbe8acbee5d2f81273eb60ea6b" prot="public" static="no" mutable="no">
+        <type>unsigned</type>
+        <definition>unsigned Neuron::dim</definition>
+        <argsstring></argsstring>
+        <name>dim</name>
+        <briefdescription>
+<para>Dimenssion of the state vector <ref refid="class_neuron_1aee36e4204e871c0137a8dc7b09240d8b" kindref="member">x</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="83" column="37" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_neuron_1a293a9232d3e33fe209464b79dd850daa" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Neuron::t_last_spike</definition>
+        <argsstring></argsstring>
+        <name>t_last_spike</name>
+        <briefdescription>
+<para>time of last spike (initialized to -1 - <ref refid="class_sub_network_1a75ae34466395d207873317e0e38ff158" kindref="member">SubNetwork::t_ref</ref>) [ms] </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="85" column="37" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_neuron_1a483841213c413f2fc268e7fcd7b5ae07" prot="public" static="no" mutable="no">
+        <type>map&lt; unsigned, vector&lt; unsigned &gt; &gt;</type>
+        <definition>map&lt;unsigned, vector&lt;unsigned&gt; &gt; Neuron::neighbors</definition>
+        <argsstring></argsstring>
+        <name>neighbors</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>First outwards neighbors. A dictionary is implemetnted with format: {target <ref refid="class_sub_network" kindref="compound">SubNetwork</ref> : list of neurons} </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="88" column="9" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_neuron_1a860be4ef10d1c365bf4b522c8c5696bd" prot="public" static="no" mutable="no">
+        <type>map&lt; unsigned, vector&lt; double &gt; &gt;</type>
+        <definition>map&lt;unsigned, vector&lt;double&gt; &gt; Neuron::input_t_ex</definition>
+        <argsstring></argsstring>
+        <name>input_t_ex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Excitatory inputs [ms]. A dictionary is implemetnted with format: {source <ref refid="class_sub_network" kindref="compound">SubNetwork</ref> : list of input times} </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="91" column="11" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_neuron_1a4449ff7e302b73e68b8ab37ee73fa0e8" prot="public" static="no" mutable="no">
+        <type>map&lt; unsigned, vector&lt; double &gt; &gt;</type>
+        <definition>map&lt;unsigned, vector&lt;double&gt; &gt; Neuron::input_t_in</definition>
+        <argsstring></argsstring>
+        <name>input_t_in</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Inhibitory inputs [ms]. A dictionary is implemetnted with format: {source <ref refid="class_sub_network" kindref="compound">SubNetwork</ref> : list of input times} </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="94" column="11" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_neuron_1a1d3725dca44d2562b48b0fd5a9cffd18" prot="public" static="no" mutable="no">
+        <type>map&lt; unsigned, vector&lt; double &gt; &gt;</type>
+        <definition>map&lt;unsigned, vector&lt;double&gt; &gt; Neuron::neighbors_out_weights</definition>
+        <argsstring></argsstring>
+        <name>neighbors_out_weights</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>First outwards neighbors weight. A dictionary is implemetnted with format: {target <ref refid="class_sub_network" kindref="compound">SubNetwork</ref> index : list of weights (corresponding to the neuron-index stored in neighbors)} </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="98" column="11" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_neuron_1a5f319cc23c877623a45c75b94cf679ef" prot="public" static="no" mutable="no">
+        <type>map&lt; unsigned, vector&lt; double &gt; &gt;</type>
+        <definition>map&lt;unsigned, vector&lt;double&gt; &gt; Neuron::weight_aux1</definition>
+        <argsstring></argsstring>
+        <name>weight_aux1</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Auxiliary variables for momentum and ADAM optimezers. A dictionary is implemetnted with format: {target <ref refid="class_sub_network" kindref="compound">SubNetwork</ref> index : list of weights (corresponding to the neuron-index stored in neighbors)} </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="101" column="11" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_neuron_1ae93cb1fe94996ffefec798db4b2e18f6" prot="public" static="no" mutable="no">
+        <type>map&lt; unsigned, vector&lt; double &gt; &gt;</type>
+        <definition>map&lt;unsigned, vector&lt;double&gt; &gt; Neuron::weight_aux2</definition>
+        <argsstring></argsstring>
+        <name>weight_aux2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="102" column="11" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_neuron_1ac0ba26673b94fd121c764c8de8b6ab17" prot="public" static="no" mutable="no">
+        <type>map&lt; unsigned, vector&lt; double &gt; &gt;</type>
+        <definition>map&lt;unsigned, vector&lt;double&gt; &gt; Neuron::weight_quant_cumul</definition>
+        <argsstring></argsstring>
+        <name>weight_quant_cumul</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Cumulative update weight (used only in case of training with quantized weights: alpha_quantized_weights&gt;0) A dictionary is implemetnted with format: {target <ref refid="class_sub_network" kindref="compound">SubNetwork</ref> index : list of cumulative weights (corresponding to the neuron-index stored in neighbors)} </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="106" column="11" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_neuron_1a6f352fb4dc12d425be9319039a5deab3" prot="public" static="no" mutable="no">
+        <type>map&lt; unsigned, vector&lt; double &gt; &gt;</type>
+        <definition>map&lt;unsigned, vector&lt;double&gt; &gt; Neuron::input_w_ex</definition>
+        <argsstring></argsstring>
+        <name>input_w_ex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Excitatory weights [a.u.]. A dictionary is implemetnted with format: {source <ref refid="class_sub_network" kindref="compound">SubNetwork</ref> : list of input weights} </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="110" column="11" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_neuron_1ab5faea8b9699588772b79e520e814488" prot="public" static="no" mutable="no">
+        <type>map&lt; unsigned, vector&lt; double &gt; &gt;</type>
+        <definition>map&lt;unsigned, vector&lt;double&gt; &gt; Neuron::input_w_in</definition>
+        <argsstring></argsstring>
+        <name>input_w_in</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Inhibitory weights [a.u.]. A dictionary is implemetnted with format: {source <ref refid="class_sub_network" kindref="compound">SubNetwork</ref> : list of input weights} </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="113" column="11" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_neuron_1a3eb914e26518bc24e6724deda6bd50fa" prot="public" static="no" mutable="no">
+        <type>map&lt; unsigned, unsigned &gt;</type>
+        <definition>map&lt;unsigned, unsigned&gt; Neuron::next_sp_ex_index</definition>
+        <argsstring></argsstring>
+        <name>next_sp_ex_index</name>
+        <briefdescription>
+<para>Dictionary containing the index of the next relevant spike in the vector <ref refid="class_neuron_1a860be4ef10d1c365bf4b522c8c5696bd" kindref="member">input_t_ex</ref> for each excitatory Subnetwork. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="116" column="17" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_neuron_1ac4b299600e1ce2740a150fd8f879c274" prot="public" static="no" mutable="no">
+        <type>map&lt; unsigned, unsigned &gt;</type>
+        <definition>map&lt;unsigned, unsigned&gt; Neuron::next_sp_in_index</definition>
+        <argsstring></argsstring>
+        <name>next_sp_in_index</name>
+        <briefdescription>
+<para>Dictionary containing the index of the next relevant spike in the vector <ref refid="class_neuron_1a4449ff7e302b73e68b8ab37ee73fa0e8" kindref="member">input_t_in</ref> for each inhibitory Subnetwork. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="118" column="17" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_neuron_1a40ca58e1c7747a7d5af6b6da921893f7" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Neuron::ext_weight</definition>
+        <argsstring></argsstring>
+        <name>ext_weight</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>External input weight: for each neuron in the subnetwork, it is given by <ref refid="class_sub_network_1a61e36a5df9bc37e79a443ed311ab6459" kindref="member">SubNetwork::weights_ex</ref>[&apos;ext&apos;] plus a random value uniformly extracted in [-<ref refid="class_sub_network_1a355719624d9bff623afa9411aa45db8f" kindref="member">SubNetwork::dev_ext_weight</ref>, <ref refid="class_sub_network_1a355719624d9bff623afa9411aa45db8f" kindref="member">SubNetwork::dev_ext_weight</ref>] [nS] </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="122" column="37" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_neuron_1a8325bd2dd2a5e0957273e2bae32933c8" prot="public" static="no" mutable="no">
+        <type>vector&lt; double &gt;</type>
+        <definition>vector&lt;double&gt; Neuron::t_spikes</definition>
+        <argsstring></argsstring>
+        <name>t_spikes</name>
+        <briefdescription>
+<para>Vector of the neuron spike times [ms]. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="125" column="29" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_neuron_1aa3e2fb7985efa914c083cf33a289505c" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Neuron::specific_I_e_bool</definition>
+        <argsstring></argsstring>
+        <name>specific_I_e_bool</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="128" column="37" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="128" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_neuron_1a1573b45517b8a3dac6a9f069439e538c" prot="public" static="no" mutable="no">
+        <type>vector&lt; double &gt;</type>
+        <definition>vector&lt;double&gt; Neuron::specific_I_e</definition>
+        <argsstring></argsstring>
+        <name>specific_I_e</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="130" column="29" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="130" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_neuron_1a1a854c6390d122cbf085dd14cf714d63" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Neuron::offset_I_e</definition>
+        <argsstring></argsstring>
+        <name>offset_I_e</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="133" column="37" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="133" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_neuron_1a876d8c42a0f4730c9025b71b1894b2b0" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Neuron::offset_aux1</definition>
+        <argsstring></argsstring>
+        <name>offset_aux1</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="135" column="37" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="135" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_neuron_1a0d449fbe5d29aaa03696b2d4052fc1a9" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Neuron::offset_aux2</definition>
+        <argsstring></argsstring>
+        <name>offset_aux2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="136" column="37" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="136" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_neuron_1a84a64fecf6fa4a9faf1cb240d7bdbfe3" prot="public" static="no" mutable="no">
+        <type>vector&lt; double &gt;</type>
+        <definition>vector&lt;double&gt; Neuron::desidered_output</definition>
+        <argsstring></argsstring>
+        <name>desidered_output</name>
+        <briefdescription>
+<para>Vector containing the desired number of spikes for each time interval, if provided. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="139" column="29" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="139" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_neuron_1a28c9c709b88fdcd7ae52f013c452a61f" prot="public" static="no" mutable="no">
+        <type>vector&lt; unsigned &gt;</type>
+        <definition>vector&lt;unsigned&gt; Neuron::R_actual</definition>
+        <argsstring></argsstring>
+        <name>R_actual</name>
+        <briefdescription>
+<para>Vector containing the actual number of spikes for each time interval, during training. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="141" column="27" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="141" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_neuron_1a322f073623f51ef4428f7ae5c8a3e6ff" prot="public" static="no" mutable="no">
+        <type>vector&lt; double &gt;</type>
+        <definition>vector&lt;double&gt; Neuron::error</definition>
+        <argsstring></argsstring>
+        <name>error</name>
+        <briefdescription>
+<para>Vector containing the generalized error, during training. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="143" column="29" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="143" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_neuron_1a17bcb7cfda71bb4aa2784ec8ad839bba" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Neuron::optimal_c_desid_zero</definition>
+        <argsstring></argsstring>
+        <name>optimal_c_desid_zero</name>
+        <briefdescription>
+<para>Training hyperparameter regulating the modulation of the error in case of low desired output. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="145" column="37" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="145" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_neuron_1a0932fa38765e51c40086616b938c1e0e" prot="public" static="no" mutable="no">
+        <type>vector&lt; double &gt;</type>
+        <definition>vector&lt;double&gt; Neuron::parrot_spikes</definition>
+        <argsstring></argsstring>
+        <name>parrot_spikes</name>
+        <briefdescription>
+<para>Vector containing the spike times to be replicated in case the neuron is set in parrot mode. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="147" column="29" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="147" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_neuron_1a715ddd67f4772dd54aeab29b4a5972bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Neuron::Neuron</definition>
+        <argsstring>(unsigned _dim)</argsstring>
+        <name>Neuron</name>
+        <param>
+          <type>unsigned</type>
+          <declname>_dim</declname>
+        </param>
+        <briefdescription>
+<para>Class constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="150" column="5" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.cpp" bodystart="433" bodyend="437"/>
+      </memberdef>
+      <memberdef kind="function" id="class_neuron_1a43a3745b536f8194e4ed5e42327ff8b6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Neuron::info</definition>
+        <argsstring>()</argsstring>
+        <name>info</name>
+        <briefdescription>
+<para>Method printing a list of the attributes and their value. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="153" column="10" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.cpp" bodystart="439" bodyend="471"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Class handling the neuron structure. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="78" column="1" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="78" bodyend="156"/>
+    <listofallmembers>
+      <member refid="class_neuron_1a84a64fecf6fa4a9faf1cb240d7bdbfe3" prot="public" virt="non-virtual"><scope>Neuron</scope><name>desidered_output</name></member>
+      <member refid="class_neuron_1a4ab553cbe8acbee5d2f81273eb60ea6b" prot="public" virt="non-virtual"><scope>Neuron</scope><name>dim</name></member>
+      <member refid="class_neuron_1a322f073623f51ef4428f7ae5c8a3e6ff" prot="public" virt="non-virtual"><scope>Neuron</scope><name>error</name></member>
+      <member refid="class_neuron_1a40ca58e1c7747a7d5af6b6da921893f7" prot="public" virt="non-virtual"><scope>Neuron</scope><name>ext_weight</name></member>
+      <member refid="class_neuron_1a43a3745b536f8194e4ed5e42327ff8b6" prot="public" virt="non-virtual"><scope>Neuron</scope><name>info</name></member>
+      <member refid="class_neuron_1a860be4ef10d1c365bf4b522c8c5696bd" prot="public" virt="non-virtual"><scope>Neuron</scope><name>input_t_ex</name></member>
+      <member refid="class_neuron_1a4449ff7e302b73e68b8ab37ee73fa0e8" prot="public" virt="non-virtual"><scope>Neuron</scope><name>input_t_in</name></member>
+      <member refid="class_neuron_1a6f352fb4dc12d425be9319039a5deab3" prot="public" virt="non-virtual"><scope>Neuron</scope><name>input_w_ex</name></member>
+      <member refid="class_neuron_1ab5faea8b9699588772b79e520e814488" prot="public" virt="non-virtual"><scope>Neuron</scope><name>input_w_in</name></member>
+      <member refid="class_neuron_1a483841213c413f2fc268e7fcd7b5ae07" prot="public" virt="non-virtual"><scope>Neuron</scope><name>neighbors</name></member>
+      <member refid="class_neuron_1a1d3725dca44d2562b48b0fd5a9cffd18" prot="public" virt="non-virtual"><scope>Neuron</scope><name>neighbors_out_weights</name></member>
+      <member refid="class_neuron_1a715ddd67f4772dd54aeab29b4a5972bd" prot="public" virt="non-virtual"><scope>Neuron</scope><name>Neuron</name></member>
+      <member refid="class_neuron_1a3eb914e26518bc24e6724deda6bd50fa" prot="public" virt="non-virtual"><scope>Neuron</scope><name>next_sp_ex_index</name></member>
+      <member refid="class_neuron_1ac4b299600e1ce2740a150fd8f879c274" prot="public" virt="non-virtual"><scope>Neuron</scope><name>next_sp_in_index</name></member>
+      <member refid="class_neuron_1a876d8c42a0f4730c9025b71b1894b2b0" prot="public" virt="non-virtual"><scope>Neuron</scope><name>offset_aux1</name></member>
+      <member refid="class_neuron_1a0d449fbe5d29aaa03696b2d4052fc1a9" prot="public" virt="non-virtual"><scope>Neuron</scope><name>offset_aux2</name></member>
+      <member refid="class_neuron_1a1a854c6390d122cbf085dd14cf714d63" prot="public" virt="non-virtual"><scope>Neuron</scope><name>offset_I_e</name></member>
+      <member refid="class_neuron_1a17bcb7cfda71bb4aa2784ec8ad839bba" prot="public" virt="non-virtual"><scope>Neuron</scope><name>optimal_c_desid_zero</name></member>
+      <member refid="class_neuron_1a0932fa38765e51c40086616b938c1e0e" prot="public" virt="non-virtual"><scope>Neuron</scope><name>parrot_spikes</name></member>
+      <member refid="class_neuron_1a28c9c709b88fdcd7ae52f013c452a61f" prot="public" virt="non-virtual"><scope>Neuron</scope><name>R_actual</name></member>
+      <member refid="class_neuron_1a1573b45517b8a3dac6a9f069439e538c" prot="public" virt="non-virtual"><scope>Neuron</scope><name>specific_I_e</name></member>
+      <member refid="class_neuron_1aa3e2fb7985efa914c083cf33a289505c" prot="public" virt="non-virtual"><scope>Neuron</scope><name>specific_I_e_bool</name></member>
+      <member refid="class_neuron_1a293a9232d3e33fe209464b79dd850daa" prot="public" virt="non-virtual"><scope>Neuron</scope><name>t_last_spike</name></member>
+      <member refid="class_neuron_1a8325bd2dd2a5e0957273e2bae32933c8" prot="public" virt="non-virtual"><scope>Neuron</scope><name>t_spikes</name></member>
+      <member refid="class_neuron_1a5f319cc23c877623a45c75b94cf679ef" prot="public" virt="non-virtual"><scope>Neuron</scope><name>weight_aux1</name></member>
+      <member refid="class_neuron_1ae93cb1fe94996ffefec798db4b2e18f6" prot="public" virt="non-virtual"><scope>Neuron</scope><name>weight_aux2</name></member>
+      <member refid="class_neuron_1ac0ba26673b94fd121c764c8de8b6ab17" prot="public" virt="non-virtual"><scope>Neuron</scope><name>weight_quant_cumul</name></member>
+      <member refid="class_neuron_1aee36e4204e871c0137a8dc7b09240d8b" prot="public" virt="non-virtual"><scope>Neuron</scope><name>x</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

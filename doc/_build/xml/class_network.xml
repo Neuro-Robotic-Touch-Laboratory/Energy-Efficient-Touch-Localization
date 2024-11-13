@@ -1,0 +1,1315 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="class_network" kind="class" language="C++" prot="public">
+    <compoundname>Network</compoundname>
+    <includes local="no">model.hpp</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_network_1ac46641c89870f9b81ddf8305296ad48e" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Network::t_end</definition>
+        <argsstring></argsstring>
+        <name>t_end</name>
+        <briefdescription>
+<para>End time of simulation [ms]. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="354" column="17" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="354" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_network_1a21a49637ac27a1080161873364c1065e" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Network::t</definition>
+        <argsstring></argsstring>
+        <name>t</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Current time during simulation (starts at <ref refid="class_network_1a21a49637ac27a1080161873364c1065e" kindref="member">t</ref>=0 and ends at <ref refid="class_network_1ac46641c89870f9b81ddf8305296ad48e" kindref="member">t_end</ref>) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="356" column="17" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="356" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_network_1a9bc0742838658e195841180243cdf08a" prot="private" static="no" mutable="no">
+        <type>unsigned</type>
+        <definition>unsigned Network::n_step</definition>
+        <argsstring></argsstring>
+        <name>n_step</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Number of calls to evolve method with argument <ref refid="class_network_1ac46641c89870f9b81ddf8305296ad48e" kindref="member">t_end</ref> / <ref refid="class_network_1a9bc0742838658e195841180243cdf08a" kindref="member">n_step</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="358" column="17" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="358" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_network_1aacff566b76ad9ea8ce81e7a401c115ab" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Network::dt</definition>
+        <argsstring></argsstring>
+        <name>dt</name>
+        <briefdescription>
+<para>Time resolution of the simulation [ms]. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="360" column="17" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="360" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_network_1a7b9d1d37dc453be734f78640fe4c193b" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string Network::subnets_config_yaml</definition>
+        <argsstring></argsstring>
+        <name>subnets_config_yaml</name>
+        <briefdescription>
+<para>Input yaml-file with <ref refid="class_network" kindref="compound">Network</ref> composition and features. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="362" column="17" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="362" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_network_1acf8b8cba2fc51e4dc4ad40dc20b19d03" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string Network::weights_config_yaml</definition>
+        <argsstring></argsstring>
+        <name>weights_config_yaml</name>
+        <briefdescription>
+<para>Input yaml-file with connection weights (positive weights are excitatory, negative weights are inhibitory) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="364" column="17" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="364" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_network_1a6180cae423ad40c5c668c57cf78fbd3c" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string Network::connections_config_yaml</definition>
+        <argsstring></argsstring>
+        <name>connections_config_yaml</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Input yaml-file with connectivity probabilities between subnetworks and corresponding delays. Note that each delay must immediately follow the related probability </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="367" column="17" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="367" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_network_1a8f34c84aeffdcc67540299d982c4d512" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string Network::to_save_config_yaml</definition>
+        <argsstring></argsstring>
+        <name>to_save_config_yaml</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Input yaml-file with list of neurons whose state you want to save at each step. You can leave this file empty if you don&apos;t want to save any nuron state. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="370" column="17" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="370" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_network_1a1b92cffc3e963dc83c357b58f5d14909" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string Network::out_dir</definition>
+        <argsstring></argsstring>
+        <name>out_dir</name>
+        <briefdescription>
+<para>Output directory of the simulation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="372" column="17" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="372" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_network_1a9f4dffb2faabd9fcbbb958c84a8bc7ae" prot="private" static="no" mutable="no">
+        <type>map&lt; string, unsigned &gt;</type>
+        <definition>map&lt;string, unsigned&gt; Network::subnet_name_index</definition>
+        <argsstring></argsstring>
+        <name>subnet_name_index</name>
+        <briefdescription>
+<para>Dictionary with format {<ref refid="class_sub_network_1af5eace7945b17d0239233f7096b8d4e0" kindref="member">SubNetwork::name</ref> : related index in <ref refid="class_network_1ae6c5467b3961a460992c71a49c0c1e21" kindref="member">Network::subnets</ref> (equal to <ref refid="class_sub_network_1a44c3f0a2ef2e2567647670d14782a6fb" kindref="member">SubNetwork::id_subnet</ref>)}. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="375" column="11" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="375" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_network_1a7de12d78c2539ed4df6f3d6469e920e9" prot="private" static="no" mutable="no">
+        <type>map&lt; unsigned, string &gt;</type>
+        <definition>map&lt;unsigned, string&gt; Network::subnet_index_name</definition>
+        <argsstring></argsstring>
+        <name>subnet_index_name</name>
+        <briefdescription>
+<para>Dictionary with format {index in <ref refid="class_network_1ae6c5467b3961a460992c71a49c0c1e21" kindref="member">Network::subnets</ref> (equal to <ref refid="class_sub_network_1a44c3f0a2ef2e2567647670d14782a6fb" kindref="member">SubNetwork::id_subnet</ref>) : <ref refid="class_sub_network_1af5eace7945b17d0239233f7096b8d4e0" kindref="member">SubNetwork::name</ref>}. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="377" column="11" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="377" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_network_1ae6c5467b3961a460992c71a49c0c1e21" prot="private" static="no" mutable="no">
+        <type>vector&lt; <ref refid="class_sub_network" kindref="compound">SubNetwork</ref> &gt;</type>
+        <definition>vector&lt;SubNetwork&gt; Network::subnets</definition>
+        <argsstring></argsstring>
+        <name>subnets</name>
+        <briefdescription>
+<para>Vector of <ref refid="class_sub_network" kindref="compound">SubNetwork</ref>-type objects. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="379" column="17" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="379" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_network_1a2887e7b66d82d18cb0daa399beee8d02" prot="private" static="no" mutable="no">
+        <type><ref refid="class_random_generator" kindref="compound">RandomGenerator</ref></type>
+        <definition>RandomGenerator Network::g</definition>
+        <argsstring></argsstring>
+        <name>g</name>
+        <briefdescription>
+<para><ref refid="class_random_generator" kindref="compound">RandomGenerator</ref> object useful to generate random numbers from uniform uniform distribution in [0,1]. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="381" column="29" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="381" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_network_1a70e03475386c213bdba6972a229422d4" prot="private" static="no" mutable="no">
+        <type>unsigned</type>
+        <definition>unsigned Network::input_mode</definition>
+        <argsstring></argsstring>
+        <name>input_mode</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>External input mode:<itemizedlist>
+<listitem><para><emphasis>0</emphasis> (base mode): each neuron receives an indipendent poisson signal with mean frequency = <ref refid="class_sub_network_1aeb005c4db80e2a6e5c0ef3e12c6040c4" kindref="member">SubNetwork::ext_in_rate</ref> and possibly with the osccillatory component</para>
+</listitem><listitem><para><emphasis>2</emphasis> (with_correlation mode): implementation of method A (ask for details, not compatible with oscillatory input) </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="386" column="29" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="386" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_network_1af83ecd8b4b42523a0499aa7e1b3cc735" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Network::rho_corr</definition>
+        <argsstring></argsstring>
+        <name>rho_corr</name>
+        <briefdescription>
+<para>Parameter regulating the input correlation of the striatum populations (only in input_mode=2) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="390" column="29" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="390" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_network_1aed2fb26573a3d5ae7cdaedaca1867d3a" prot="private" static="no" mutable="no">
+        <type>vector&lt; unsigned &gt;</type>
+        <definition>vector&lt;unsigned&gt; Network::corr_pops</definition>
+        <argsstring></argsstring>
+        <name>corr_pops</name>
+        <briefdescription>
+<para>Vector containing the subnets indices corresponding to the population with correlatated inputs (only in input_mode=2) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="392" column="19" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="392" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_network_1a2be9f8e48e135fa1e8ef145aaf8aaa26" prot="private" static="no" mutable="no">
+        <type>map&lt; unsigned, double &gt;</type>
+        <definition>map&lt;unsigned, double&gt; Network::corr_last_time</definition>
+        <argsstring></argsstring>
+        <name>corr_last_time</name>
+        <briefdescription>
+<para>Map containg the last time generated by the exponential distribution for the (partially correlated) external input. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="394" column="11" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="394" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_network_1a6b36aa86aefe7446900333c321ba7aac" prot="private" static="no" mutable="no">
+        <type>unsigned</type>
+        <definition>unsigned Network::repeat_specific_I_e</definition>
+        <argsstring></argsstring>
+        <name>repeat_specific_I_e</name>
+        <briefdescription>
+<para>number of time steps for which the external specific current is kept constant </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="397" column="29" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="397" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_network_1ae9fa80cc0d9fe8b03c4dc08a547f6eb3" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string Network::training_config_yaml</definition>
+        <argsstring></argsstring>
+        <name>training_config_yaml</name>
+        <briefdescription>
+<para>Input yaml-file with training variables. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="401" column="21" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="401" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_network_1a7fa08085f960a6f01158ce53d8f95112" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string Network::optimization_method</definition>
+        <argsstring></argsstring>
+        <name>optimization_method</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Optimization method employed to minimize the loss; Supported methods are:<itemizedlist>
+<listitem><para>SGD (id=0): momentum_w, momentum_c</para>
+</listitem><listitem><para>SGD_MEAN (id=1): momentum_w, momentum_c</para>
+</listitem><listitem><para>ADAM (id=2): momentum_w, momentum_c, momentum2_w, momentum2_c </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="407" column="21" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="407" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_network_1ae6c38ddbcb4a7e9149c08a28265ff7a8" prot="private" static="no" mutable="no">
+        <type>unsigned</type>
+        <definition>unsigned Network::optimization_method_id</definition>
+        <argsstring></argsstring>
+        <name>optimization_method_id</name>
+        <briefdescription>
+<para>Optimization method id (see optimization_method) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="409" column="21" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="409" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_network_1a8c030349d2a3390c2c09f3670b5b867b" prot="private" static="no" mutable="no">
+        <type>unsigned</type>
+        <definition>unsigned Network::current_epoch</definition>
+        <argsstring></argsstring>
+        <name>current_epoch</name>
+        <briefdescription>
+<para>Training variable: current epoch. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="412" column="21" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="412" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_network_1a17cb501402297781e9466cab1743ac1a" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string Network::dur_batches_path</definition>
+        <argsstring></argsstring>
+        <name>dur_batches_path</name>
+        <briefdescription>
+<para>Training variable: path to mini-batches durations [ms]. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="414" column="21" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="414" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_network_1aed97b482e96f740b3c15312883d61913" prot="private" static="no" mutable="no">
+        <type>vector&lt; double &gt;</type>
+        <definition>vector&lt;double&gt; Network::dur_batches</definition>
+        <argsstring></argsstring>
+        <name>dur_batches</name>
+        <briefdescription>
+<para>Training variable: vector containing the mini-batches durations [ms]. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="416" column="13" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="416" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_network_1af08a2b2d0cd211f8f0446aad543ced02" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Network::window_res</definition>
+        <argsstring></argsstring>
+        <name>window_res</name>
+        <briefdescription>
+<para>Training variable: temporal amplitude of each time interval considered to train the network ms]. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="418" column="21" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="418" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_network_1aed931251d2ef4acc6edef16b71672d44" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Network::step_res</definition>
+        <argsstring></argsstring>
+        <name>step_res</name>
+        <briefdescription>
+<para>Training variable: temporal shift between consecutive time intervals considered considered to train the network [ms]. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="420" column="21" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="420" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_network_1a70a6cc2c55659d47b057c0194f895ba9" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Network::w_cut</definition>
+        <argsstring></argsstring>
+        <name>w_cut</name>
+        <briefdescription>
+<para>Training variable: maximum absolute value for the weights [pA]. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="422" column="21" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="422" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_network_1a11059ecb7fe91b01efa1b85cbf03aa29" prot="private" static="no" mutable="no">
+        <type>unsigned</type>
+        <definition>unsigned Network::POT</definition>
+        <argsstring></argsstring>
+        <name>POT</name>
+        <briefdescription>
+<para>Training variable: regulation the shape of the error function. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="424" column="21" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="424" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_network_1a9cdddb1323e2dc5672b00308958374f7" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Network::prob_noise</definition>
+        <argsstring></argsstring>
+        <name>prob_noise</name>
+        <briefdescription>
+<para>Training variable: probability of noisy weight-updates during training. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="426" column="21" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="426" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_network_1a371f877805a317c8ae966fde0b0cae96" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Network::amp_noise</definition>
+        <argsstring></argsstring>
+        <name>amp_noise</name>
+        <briefdescription>
+<para>Training variable: amplitude of noisy weight-updates during training. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="428" column="21" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="428" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_network_1a33f20cca42400f433e31ba65083e5683" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Network::l_decay</definition>
+        <argsstring></argsstring>
+        <name>l_decay</name>
+        <briefdescription>
+<para>Training variable: intensity of weight decay mechanism. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="430" column="21" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="430" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_network_1a59ed5d58c9e8624db4fdcd1fe3398273" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Network::l_rate0</definition>
+        <argsstring></argsstring>
+        <name>l_rate0</name>
+        <briefdescription>
+<para>Training variable: learning rate for weight updates. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="432" column="21" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="432" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_network_1aed3ab33542296402d085f07ebdcf066e" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Network::l_rate0_curr</definition>
+        <argsstring></argsstring>
+        <name>l_rate0_curr</name>
+        <briefdescription>
+<para>Training variable: learning rate for current updates. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="434" column="21" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="434" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_network_1a352f60a27e68ebb738f506e3d3c0491a" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Network::momentum_w</definition>
+        <argsstring></argsstring>
+        <name>momentum_w</name>
+        <briefdescription>
+<para>Training variable: momentum hyperparameter for weight-updates (SGD_MEAN and ADAM only) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="436" column="21" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="436" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_network_1a1eb049074fc12898b5479758be98ef51" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Network::momentum_c</definition>
+        <argsstring></argsstring>
+        <name>momentum_c</name>
+        <briefdescription>
+<para>Training variable: momentum hyperparameter for current-updates (SGD_MEAN and ADAM only) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="438" column="21" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="438" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_network_1a4967232a2bd08a23e13102c66fef9d00" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Network::momentum2_w</definition>
+        <argsstring></argsstring>
+        <name>momentum2_w</name>
+        <briefdescription>
+<para>Training variable: momentum hyperparameter for weight-updates (ADAM only) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="440" column="21" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="440" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_network_1a2b47870231f153b03d9be67e7d83979d" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Network::momentum2_c</definition>
+        <argsstring></argsstring>
+        <name>momentum2_c</name>
+        <briefdescription>
+<para>Training variable: momentum hyperparameter for current-updates (ADAM only) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="442" column="21" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="442" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_network_1a3a403ccb11363447812de19e133ec809" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Network::dF_dI_app</definition>
+        <argsstring></argsstring>
+        <name>dF_dI_app</name>
+        <briefdescription>
+<para>Training variable: slope of the FI curve in the F&gt;0 regime. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="444" column="21" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="444" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_network_1a0f159da22a52a1949bbff16a324df762" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Network::dF_dI_no_act_fact</definition>
+        <argsstring></argsstring>
+        <name>dF_dI_no_act_fact</name>
+        <briefdescription>
+<para>Training variable: leaky multiplicative factor regulating the slope of the FI curve in the F=0 regime. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="446" column="21" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="446" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_network_1a3fc4f8de34fbe3e6345cf080647821e3" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Network::error_lin_coeff</definition>
+        <argsstring></argsstring>
+        <name>error_lin_coeff</name>
+        <briefdescription>
+<para>Training variable: modulation factor for the linear component of the error. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="448" column="21" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="448" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_network_1a6e37adbc1fe6bb22dac20ca0685ff4c3" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Network::epsilon_zero_act</definition>
+        <argsstring></argsstring>
+        <name>epsilon_zero_act</name>
+        <briefdescription>
+<para>Training variable: see code for details. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="450" column="21" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="450" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_network_1a13c9e2361748050b83ec1bf948b4d1af" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Network::a_desid_zero</definition>
+        <argsstring></argsstring>
+        <name>a_desid_zero</name>
+        <briefdescription>
+<para>Training variable: hyperparamenter regulating the modulation of the error in case of low desired output (see code for details) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="452" column="21" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="452" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_network_1a9c05e09f7cb96da41e0c1c8532ca76f0" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Network::c_desid_zero</definition>
+        <argsstring></argsstring>
+        <name>c_desid_zero</name>
+        <briefdescription>
+<para>Training variable: hyperparamenter regulating the modulation of the error in case of low desired output (see code for details) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="454" column="21" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="454" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_network_1a5b295816fc3590f587b77df7d8b8dff3" prot="private" static="no" mutable="no">
+        <type>vector&lt; double &gt;</type>
+        <definition>vector&lt;double&gt; Network::correct_l_rates</definition>
+        <argsstring></argsstring>
+        <name>correct_l_rates</name>
+        <briefdescription>
+<para>Training variable: hyperparameter allowing for the modulation of the learning rate in the different layers. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="456" column="13" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="456" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_network_1a49bdde96eff0d1bfc0146b96d77c49dc" prot="private" static="no" mutable="no">
+        <type>vector&lt; int &gt;</type>
+        <definition>vector&lt;int&gt; Network::ord_target_subnets</definition>
+        <argsstring></argsstring>
+        <name>ord_target_subnets</name>
+        <briefdescription>
+<para>Training variable: see code for details. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="458" column="16" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="458" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_network_1a75577b29b985b45d399d76e97e9a264b" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Network::n_quant</definition>
+        <argsstring></argsstring>
+        <name>n_quant</name>
+        <briefdescription>
+<para>Training variable: hyperparameter regulating the fine tuning of quantized weights. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="461" column="21" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="461" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_network_1ac9a28899d4966dd0c27ef352099b8724" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Network::quant_delta_weight_pos</definition>
+        <argsstring></argsstring>
+        <name>quant_delta_weight_pos</name>
+        <briefdescription>
+<para>Training variable: hyperparameter regulating the fine tuning of quantized weights. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="463" column="21" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="463" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_network_1a91157aa544c131c0affd23f58bcae882" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Network::quant_delta_weight_neg</definition>
+        <argsstring></argsstring>
+        <name>quant_delta_weight_neg</name>
+        <briefdescription>
+<para>Training variable: hyperparameter regulating the fine tuning of quantized weights. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="465" column="21" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="465" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_network_1a6298d616c1f04cde3470a9bc7582018d" prot="public" static="no" mutable="no">
+        <type>map&lt; string, unsigned &gt;</type>
+        <definition>map&lt;string, unsigned&gt; Network::supported_models</definition>
+        <argsstring></argsstring>
+        <name>supported_models</name>
+        <initializer>= { {&quot;iaf_cond_alpha&quot;, 5}, {&quot;aeif_cond_exp&quot;, 4}, {&quot;aqif_cond_exp&quot;, 4}, {&quot;aqif2_cond_exp&quot;, 4}, {&quot;iaf_cond_exp&quot;, 3}, 
+                                                 {&quot;iaf_curr_alpha&quot;, 5}, {&quot;aeif_curr_exp&quot;, 4}, {&quot;aqif_curr_exp&quot;, 4},                        {&quot;iaf_curr_exp&quot;, 3}, 
+                                                 {&quot;parrot_neuron&quot;,  3}    }</initializer>
+        <briefdescription>
+<para>Dictionary containing the relation between the supported <ref refid="class_neuron" kindref="compound">Neuron</ref> models and the dimension of its state vector. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="470" column="11" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="470" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_network_1a5369f03e39edc35f702be941f3b0b37b" prot="public" static="no" mutable="no">
+        <type>map&lt; string, unsigned &gt;</type>
+        <definition>map&lt;string, unsigned&gt; Network::subnet_model_id</definition>
+        <argsstring></argsstring>
+        <name>subnet_model_id</name>
+        <initializer>= { {&quot;iaf_cond_alpha&quot;, 0}, {&quot;aeif_cond_exp&quot;, 2}, {&quot;aqif_cond_exp&quot;, 4}, {&quot;aqif2_cond_exp&quot;, 8}, {&quot;iaf_cond_exp&quot;, 6}, 
+                                                {&quot;iaf_curr_alpha&quot;, 1}, {&quot;aeif_curr_exp&quot;, 3}, {&quot;aqif_curr_exp&quot;, 5},                        {&quot;iaf_curr_exp&quot;, 7}, 
+                                                {&quot;parrot_neuron&quot;,  9}    }</initializer>
+        <briefdescription>
+<para>Dictionary with format { <ref refid="class_sub_network_1acae8169518e7af1a9969071c9ccbb079" kindref="member">SubNetwork::neuron_model</ref> : <ref refid="class_sub_network_1a479973bd11fbc12d93d70e469fdbecec" kindref="member">SubNetwork::id_model</ref> }. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="474" column="11" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="474" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_network_1a9589fb3fd7bf35605cb553b4eaf696ca" prot="public" static="no" mutable="no">
+        <type>map&lt; string, bool &gt;</type>
+        <definition>map&lt;string, bool&gt; Network::model_is_adaptive</definition>
+        <argsstring></argsstring>
+        <name>model_is_adaptive</name>
+        <initializer>= { {&quot;iaf_cond_alpha&quot;, false}, {&quot;aeif_cond_exp&quot;, true}, {&quot;aqif_cond_exp&quot;, true}, {&quot;aqif2_cond_exp&quot;, true}, {&quot;iaf_cond_exp&quot;, false}, 
+                                                  {&quot;iaf_curr_alpha&quot;, false}, {&quot;aeif_curr_exp&quot;, true}, {&quot;aqif_curr_exp&quot;, true},                           {&quot;iaf_curr_exp&quot;, false}, 
+                                                  {&quot;parrot_neuron&quot;,  false}   }</initializer>
+        <briefdescription>
+<para>Dictionary with format { <ref refid="class_sub_network_1acae8169518e7af1a9969071c9ccbb079" kindref="member">SubNetwork::neuron_model</ref> : bool } bool is true if the model includes an adaptation variable (in the 4th dimension of the state attribute) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="478" column="15" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="478" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_network_1a580f1c7a0e38d2d7182a8a9cac545585" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Network::Network</definition>
+        <argsstring>(double _t_end, double _dt, unsigned _input_mode, string _subnets_config_yaml, string _weights_config_yaml, string _connections_config_yaml, string _to_save_config_yaml, string _training_config_yaml, string _out_dir, RandomGenerator _g, string _input_mode_config, unsigned _n_step, unsigned _repeat_specific_I_e, bool evolve_only)</argsstring>
+        <name>Network</name>
+        <param>
+          <type>double</type>
+          <declname>_t_end</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>_dt</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>_input_mode</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>_subnets_config_yaml</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>_weights_config_yaml</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>_connections_config_yaml</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>_to_save_config_yaml</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>_training_config_yaml</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>_out_dir</declname>
+        </param>
+        <param>
+          <type><ref refid="class_random_generator" kindref="compound">RandomGenerator</ref></type>
+          <declname>_g</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>_input_mode_config</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>_n_step</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>_repeat_specific_I_e</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>evolve_only</declname>
+        </param>
+        <briefdescription>
+<para>Class constructor // XXX handle errors in createSubnet. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>XXXA</para>
+<para>XXXA</para>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="483" column="5" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.cpp" bodystart="653" bodyend="759"/>
+      </memberdef>
+      <memberdef kind="function" id="class_network_1adc535d321ed28a82dc233b59ed4a40ca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Network::createSubnets</definition>
+        <argsstring>(bool evolve_only)</argsstring>
+        <name>createSubnets</name>
+        <param>
+          <type>bool</type>
+          <declname>evolve_only</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Method initializing the <ref refid="class_network_1ae6c5467b3961a460992c71a49c0c1e21" kindref="member">subnets</ref> vector using configurations files:<itemizedlist>
+<listitem><para><ref refid="class_network_1a7b9d1d37dc453be734f78640fe4c193b" kindref="member">subnets_config_yaml</ref> for the neurons&apos; features;</para>
+</listitem><listitem><para><ref refid="class_network_1acf8b8cba2fc51e4dc4ad40dc20b19d03" kindref="member">weights_config_yaml</ref> for the synaptic weights;</para>
+</listitem><listitem><para><ref refid="class_network_1a6180cae423ad40c5c668c57cf78fbd3c" kindref="member">connections_config_yaml</ref> for the connections features: probabilities and delays. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+<para>initialize specific_in_weight and specific_out_weight</para>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="491" column="10" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.cpp" bodystart="762" bodyend="1102"/>
+      </memberdef>
+      <memberdef kind="function" id="class_network_1aa68a46361193a1b354a21c5d5e47f955" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Network::createPops</definition>
+        <argsstring>()</argsstring>
+        <name>createPops</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Method initializing the vector <ref refid="class_sub_network_1af981ebc112b1dfc7cc762470c34d5408" kindref="member">SubNetwork::pop</ref> of each <ref refid="class_sub_network" kindref="compound">SubNetwork</ref> in <ref refid="class_network_1ae6c5467b3961a460992c71a49c0c1e21" kindref="member">subnets</ref> Neurons are initialized with <ref refid="class_neuron_1aee36e4204e871c0137a8dc7b09240d8b" kindref="member">Neuron::x</ref>[0] = <ref refid="class_sub_network_1a38dfcb2706d64937fce2f7b7cad0de73" kindref="member">SubNetwork::E_L</ref> of the belonging <ref refid="class_sub_network" kindref="compound">SubNetwork</ref> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="494" column="10" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.cpp" bodystart="1105" bodyend="1219"/>
+      </memberdef>
+      <memberdef kind="function" id="class_network_1ac53744c255614e9eace9cf6a8bf7ba99" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Network::load_specific_currents_and_offsets</definition>
+        <argsstring>()</argsstring>
+        <name>load_specific_currents_and_offsets</name>
+        <briefdescription>
+<para>Method initializing the specific_I_e_bool and specific_I_e attribute of all Neurons in all SubNetworks. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="496" column="10" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.cpp" bodystart="1222" bodyend="1277"/>
+      </memberdef>
+      <memberdef kind="function" id="class_network_1a858aef1964636cf4c21e6f7f697de312" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Network::load_specific_weights</definition>
+        <argsstring>()</argsstring>
+        <name>load_specific_weights</name>
+        <briefdescription>
+<para>Method initializing the weights attribute of all Neurons in all SubNetworks. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="498" column="10" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.cpp" bodystart="1279" bodyend="1293"/>
+      </memberdef>
+      <memberdef kind="function" id="class_network_1a7eae6d559399d727ee06d4ce5acd4aa2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Network::set_up_training</definition>
+        <argsstring>()</argsstring>
+        <name>set_up_training</name>
+        <briefdescription>
+<para>Methos initializing the variables for the training. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="501" column="10" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.cpp" bodystart="219" bodyend="405"/>
+      </memberdef>
+      <memberdef kind="function" id="class_network_1aef57f7ee841084bed5f96fa28e0a57b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Network::train</definition>
+        <argsstring>(double dur)</argsstring>
+        <name>train</name>
+        <param>
+          <type>double</type>
+          <declname>dur</declname>
+        </param>
+        <briefdescription>
+<para>Method training the trainable weights. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>using original weights to compute the errors of hidden layers (correct gradient descent) </para>
+        </detaileddescription>
+        <inbodydescription>
+<para>apply weight update</para>
+<para>MODIFICATION w_min/w_max</para>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="504" column="10" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.cpp" bodystart="2179" bodyend="2528"/>
+      </memberdef>
+      <memberdef kind="function" id="class_network_1afbf1dbc4a17cdf466242a106499f74e9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>unsigned</type>
+        <definition>unsigned Network::compute_gen_error</definition>
+        <argsstring>(int t_order, unsigned lenght, double dur)</argsstring>
+        <name>compute_gen_error</name>
+        <param>
+          <type>int</type>
+          <declname>t_order</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>lenght</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>dur</declname>
+        </param>
+        <briefdescription>
+<para>Method training the trainable weights. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>MODIFICATION: modulation of external input</para>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="507" column="14" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.cpp" bodystart="2047" bodyend="2163"/>
+      </memberdef>
+      <memberdef kind="function" id="class_network_1ae26f7474f00c014bfb4ccf849b9cce2e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Network::evolve</definition>
+        <argsstring>(double _T)</argsstring>
+        <name>evolve</name>
+        <param>
+          <type>double</type>
+          <declname>_T</declname>
+        </param>
+        <briefdescription>
+<para>Method evolving the network for time _T. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>XXX correct here and above; insert it in the euler_integration functions; consider the possibility of passing init also in order to not initialize it...</para>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="510" column="10" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.cpp" bodystart="1508" bodyend="1872"/>
+      </memberdef>
+      <memberdef kind="function" id="class_network_1ad270a6fa6e59a626f2e371135feb455a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Network::externalInputUpdate</definition>
+        <argsstring>()</argsstring>
+        <name>externalInputUpdate</name>
+        <briefdescription>
+<para>Method updating external input according to <ref refid="class_network_1a70e03475386c213bdba6972a229422d4" kindref="member">input_mode</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="513" column="10" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.cpp" bodystart="1876" bodyend="1952"/>
+      </memberdef>
+      <memberdef kind="function" id="class_network_1a5e4e7c65cca0baeffd2f6d7c2086373e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double Network::input_func</definition>
+        <argsstring>(double y_, double r0_, double A_, double omega_, double t0_, double t_)</argsstring>
+        <name>input_func</name>
+        <param>
+          <type>double</type>
+          <declname>y_</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>r0_</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>A_</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>omega_</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>t0_</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>t_</declname>
+        </param>
+        <briefdescription>
+<para>Function whose solutions==0 needs to be find in case of oscillatory external input rate. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="516" column="12" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.cpp" bodystart="1296" bodyend="1298"/>
+      </memberdef>
+      <memberdef kind="function" id="class_network_1ac24dca7a5237c0f35621093f7313ee91" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double Network::find_sol_bisection</definition>
+        <argsstring>(double y_, double r0_, double A_, double omega_, double t0_)</argsstring>
+        <name>find_sol_bisection</name>
+        <param>
+          <type>double</type>
+          <declname>y_</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>r0_</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>A_</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>omega_</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>t0_</declname>
+        </param>
+        <briefdescription>
+<para>Function determining next spike time in case of oscillatory external input rate. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="519" column="12" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.cpp" bodystart="1300" bodyend="1322"/>
+      </memberdef>
+      <memberdef kind="function" id="class_network_1aeffa2410bbf0f62bacabe9baf190e31c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Network::parse_external_current</definition>
+        <argsstring>(vector&lt; Neuron &gt; &amp;vect, string file, int lenght)</argsstring>
+        <name>parse_external_current</name>
+        <param>
+          <type>vector&lt; <ref refid="class_neuron" kindref="compound">Neuron</ref> &gt; &amp;</type>
+          <declname>vect</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>file</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>lenght</declname>
+        </param>
+        <briefdescription>
+<para>Function parsing &quot;specific&quot; exteral currents for a subnetwork. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="522" column="10" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.cpp" bodystart="56" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="class_network_1a86f36c8062fac0031ca89b15b45b3292" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Network::parse_specific_weight</definition>
+        <argsstring>(vector&lt; Neuron &gt; &amp;vect, unsigned target_p, string file)</argsstring>
+        <name>parse_specific_weight</name>
+        <param>
+          <type>vector&lt; <ref refid="class_neuron" kindref="compound">Neuron</ref> &gt; &amp;</type>
+          <declname>vect</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>target_p</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>file</declname>
+        </param>
+        <briefdescription>
+<para>Function parsing &quot;specific&quot; weights from a subnetwork to another (target_p) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="525" column="10" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.cpp" bodystart="116" bodyend="169"/>
+      </memberdef>
+      <memberdef kind="function" id="class_network_1ace5113297cc47d6c3e8644c2ad572c1b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Network::save_specific_weights</definition>
+        <argsstring>()</argsstring>
+        <name>save_specific_weights</name>
+        <briefdescription>
+<para>Function saving the current &quot;specific&quot; weights from a subnetwork to another. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="528" column="10" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.cpp" bodystart="172" bodyend="197"/>
+      </memberdef>
+      <memberdef kind="function" id="class_network_1ad5967e3c929164caca90e6ff3e0e82b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Network::save_offset_currents</definition>
+        <argsstring>()</argsstring>
+        <name>save_offset_currents</name>
+        <briefdescription>
+<para>Function saving the current external I_e &quot;offset&quot;. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="531" column="10" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.cpp" bodystart="200" bodyend="216"/>
+      </memberdef>
+      <memberdef kind="function" id="class_network_1a7311562340af0ed920b650f61b01e636" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Network::free_past</definition>
+        <argsstring>()</argsstring>
+        <name>free_past</name>
+        <briefdescription>
+<para>Method freeing memory from past spikes and performing a control operation over the state vector of each neuron. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="534" column="10" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.cpp" bodystart="1955" bodyend="2012"/>
+      </memberdef>
+      <memberdef kind="function" id="class_network_1a70f60961c57eda350db981343134ef72" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Network::info</definition>
+        <argsstring>()</argsstring>
+        <name>info</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Method printing:<itemizedlist>
+<listitem><para>main characteristics of the <ref refid="class_network" kindref="compound">Network</ref> composition</para>
+</listitem><listitem><para>the simulation control variables </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="539" column="10" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.cpp" bodystart="2532" bodyend="2562"/>
+      </memberdef>
+      <memberdef kind="function" id="class_network_1a6bf73f074142e3bbb79e0d8b734b2bd2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Network::info_training</definition>
+        <argsstring>()</argsstring>
+        <name>info_training</name>
+        <briefdescription>
+<para>Method printing main parameters of training. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="542" column="10" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.cpp" bodystart="2564" bodyend="2620"/>
+      </memberdef>
+      <memberdef kind="function" id="class_network_1a21d19530120ca44da64b4881356c8a10" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double Network::get_quant_weight_delta</definition>
+        <argsstring>(double w_quant, double w_cum)</argsstring>
+        <name>get_quant_weight_delta</name>
+        <param>
+          <type>double</type>
+          <declname>w_quant</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>w_cum</declname>
+        </param>
+        <briefdescription>
+<para>Auxiliary Method for the fine tuning of quantized weights. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="545" column="12" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.cpp" bodystart="2166" bodyend="2175"/>
+      </memberdef>
+      <memberdef kind="function" id="class_network_1aba346638cc19dc437890d7aa5f50c81e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Network::parse_parrot_spikes</definition>
+        <argsstring>(vector&lt; double &gt; &amp;spikes, string file)</argsstring>
+        <name>parse_parrot_spikes</name>
+        <param>
+          <type>vector&lt; double &gt; &amp;</type>
+          <declname>spikes</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>file</declname>
+        </param>
+        <briefdescription>
+<para>Method for parsing spike times of parrot neurons. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="548" column="10" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.cpp" bodystart="32" bodyend="53"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Class handling the network structure. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>Network</label>
+        <link refid="class_network"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>g</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>RandomGenerator</label>
+        <link refid="class_random_generator"/>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="351" column="1" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="351" bodyend="549"/>
+    <listofallmembers>
+      <member refid="class_network_1a13c9e2361748050b83ec1bf948b4d1af" prot="private" virt="non-virtual"><scope>Network</scope><name>a_desid_zero</name></member>
+      <member refid="class_network_1a371f877805a317c8ae966fde0b0cae96" prot="private" virt="non-virtual"><scope>Network</scope><name>amp_noise</name></member>
+      <member refid="class_network_1a9c05e09f7cb96da41e0c1c8532ca76f0" prot="private" virt="non-virtual"><scope>Network</scope><name>c_desid_zero</name></member>
+      <member refid="class_network_1afbf1dbc4a17cdf466242a106499f74e9" prot="public" virt="non-virtual"><scope>Network</scope><name>compute_gen_error</name></member>
+      <member refid="class_network_1a6180cae423ad40c5c668c57cf78fbd3c" prot="private" virt="non-virtual"><scope>Network</scope><name>connections_config_yaml</name></member>
+      <member refid="class_network_1a2be9f8e48e135fa1e8ef145aaf8aaa26" prot="private" virt="non-virtual"><scope>Network</scope><name>corr_last_time</name></member>
+      <member refid="class_network_1aed2fb26573a3d5ae7cdaedaca1867d3a" prot="private" virt="non-virtual"><scope>Network</scope><name>corr_pops</name></member>
+      <member refid="class_network_1a5b295816fc3590f587b77df7d8b8dff3" prot="private" virt="non-virtual"><scope>Network</scope><name>correct_l_rates</name></member>
+      <member refid="class_network_1aa68a46361193a1b354a21c5d5e47f955" prot="public" virt="non-virtual"><scope>Network</scope><name>createPops</name></member>
+      <member refid="class_network_1adc535d321ed28a82dc233b59ed4a40ca" prot="public" virt="non-virtual"><scope>Network</scope><name>createSubnets</name></member>
+      <member refid="class_network_1a8c030349d2a3390c2c09f3670b5b867b" prot="private" virt="non-virtual"><scope>Network</scope><name>current_epoch</name></member>
+      <member refid="class_network_1a3a403ccb11363447812de19e133ec809" prot="private" virt="non-virtual"><scope>Network</scope><name>dF_dI_app</name></member>
+      <member refid="class_network_1a0f159da22a52a1949bbff16a324df762" prot="private" virt="non-virtual"><scope>Network</scope><name>dF_dI_no_act_fact</name></member>
+      <member refid="class_network_1aacff566b76ad9ea8ce81e7a401c115ab" prot="private" virt="non-virtual"><scope>Network</scope><name>dt</name></member>
+      <member refid="class_network_1aed97b482e96f740b3c15312883d61913" prot="private" virt="non-virtual"><scope>Network</scope><name>dur_batches</name></member>
+      <member refid="class_network_1a17cb501402297781e9466cab1743ac1a" prot="private" virt="non-virtual"><scope>Network</scope><name>dur_batches_path</name></member>
+      <member refid="class_network_1a6e37adbc1fe6bb22dac20ca0685ff4c3" prot="private" virt="non-virtual"><scope>Network</scope><name>epsilon_zero_act</name></member>
+      <member refid="class_network_1a3fc4f8de34fbe3e6345cf080647821e3" prot="private" virt="non-virtual"><scope>Network</scope><name>error_lin_coeff</name></member>
+      <member refid="class_network_1ae26f7474f00c014bfb4ccf849b9cce2e" prot="public" virt="non-virtual"><scope>Network</scope><name>evolve</name></member>
+      <member refid="class_network_1ad270a6fa6e59a626f2e371135feb455a" prot="public" virt="non-virtual"><scope>Network</scope><name>externalInputUpdate</name></member>
+      <member refid="class_network_1ac24dca7a5237c0f35621093f7313ee91" prot="public" virt="non-virtual"><scope>Network</scope><name>find_sol_bisection</name></member>
+      <member refid="class_network_1a7311562340af0ed920b650f61b01e636" prot="public" virt="non-virtual"><scope>Network</scope><name>free_past</name></member>
+      <member refid="class_network_1a2887e7b66d82d18cb0daa399beee8d02" prot="private" virt="non-virtual"><scope>Network</scope><name>g</name></member>
+      <member refid="class_network_1a21d19530120ca44da64b4881356c8a10" prot="public" virt="non-virtual"><scope>Network</scope><name>get_quant_weight_delta</name></member>
+      <member refid="class_network_1a70f60961c57eda350db981343134ef72" prot="public" virt="non-virtual"><scope>Network</scope><name>info</name></member>
+      <member refid="class_network_1a6bf73f074142e3bbb79e0d8b734b2bd2" prot="public" virt="non-virtual"><scope>Network</scope><name>info_training</name></member>
+      <member refid="class_network_1a5e4e7c65cca0baeffd2f6d7c2086373e" prot="public" virt="non-virtual"><scope>Network</scope><name>input_func</name></member>
+      <member refid="class_network_1a70e03475386c213bdba6972a229422d4" prot="private" virt="non-virtual"><scope>Network</scope><name>input_mode</name></member>
+      <member refid="class_network_1a33f20cca42400f433e31ba65083e5683" prot="private" virt="non-virtual"><scope>Network</scope><name>l_decay</name></member>
+      <member refid="class_network_1a59ed5d58c9e8624db4fdcd1fe3398273" prot="private" virt="non-virtual"><scope>Network</scope><name>l_rate0</name></member>
+      <member refid="class_network_1aed3ab33542296402d085f07ebdcf066e" prot="private" virt="non-virtual"><scope>Network</scope><name>l_rate0_curr</name></member>
+      <member refid="class_network_1ac53744c255614e9eace9cf6a8bf7ba99" prot="public" virt="non-virtual"><scope>Network</scope><name>load_specific_currents_and_offsets</name></member>
+      <member refid="class_network_1a858aef1964636cf4c21e6f7f697de312" prot="public" virt="non-virtual"><scope>Network</scope><name>load_specific_weights</name></member>
+      <member refid="class_network_1a9589fb3fd7bf35605cb553b4eaf696ca" prot="public" virt="non-virtual"><scope>Network</scope><name>model_is_adaptive</name></member>
+      <member refid="class_network_1a2b47870231f153b03d9be67e7d83979d" prot="private" virt="non-virtual"><scope>Network</scope><name>momentum2_c</name></member>
+      <member refid="class_network_1a4967232a2bd08a23e13102c66fef9d00" prot="private" virt="non-virtual"><scope>Network</scope><name>momentum2_w</name></member>
+      <member refid="class_network_1a1eb049074fc12898b5479758be98ef51" prot="private" virt="non-virtual"><scope>Network</scope><name>momentum_c</name></member>
+      <member refid="class_network_1a352f60a27e68ebb738f506e3d3c0491a" prot="private" virt="non-virtual"><scope>Network</scope><name>momentum_w</name></member>
+      <member refid="class_network_1a75577b29b985b45d399d76e97e9a264b" prot="private" virt="non-virtual"><scope>Network</scope><name>n_quant</name></member>
+      <member refid="class_network_1a9bc0742838658e195841180243cdf08a" prot="private" virt="non-virtual"><scope>Network</scope><name>n_step</name></member>
+      <member refid="class_network_1a580f1c7a0e38d2d7182a8a9cac545585" prot="public" virt="non-virtual"><scope>Network</scope><name>Network</name></member>
+      <member refid="class_network_1a7fa08085f960a6f01158ce53d8f95112" prot="private" virt="non-virtual"><scope>Network</scope><name>optimization_method</name></member>
+      <member refid="class_network_1ae6c38ddbcb4a7e9149c08a28265ff7a8" prot="private" virt="non-virtual"><scope>Network</scope><name>optimization_method_id</name></member>
+      <member refid="class_network_1a49bdde96eff0d1bfc0146b96d77c49dc" prot="private" virt="non-virtual"><scope>Network</scope><name>ord_target_subnets</name></member>
+      <member refid="class_network_1a1b92cffc3e963dc83c357b58f5d14909" prot="private" virt="non-virtual"><scope>Network</scope><name>out_dir</name></member>
+      <member refid="class_network_1aeffa2410bbf0f62bacabe9baf190e31c" prot="public" virt="non-virtual"><scope>Network</scope><name>parse_external_current</name></member>
+      <member refid="class_network_1aba346638cc19dc437890d7aa5f50c81e" prot="public" virt="non-virtual"><scope>Network</scope><name>parse_parrot_spikes</name></member>
+      <member refid="class_network_1a86f36c8062fac0031ca89b15b45b3292" prot="public" virt="non-virtual"><scope>Network</scope><name>parse_specific_weight</name></member>
+      <member refid="class_network_1a11059ecb7fe91b01efa1b85cbf03aa29" prot="private" virt="non-virtual"><scope>Network</scope><name>POT</name></member>
+      <member refid="class_network_1a9cdddb1323e2dc5672b00308958374f7" prot="private" virt="non-virtual"><scope>Network</scope><name>prob_noise</name></member>
+      <member refid="class_network_1a91157aa544c131c0affd23f58bcae882" prot="private" virt="non-virtual"><scope>Network</scope><name>quant_delta_weight_neg</name></member>
+      <member refid="class_network_1ac9a28899d4966dd0c27ef352099b8724" prot="private" virt="non-virtual"><scope>Network</scope><name>quant_delta_weight_pos</name></member>
+      <member refid="class_network_1a6b36aa86aefe7446900333c321ba7aac" prot="private" virt="non-virtual"><scope>Network</scope><name>repeat_specific_I_e</name></member>
+      <member refid="class_network_1af83ecd8b4b42523a0499aa7e1b3cc735" prot="private" virt="non-virtual"><scope>Network</scope><name>rho_corr</name></member>
+      <member refid="class_network_1ad5967e3c929164caca90e6ff3e0e82b4" prot="public" virt="non-virtual"><scope>Network</scope><name>save_offset_currents</name></member>
+      <member refid="class_network_1ace5113297cc47d6c3e8644c2ad572c1b" prot="public" virt="non-virtual"><scope>Network</scope><name>save_specific_weights</name></member>
+      <member refid="class_network_1a7eae6d559399d727ee06d4ce5acd4aa2" prot="public" virt="non-virtual"><scope>Network</scope><name>set_up_training</name></member>
+      <member refid="class_network_1aed931251d2ef4acc6edef16b71672d44" prot="private" virt="non-virtual"><scope>Network</scope><name>step_res</name></member>
+      <member refid="class_network_1a7de12d78c2539ed4df6f3d6469e920e9" prot="private" virt="non-virtual"><scope>Network</scope><name>subnet_index_name</name></member>
+      <member refid="class_network_1a5369f03e39edc35f702be941f3b0b37b" prot="public" virt="non-virtual"><scope>Network</scope><name>subnet_model_id</name></member>
+      <member refid="class_network_1a9f4dffb2faabd9fcbbb958c84a8bc7ae" prot="private" virt="non-virtual"><scope>Network</scope><name>subnet_name_index</name></member>
+      <member refid="class_network_1ae6c5467b3961a460992c71a49c0c1e21" prot="private" virt="non-virtual"><scope>Network</scope><name>subnets</name></member>
+      <member refid="class_network_1a7b9d1d37dc453be734f78640fe4c193b" prot="private" virt="non-virtual"><scope>Network</scope><name>subnets_config_yaml</name></member>
+      <member refid="class_network_1a6298d616c1f04cde3470a9bc7582018d" prot="public" virt="non-virtual"><scope>Network</scope><name>supported_models</name></member>
+      <member refid="class_network_1a21a49637ac27a1080161873364c1065e" prot="private" virt="non-virtual"><scope>Network</scope><name>t</name></member>
+      <member refid="class_network_1ac46641c89870f9b81ddf8305296ad48e" prot="private" virt="non-virtual"><scope>Network</scope><name>t_end</name></member>
+      <member refid="class_network_1a8f34c84aeffdcc67540299d982c4d512" prot="private" virt="non-virtual"><scope>Network</scope><name>to_save_config_yaml</name></member>
+      <member refid="class_network_1aef57f7ee841084bed5f96fa28e0a57b7" prot="public" virt="non-virtual"><scope>Network</scope><name>train</name></member>
+      <member refid="class_network_1ae9fa80cc0d9fe8b03c4dc08a547f6eb3" prot="private" virt="non-virtual"><scope>Network</scope><name>training_config_yaml</name></member>
+      <member refid="class_network_1a70a6cc2c55659d47b057c0194f895ba9" prot="private" virt="non-virtual"><scope>Network</scope><name>w_cut</name></member>
+      <member refid="class_network_1acf8b8cba2fc51e4dc4ad40dc20b19d03" prot="private" virt="non-virtual"><scope>Network</scope><name>weights_config_yaml</name></member>
+      <member refid="class_network_1af08a2b2d0cd211f8f0446aad543ced02" prot="private" virt="non-virtual"><scope>Network</scope><name>window_res</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

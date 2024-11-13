@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Python utils &mdash; Energy-Efficient-Touch-Localization 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="C++ model" href="model.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Energy-Efficient-Touch-Localization
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../setup.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Code documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="model.html">C++ model</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Python utils</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Energy-Efficient-Touch-Localization</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Code documentation</a> &raquo;</li>
+      <li>Python utils</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/python_utils.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-python_utils">
+<span id="python-utils"></span><span id="api-python"></span><h1>Python utils<a class="headerlink" href="#module-python_utils" title="Permalink to this headline"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="python_utils.SpikeSim">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">python_utils.</span></span><span class="sig-name descname"><span class="pre">SpikeSim</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sim_fname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">neglect_t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">neglect_t_end</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config_fname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/python_utils.html#SpikeSim"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#python_utils.SpikeSim" title="Permalink to this definition"></a></dt>
+<dd><p>Class loading and parsing files given by a simulation.
+The main attributes are the simulation parameters and results:</p>
+<ul class="simple">
+<li><p>end_t: end time of simulation</p></li>
+<li><p>dt: time resolution of the simulation</p></li>
+<li><dl class="simple">
+<dt>input_mode: external input mode:</dt><dd><ul>
+<li><p>0 (base mode): each neuron receives an indipendent poisson signal with mean frequency = SubNetwork::ext_in_rate</p></li>
+<li><p>1 (not implemented)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>data: dictionary with spike times corresponding to each population; data[‘pop’] is a list of np.arrays each containing the activity of a neuron</p></li>
+<li><p>subnets: a list of the SubNetworks in the simulation</p></li>
+</ul>
+<dl class="py method">
+<dt class="sig sig-object py" id="python_utils.SpikeSim.MeanActivity">
+<span class="sig-name descname"><span class="pre">MeanActivity</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/python_utils.html#SpikeSim.MeanActivity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#python_utils.SpikeSim.MeanActivity" title="Permalink to this definition"></a></dt>
+<dd><p>Method computing the mean spiking activity of the subnets</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="python_utils.SpikeSim.getParameterValues">
+<span class="sig-name descname"><span class="pre">getParameterValues</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/python_utils.html#SpikeSim.getParameterValues"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#python_utils.SpikeSim.getParameterValues" title="Permalink to this definition"></a></dt>
+<dd><p>Method initializing the simulation parameters</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="python_utils.SpikeSim.histogram">
+<span class="sig-name descname"><span class="pre">histogram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">res</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_img</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/python_utils.html#SpikeSim.histogram"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#python_utils.SpikeSim.histogram" title="Permalink to this definition"></a></dt>
+<dd><p>Method showing or saving the spiking activity of a given subnet</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pop</strong> (<em>float</em>) – desidered population; if ‘all’ is passed all population are showed.</p></li>
+<li><p><strong>res</strong> – time width of each bin in the histogram</p></li>
+<li><p><strong>save_img</strong> (<em>string</em>) – path and name of the file to be saved</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="python_utils.SpikeSim.info">
+<span class="sig-name descname"><span class="pre">info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/python_utils.html#SpikeSim.info"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#python_utils.SpikeSim.info" title="Permalink to this definition"></a></dt>
+<dd><p>Method printing the simulation parameters</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="python_utils.SpikeSim.loadData">
+<span class="sig-name descname"><span class="pre">loadData</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/python_utils.html#SpikeSim.loadData"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#python_utils.SpikeSim.loadData" title="Permalink to this definition"></a></dt>
+<dd><p>Method loading spike times for each SubNetwork</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="python_utils.SpikeSim.necglectTime">
+<span class="sig-name descname"><span class="pre">necglectTime</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/python_utils.html#SpikeSim.necglectTime"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#python_utils.SpikeSim.necglectTime" title="Permalink to this definition"></a></dt>
+<dd><p>Method removing the spikes occurring before t_start and after t_end (if &gt; 0)</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="python_utils.load_pkl">
+<span class="sig-prename descclassname"><span class="pre">python_utils.</span></span><span class="sig-name descname"><span class="pre">load_pkl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/python_utils.html#load_pkl"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#python_utils.load_pkl" title="Permalink to this definition"></a></dt>
+<dd><p>Function loading an object from a pickle file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>string</em>) – path to the object to be loaded</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="python_utils.newReadSpikes">
+<span class="sig-prename descclassname"><span class="pre">python_utils.</span></span><span class="sig-name descname"><span class="pre">newReadSpikes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/python_utils.html#newReadSpikes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#python_utils.newReadSpikes" title="Permalink to this definition"></a></dt>
+<dd><p>Function reading spike times in the format produced by the simulation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>file</strong> (<em>string</em>) – path to the file with spike times</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="python_utils.readSpikes">
+<span class="sig-prename descclassname"><span class="pre">python_utils.</span></span><span class="sig-name descname"><span class="pre">readSpikes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/python_utils.html#readSpikes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#python_utils.readSpikes" title="Permalink to this definition"></a></dt>
+<dd><p>Function reading spike times in the format produced by the simulation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>file</strong> (<em>string</em>) – path to the file with spike times</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="python_utils.save_pkl">
+<span class="sig-prename descclassname"><span class="pre">python_utils.</span></span><span class="sig-name descname"><span class="pre">save_pkl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/python_utils.html#save_pkl"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#python_utils.save_pkl" title="Permalink to this definition"></a></dt>
+<dd><p>Function saving an object as a pickle file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obj</strong> (<em>generic</em>) – python object (list, dictionary…) to be saved</p></li>
+<li><p><strong>path</strong> (<em>string</em>) – path to the object to be saved</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="model.html" class="btn btn-neutral float-left" title="C++ model" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Andrea Ortone.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

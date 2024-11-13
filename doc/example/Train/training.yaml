@@ -1,0 +1,13 @@
+t_end:                          10000   # ms
+dt:                             1.      # ms
+n_step:                         1       # unused
+out_dir:                        example_config/Train/res0/0
+training_config_yaml:           example_config/Train/config_training1.yaml
+subnets_config_yaml:            example_config/Train/config1.yaml
+weights_config_yaml:            example_config/Train/config_weights1.yaml
+connections_config_yaml:        example_config/Train/config_connections1.yaml
+to_save_config_yaml:            example_config/Train/config_to_save1.yaml
+input_mode:                     0       # unused
+input_mode_config:              unused
+train:                          true
+repeat_specific_I_e:            1

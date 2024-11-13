@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir">
+    <compoundname>/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src</compoundname>
+    <innerfile refid="main_8cpp">main.cpp</innerfile>
+    <innerfile refid="model_8cpp">model.cpp</innerfile>
+    <innerfile refid="model_8hpp">model.hpp</innerfile>
+    <innerfile refid="python__utils_8py">python_utils.py</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/"/>
+  </compounddef>
+</doxygen>

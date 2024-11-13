@@ -1,0 +1,627 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="model_8hpp" kind="file" language="C++">
+    <compoundname>model.hpp</compoundname>
+    <includes local="no">iostream</includes>
+    <includes local="no">climits</includes>
+    <includes local="no">fstream</includes>
+    <includes local="no">iomanip</includes>
+    <includes local="no">algorithm</includes>
+    <includes local="no">vector</includes>
+    <includes local="no">string</includes>
+    <includes local="no">map</includes>
+    <includes local="no">list</includes>
+    <includes local="no">random</includes>
+    <includes local="no">errno.h</includes>
+    <includes local="no">math.h</includes>
+    <includes local="no">float.h</includes>
+    <includes local="no">sys/stat.h</includes>
+    <includes local="no">sys/types.h</includes>
+    <includes local="no">chrono</includes>
+    <includes local="no">yaml-cpp/yaml.h</includes>
+    <includes local="yes">pcg-cpp/include/pcg_random.hpp</includes>
+    <includedby refid="main_8cpp" local="yes">/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/main.cpp</includedby>
+    <includedby refid="model_8cpp" local="yes">/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp</label>
+        <link refid="model_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>algorithm</label>
+      </node>
+      <node id="17">
+        <label>chrono</label>
+      </node>
+      <node id="3">
+        <label>climits</label>
+      </node>
+      <node id="12">
+        <label>errno.h</label>
+      </node>
+      <node id="14">
+        <label>float.h</label>
+      </node>
+      <node id="4">
+        <label>fstream</label>
+      </node>
+      <node id="5">
+        <label>iomanip</label>
+      </node>
+      <node id="2">
+        <label>iostream</label>
+      </node>
+      <node id="10">
+        <label>list</label>
+      </node>
+      <node id="9">
+        <label>map</label>
+      </node>
+      <node id="13">
+        <label>math.h</label>
+      </node>
+      <node id="19">
+        <label>pcg-cpp/include/pcg_random.hpp</label>
+      </node>
+      <node id="11">
+        <label>random</label>
+      </node>
+      <node id="8">
+        <label>string</label>
+      </node>
+      <node id="15">
+        <label>sys/stat.h</label>
+      </node>
+      <node id="16">
+        <label>sys/types.h</label>
+      </node>
+      <node id="7">
+        <label>vector</label>
+      </node>
+      <node id="18">
+        <label>yaml-cpp/yaml.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="class_random_generator" prot="public">RandomGenerator</innerclass>
+    <innerclass refid="class_neuron" prot="public">Neuron</innerclass>
+    <innerclass refid="class_sub_network" prot="public">SubNetwork</innerclass>
+    <innerclass refid="class_network" prot="public">Network</innerclass>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="model_8hpp_1a596344e5a2992d2beec43b76a6294de0" prot="public" static="no" mutable="no">
+        <type>const double</type>
+        <definition>const double EPSILON</definition>
+        <argsstring></argsstring>
+        <name>EPSILON</name>
+        <initializer>= 0.0001</initializer>
+        <briefdescription>
+<para>External input with frequency below this threshold (expressed in kHz) will be ignored. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="29" column="16" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="model_8hpp_1ad8b4ba25a16bcb86a5272ab2b37e2888" prot="public" static="no" mutable="no">
+        <type>const double</type>
+        <definition>const double TOLL</definition>
+        <argsstring></argsstring>
+        <name>TOLL</name>
+        <initializer>= 0.0001</initializer>
+        <briefdescription>
+<para>Parameter setting the precision for the precision in the bisection procedure followed by <ref refid="class_network_1ac24dca7a5237c0f35621093f7313ee91" kindref="member">Network::find_sol_bisection</ref> (used in case of oscillatory external poissonian input) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="31" column="16" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="model_8hpp_1ac7a2e6261273e5afd3ce34a31230376a" prot="public" static="no" mutable="no">
+        <type>const unsigned</type>
+        <definition>const unsigned DO_NOT_TRAIN_IN_FIRST_BATCHES</definition>
+        <argsstring></argsstring>
+        <name>DO_NOT_TRAIN_IN_FIRST_BATCHES</name>
+        <initializer>= 5</initializer>
+        <briefdescription>
+<para>Parameter setting the number of warmup epochs which are neglected if optimizer is set to ADAM or SGD_MEAN. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="33" column="16" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="model_8hpp_1a986dc6dbd662aa9e6bf084984dec72ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class T</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void print_vector</definition>
+        <argsstring>(const vector&lt; T &gt; &amp;v)</argsstring>
+        <name>print_vector</name>
+        <param>
+          <type>const vector&lt; T &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+<para>Templated function printing a vector. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="39" column="6" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.cpp" bodystart="8" bodyend="16" declfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" declline="39" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="model_8hpp_1a641137bd6aae38078a6516f6c227fd1e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>string join_and_correct_config</definition>
+        <argsstring>(string conf, string dest)</argsstring>
+        <name>join_and_correct_config</name>
+        <param>
+          <type>string</type>
+          <declname>conf</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>dest</declname>
+        </param>
+        <briefdescription>
+<para>Function managing config file names. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="42" column="8" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.cpp" bodystart="18" bodyend="30" declfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" declline="42" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="model_8hpp_1a0451e99c5cc45e9cb1bfcd814822bdea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double poissonian_CDF</definition>
+        <argsstring>(unsigned x, double mu)</argsstring>
+        <name>poissonian_CDF</name>
+        <param>
+          <type>unsigned</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>mu</declname>
+        </param>
+        <briefdescription>
+<para>Function computing the CDF of the poissonian distribution (with some approximations) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="46" column="8" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.cpp" bodystart="408" bodyend="428" declfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" declline="46" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="model_8hpp_1ade2d55dcf58dc3af7b5279249abe1bd2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void count_spikes</definition>
+        <argsstring>(vector&lt; unsigned &gt; &amp;v_out, vector&lt; double &gt; &amp;v_t, unsigned lenght, double step_res, double half_w, double dur, double tt0)</argsstring>
+        <name>count_spikes</name>
+        <param>
+          <type>vector&lt; unsigned &gt; &amp;</type>
+          <declname>v_out</declname>
+        </param>
+        <param>
+          <type>vector&lt; double &gt; &amp;</type>
+          <declname>v_t</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>lenght</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>step_res</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>half_w</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>dur</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>tt0</declname>
+        </param>
+        <briefdescription>
+<para>Function counting the spike number of spikes of v_t in time windows of half-width half_w with &quot;stride&quot; equal tostep_res. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="49" column="6" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.cpp" bodystart="2014" bodyend="2044" declfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" declline="49" declcolumn="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>MODEL_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MODEL_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;climits&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;fstream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iomanip&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;algorithm&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;map&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;list&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;random&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;errno.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;math.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;float.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sys/stat.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sys/types.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;chrono&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;yaml-cpp/yaml.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;pcg-cpp/include/pcg_random.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">std;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="comment">//<sp/>SOME<sp/>USEFULL<sp/>GLOBAL<sp/>CONSTANT<sp/>(if<sp/>more<sp/>than<sp/>one<sp/>consider<sp/>using<sp/>namespace)</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/>EPSILON<sp/>=<sp/>0.0001;</highlight></codeline>
+<codeline lineno="31"><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/>TOLL<sp/>=<sp/>0.0001;</highlight></codeline>
+<codeline lineno="33"><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>DO_NOT_TRAIN_IN_FIRST_BATCHES<sp/>=<sp/>5;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="comment">//<sp/>SOME<sp/>UTILITY<sp/>FUNCTIONS:</highlight></codeline>
+<codeline lineno="38"><highlight class="comment"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>print_vector(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>vector&lt;T&gt;<sp/>&amp;<sp/>v);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>join_and_correct_config(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>conf,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>dest);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>poissonian_CDF(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>mu);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>count_spikes(vector&lt;unsigned&gt;<sp/>&amp;<sp/>v_out,<sp/>vector&lt;double&gt;<sp/>&amp;<sp/>v_t,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>lenght,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>step_res,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>half_w,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>dur,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>tt0<sp/>);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53" refid="class_random_generator" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_random_generator" kindref="compound">RandomGenerator</ref><sp/>{</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>pcg32<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gen;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>uniform_real_distribution&lt;double&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dis;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_random_generator" kindref="compound">RandomGenerator</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>seed=DBL_MAX)<sp/>{</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(seed==DBL_MAX)<sp/>{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pcg32<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_gen(pcg_extras::seed_seq_from&lt;random_device&gt;{});</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gen<sp/>=<sp/>_gen;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pcg32<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_gen(seed);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gen<sp/>=<sp/>_gen;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uniform_real_distribution&lt;double&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_dis(0,1);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dis<sp/>=<sp/>_dis;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="class_random_generator_1a7c6fd6a5e35afb0b9973ee5937f94b3d" kindref="member">getRandomUniform</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><sp/>dis(gen);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="74"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78" refid="class_neuron" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_neuron" kindref="compound">Neuron</ref><sp/>{</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>vector&lt;double&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_neuron_1aee36e4204e871c0137a8dc7b09240d8b" kindref="member">x</ref>;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_neuron_1a4ab553cbe8acbee5d2f81273eb60ea6b" kindref="member">dim</ref>;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_neuron_1a293a9232d3e33fe209464b79dd850daa" kindref="member">t_last_spike</ref>;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>map&lt;unsigned,<sp/>vector&lt;unsigned&gt;&gt;<sp/><ref refid="class_neuron_1a483841213c413f2fc268e7fcd7b5ae07" kindref="member">neighbors</ref>;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>map&lt;unsigned,<sp/>vector&lt;double&gt;&gt;<sp/><sp/><sp/><ref refid="class_neuron_1a860be4ef10d1c365bf4b522c8c5696bd" kindref="member">input_t_ex</ref>;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>map&lt;unsigned,<sp/>vector&lt;double&gt;&gt;<sp/><sp/><sp/><ref refid="class_neuron_1a4449ff7e302b73e68b8ab37ee73fa0e8" kindref="member">input_t_in</ref>;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>map&lt;unsigned,<sp/>vector&lt;double&gt;&gt;<sp/><sp/><sp/><ref refid="class_neuron_1a1d3725dca44d2562b48b0fd5a9cffd18" kindref="member">neighbors_out_weights</ref>;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>map&lt;unsigned,<sp/>vector&lt;double&gt;&gt;<sp/><sp/><sp/><ref refid="class_neuron_1a5f319cc23c877623a45c75b94cf679ef" kindref="member">weight_aux1</ref>;<sp/></highlight><highlight class="comment">//<sp/>neighbors_out_delta_weights;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>map&lt;unsigned,<sp/>vector&lt;double&gt;&gt;<sp/><sp/><sp/>weight_aux2;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>map&lt;unsigned,<sp/>vector&lt;double&gt;&gt;<sp/><sp/><sp/><ref refid="class_neuron_1ac0ba26673b94fd121c764c8de8b6ab17" kindref="member">weight_quant_cumul</ref>;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>map&lt;unsigned,<sp/>vector&lt;double&gt;&gt;<sp/><sp/><sp/><ref refid="class_neuron_1a6f352fb4dc12d425be9319039a5deab3" kindref="member">input_w_ex</ref>;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>map&lt;unsigned,<sp/>vector&lt;double&gt;&gt;<sp/><sp/><sp/><ref refid="class_neuron_1ab5faea8b9699588772b79e520e814488" kindref="member">input_w_in</ref>;</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>map&lt;unsigned,<sp/>unsigned&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_neuron_1a3eb914e26518bc24e6724deda6bd50fa" kindref="member">next_sp_ex_index</ref>;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>map&lt;unsigned,<sp/>unsigned&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_neuron_1ac4b299600e1ce2740a150fd8f879c274" kindref="member">next_sp_in_index</ref>;</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_neuron_1a40ca58e1c7747a7d5af6b6da921893f7" kindref="member">ext_weight</ref>;</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>vector&lt;double&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_neuron_1a8325bd2dd2a5e0957273e2bae32933c8" kindref="member">t_spikes</ref>;</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Specific<sp/>external<sp/>current<sp/>bool</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>specific_I_e_bool;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Specific<sp/>external<sp/>current<sp/>vector</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>vector&lt;double&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>specific_I_e;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Offset<sp/>in<sp/>external<sp/>current<sp/>(acts<sp/>in<sp/>both<sp/>specific<sp/>or<sp/>general<sp/>I_e)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>offset_I_e;</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Auxiliary<sp/>variables<sp/>for<sp/>momentum<sp/>and<sp/>ADAM<sp/>optimezers.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>offset_aux1;<sp/><sp/></highlight><highlight class="comment">//<sp/>delta_offset_I_e</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>offset_aux2;</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/>vector&lt;double&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_neuron_1a84a64fecf6fa4a9faf1cb240d7bdbfe3" kindref="member">desidered_output</ref>;</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/>vector&lt;unsigned&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_neuron_1a28c9c709b88fdcd7ae52f013c452a61f" kindref="member">R_actual</ref>;</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/>vector&lt;double&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_neuron_1a322f073623f51ef4428f7ae5c8a3e6ff" kindref="member">error</ref>;</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_neuron_1a17bcb7cfda71bb4aa2784ec8ad839bba" kindref="member">optimal_c_desid_zero</ref>;</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/>vector&lt;double&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_neuron_1a0932fa38765e51c40086616b938c1e0e" kindref="member">parrot_spikes</ref>;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_neuron_1a715ddd67f4772dd54aeab29b4a5972bd" kindref="member">Neuron</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>_dim);</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_neuron_1a43a3745b536f8194e4ed5e42327ff8b6" kindref="member">info</ref>();</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight></codeline>
+<codeline lineno="160" refid="class_sub_network" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_sub_network" kindref="compound">SubNetwork</ref><sp/>{</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_random_generator" kindref="compound">RandomGenerator</ref><sp/><sp/><sp/><sp/><sp/><ref refid="class_sub_network_1ac6d5991d4465549cdf2cd1add7e0572c" kindref="member">g</ref>;</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_sub_network_1af5eace7945b17d0239233f7096b8d4e0" kindref="member">name</ref>;</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_sub_network_1acae8169518e7af1a9969071c9ccbb079" kindref="member">neuron_model</ref>;</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><ref refid="class_sub_network_1a479973bd11fbc12d93d70e469fdbecec" kindref="member">id_model</ref>;</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><ref refid="class_sub_network_1a44c3f0a2ef2e2567647670d14782a6fb" kindref="member">id_subnet</ref>;</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><ref refid="class_sub_network_1a621a44fa04afb2c3557d1198101760c8" kindref="member">N</ref>;</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_sub_network_1a7b49d8faa07214af149d749cd235a416" kindref="member">C_m</ref>;</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_sub_network_1a38dfcb2706d64937fce2f7b7cad0de73" kindref="member">E_L</ref>;</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_sub_network_1ac681d504f05ba686f0f6d23c3bad983e" kindref="member">E_ex</ref>;</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_sub_network_1ad40d8cd79f325dc30516f8efa2a23ac6" kindref="member">E_in</ref>;</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_sub_network_1a0180e933f7591f3dc4ac1814729ff1ec" kindref="member">V_res</ref>;</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_sub_network_1a09af5695ab5e705a81c78ae2329823b8" kindref="member">V_th</ref>;</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_sub_network_1a75ae34466395d207873317e0e38ff158" kindref="member">t_ref</ref>;</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_sub_network_1ac15e60a6a2a5d579081de45626436b2a" kindref="member">I_e</ref>;</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_sub_network_1afbfd138d9cad0ca00ccb2540024a3025" kindref="member">osc_amp</ref>;</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_sub_network_1afeb0d76f96e9b9664b2b5a2acd653b7c" kindref="member">osc_omega</ref>;</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_sub_network_1a5dd9ce68844cd61654aef706df167406" kindref="member">osc_amp_poiss</ref>;</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_sub_network_1a57a56c6abb024fb187624d63d57179c2" kindref="member">osc_omega_poiss</ref>;</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_sub_network_1a355719624d9bff623afa9411aa45db8f" kindref="member">dev_ext_weight</ref>;</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_sub_network_1aeb005c4db80e2a6e5c0ef3e12c6040c4" kindref="member">ext_in_rate</ref>;</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_sub_network_1a0888b0234a28bc240bfae0e22cbf1883" kindref="member">tau_syn_ex</ref>;</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_sub_network_1ae0a94bf9564a664f16bca451aacc0123" kindref="member">tau_syn_in</ref>;</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_sub_network_1ab903ed04cd8f5fa68bc9e7c90e285f08" kindref="member">specific_I_e_file</ref>;</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"></highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_sub_network_1a48ba06042985d7e1a43925ca0b2bd866" kindref="member">offset_I_e_file</ref>;</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/>map&lt;unsigned,<sp/>double&gt;<sp/><sp/><sp/><sp/><sp/><ref refid="class_sub_network_1a61e36a5df9bc37e79a443ed311ab6459" kindref="member">weights_ex</ref>;</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/>map&lt;unsigned,<sp/>double&gt;<sp/><sp/><sp/><sp/><sp/><ref refid="class_sub_network_1af9932699e9f287652f56402f3d87e423" kindref="member">weights_in</ref>;</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"></highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/>map&lt;unsigned,<sp/>double&gt;<sp/><sp/><sp/><sp/><sp/><ref refid="class_sub_network_1a1de9d544c1674b0dd2ba1b5f3888adfa" kindref="member">delays_out</ref>;</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/>map&lt;unsigned,<sp/>double&gt;<sp/><sp/><sp/><sp/><sp/><ref refid="class_sub_network_1adfdee6afd2e836801d0ad19df80916cf" kindref="member">probabilities_out</ref>;</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/>map&lt;unsigned,<sp/>bool&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_sub_network_1a4a545171f6fc7f398d4ad1d6798e311f" kindref="member">excit_out</ref>;</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/>map&lt;unsigned,<sp/>bool&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_sub_network_1acbb662026c913843b02b9dd8844904e4" kindref="member">reverse_effect</ref>;</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"></highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/>map&lt;unsigned,<sp/>double&gt;<sp/><sp/><sp/><sp/><sp/>alpha_quantized_weights;</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"></highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>MODEL<sp/>SPECIFIC<sp/>ATTRIBUTES</highlight></codeline>
+<codeline lineno="249"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_sub_network_1a4c457c94c87288840206365f4b7ecd3a" kindref="member">a_adaptive</ref>;</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_sub_network_1ae52885476f2e2ae151939a6c016a5ccf" kindref="member">b_adaptive</ref>;</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_sub_network_1a7efe35dcc82675063167d3a1bda418a4" kindref="member">tau_w_adaptive</ref>;</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_sub_network_1a545afc416cddc586defd3333a33dd968" kindref="member">V_peak</ref>;</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"></highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_sub_network_1ab239327c8370d8e2ecd7f4428a0d4a6d" kindref="member">g_L</ref>;</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"></highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_sub_network_1a9f740f1a9645b01ef25fb719c552933f" kindref="member">delta_T_aeif_cond_exp</ref>;</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"></highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>C_m<sp/>dV/dt<sp/>=<sp/>k(V-V_th)(V-E_L)<sp/>+<sp/>input<sp/>currents<sp/>-<sp/>w<sp/>+<sp/>I_e;<sp/>tau_w<sp/>dw/dt<sp/>=<sp/>a<sp/>(V-E_L)<sp/>-<sp/>w;<sp/>w<sp/>-&gt;<sp/>w+b<sp/><sp/>(only<sp/>aqif_cond_exp<sp/>and<sp/>aqif2_cond_exp)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_sub_network_1af75f093bee04e208967a29cf6d0f7c6f" kindref="member">k_aqif_cond_exp</ref>;</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"></highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_sub_network_1afe1b430ae4db12efa79c6c527c371e10" kindref="member">V_b_aqif2_cond_exp</ref>;</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"></highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_sub_network_1a2297ecd0a3e2a8bf708c16f89dbb5da5" kindref="member">alpha_PSS</ref>;</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"></highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_sub_network_1a235ec78bc9b0d81b94264d8f56c1d952" kindref="member">cond_based</ref>;</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"></highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_sub_network_1ab55c65ec8f8f0e939cfde6978d897b42" kindref="member">adap_4</ref>;</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"></highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/><sp/><sp/>vector&lt;Neuron&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_sub_network_1af981ebc112b1dfc7cc762470c34d5408" kindref="member">pop</ref>;</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"></highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/><sp/>vector&lt;unsigned&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_sub_network_1ae4318e4057f74f1ccff38871319ccafd" kindref="member">to_save</ref>;</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"></highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/><sp/><sp/>map&lt;unsigned,<sp/>bool&gt;<sp/><sp/><sp/><sp/><sp/><ref refid="class_sub_network_1ab551923054c8c02dee1d9b88d52cf837" kindref="member">specific_in_weight</ref>;</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"><sp/><sp/><sp/><sp/>map&lt;unsigned,<sp/>bool&gt;<sp/><sp/><sp/><sp/><sp/><ref refid="class_sub_network_1a427d36d0922d2779d791e4494f334ece" kindref="member">specific_out_weight</ref>;</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"><sp/><sp/><sp/><sp/>map&lt;unsigned,<sp/>string&gt;<sp/><sp/><sp/><ref refid="class_sub_network_1a181a7e3252bbe503ac3c5981f4081548" kindref="member">specific_out_weight_files</ref>;</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/><sp/><sp/>map&lt;unsigned,<sp/>bool&gt;<sp/><sp/><sp/><sp/><sp/><ref refid="class_sub_network_1a8005dce3bd831e9603ddc5f61c193bb4" kindref="member">train_out_weight</ref>;</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"></highlight></codeline>
+<codeline lineno="299"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_sub_network_1a2b3799a11c5eb0611c5ba2d449aff778" kindref="member">desidered_output_path</ref>;</highlight></codeline>
+<codeline lineno="300"><highlight class="normal"></highlight></codeline>
+<codeline lineno="303"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_sub_network_1ac2be82ddf08ee561ae78b46cbef7e39d" kindref="member">train_order</ref>;</highlight></codeline>
+<codeline lineno="304"><highlight class="normal"></highlight></codeline>
+<codeline lineno="306"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_sub_network_1ace638c56b2cbc5d9e33472c9e99ed492" kindref="member">w_min</ref>;</highlight></codeline>
+<codeline lineno="308"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_sub_network_1af95a7f856eea8060496354a1d1d5f4bc" kindref="member">w_max</ref>;</highlight></codeline>
+<codeline lineno="309"><highlight class="normal"></highlight></codeline>
+<codeline lineno="311"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_sub_network_1aff921d4b4567d2b61530dc1a54f8b4bb" kindref="member">train_offset_I_e</ref>;</highlight></codeline>
+<codeline lineno="313"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_sub_network_1a73068c5b34bd39f8c0fd15eb297b8f59" kindref="member">offset_I_e_min</ref>;</highlight></codeline>
+<codeline lineno="315"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_sub_network_1a41107446d5dd37cbe781435c416a6305" kindref="member">offset_I_e_max</ref>;</highlight></codeline>
+<codeline lineno="317"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_sub_network_1a93710c92ce5873686b2d495ba23d2948" kindref="member">offset_I_e_ref</ref>;</highlight></codeline>
+<codeline lineno="319"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_sub_network_1a54691d0e961928c0ff789fb14664295e" kindref="member">ldecay_offset</ref>;</highlight></codeline>
+<codeline lineno="320"><highlight class="normal"></highlight></codeline>
+<codeline lineno="322"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_sub_network_1aeecad00c12f7e0fe452a3bbd0886af97" kindref="member">decay_factor_max</ref>;</highlight></codeline>
+<codeline lineno="324"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_sub_network_1a1e05745f5ba14b9969b4183de0c10d01" kindref="member">decay_factor_steepness</ref>;</highlight></codeline>
+<codeline lineno="326"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_sub_network_1a5964777a830ddea4a37a272c79532b49" kindref="member">decay_factor_position</ref>;</highlight></codeline>
+<codeline lineno="327"><highlight class="normal"></highlight></codeline>
+<codeline lineno="329"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_sub_network_1a2fbcbb115b95a2062e1211d96587944f" kindref="member">parrot_spike_path</ref>;</highlight></codeline>
+<codeline lineno="330"><highlight class="normal"></highlight></codeline>
+<codeline lineno="332"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_sub_network_1a42ce037f9da72851cdb570e07c6a6e9a" kindref="member">errors_computed</ref>;</highlight></codeline>
+<codeline lineno="333"><highlight class="normal"></highlight></codeline>
+<codeline lineno="335"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_sub_network_1a97b8cac655d8f9c14c4cbc9a9aca677b" kindref="member">SubNetwork</ref>(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>_name,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>_neuron_model,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>_N,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>_C_m,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>_E_L,<sp/><sp/>\</highlight></codeline>
+<codeline lineno="336"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>_V_res,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>_V_th,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="337"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>_t_ref,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>_I_e,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>_osc_amp,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>_osc_omega,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="338"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>_dev_ext_weight,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>_ext_in_rate,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="339"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>_osc_amp_poiss,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>_osc_omega_poiss,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="340"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>_tau_syn_ex,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>_tau_syn_in,<sp/><ref refid="class_random_generator" kindref="compound">RandomGenerator</ref><sp/>_g);</highlight></codeline>
+<codeline lineno="341"><highlight class="normal"></highlight></codeline>
+<codeline lineno="344"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_sub_network_1a27a2eff3610aab13b625b1a0078cb8f6" kindref="member">save_t_spikes</ref>(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>out_file);</highlight></codeline>
+<codeline lineno="345"><highlight class="normal"></highlight></codeline>
+<codeline lineno="347"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_sub_network_1a33b569a2fab4a6cf2ff5ed051857b9b6" kindref="member">info</ref>(map&lt;unsigned,<sp/>string&gt;<sp/>&amp;subnet_index_name);</highlight></codeline>
+<codeline lineno="348"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="349"><highlight class="normal"></highlight></codeline>
+<codeline lineno="351" refid="class_network" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_network" kindref="compound">Network</ref><sp/>{</highlight></codeline>
+<codeline lineno="352"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="354"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_network_1ac46641c89870f9b81ddf8305296ad48e" kindref="member">t_end</ref>;</highlight></codeline>
+<codeline lineno="356"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_network_1a21a49637ac27a1080161873364c1065e" kindref="member">t</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="358"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_network_1a9bc0742838658e195841180243cdf08a" kindref="member">n_step</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="360"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_network_1aacff566b76ad9ea8ce81e7a401c115ab" kindref="member">dt</ref>;</highlight></codeline>
+<codeline lineno="362"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_network_1a7b9d1d37dc453be734f78640fe4c193b" kindref="member">subnets_config_yaml</ref>;</highlight></codeline>
+<codeline lineno="364"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_network_1acf8b8cba2fc51e4dc4ad40dc20b19d03" kindref="member">weights_config_yaml</ref>;</highlight></codeline>
+<codeline lineno="367"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_network_1a6180cae423ad40c5c668c57cf78fbd3c" kindref="member">connections_config_yaml</ref>;</highlight></codeline>
+<codeline lineno="370"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_network_1a8f34c84aeffdcc67540299d982c4d512" kindref="member">to_save_config_yaml</ref>;</highlight></codeline>
+<codeline lineno="372"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_network_1a1b92cffc3e963dc83c357b58f5d14909" kindref="member">out_dir</ref>;</highlight></codeline>
+<codeline lineno="373"><highlight class="normal"></highlight></codeline>
+<codeline lineno="375"><highlight class="normal"><sp/><sp/><sp/><sp/>map&lt;string,<sp/>unsigned&gt;<sp/><sp/><sp/><ref refid="class_network_1a9f4dffb2faabd9fcbbb958c84a8bc7ae" kindref="member">subnet_name_index</ref>;</highlight></codeline>
+<codeline lineno="377"><highlight class="normal"><sp/><sp/><sp/><sp/>map&lt;unsigned,<sp/>string&gt;<sp/><sp/><sp/><ref refid="class_network_1a7de12d78c2539ed4df6f3d6469e920e9" kindref="member">subnet_index_name</ref>;</highlight></codeline>
+<codeline lineno="379"><highlight class="normal"><sp/><sp/><sp/><sp/>vector&lt;SubNetwork&gt;<sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_network_1ae6c5467b3961a460992c71a49c0c1e21" kindref="member">subnets</ref>;</highlight></codeline>
+<codeline lineno="381"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_random_generator" kindref="compound">RandomGenerator</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_network_1a2887e7b66d82d18cb0daa399beee8d02" kindref="member">g</ref>;</highlight></codeline>
+<codeline lineno="382"><highlight class="normal"></highlight></codeline>
+<codeline lineno="386"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_network_1a70e03475386c213bdba6972a229422d4" kindref="member">input_mode</ref>;</highlight></codeline>
+<codeline lineno="387"><highlight class="normal"></highlight></codeline>
+<codeline lineno="388"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>EXTERNAL<sp/>MODE<sp/>SPECIFIC<sp/>ATTRIBUTES</highlight></codeline>
+<codeline lineno="390"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_network_1af83ecd8b4b42523a0499aa7e1b3cc735" kindref="member">rho_corr</ref>;</highlight></codeline>
+<codeline lineno="392"><highlight class="normal"><sp/><sp/><sp/><sp/>vector&lt;unsigned&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_network_1aed2fb26573a3d5ae7cdaedaca1867d3a" kindref="member">corr_pops</ref>;</highlight></codeline>
+<codeline lineno="394"><highlight class="normal"><sp/><sp/><sp/><sp/>map&lt;unsigned,<sp/>double&gt;<sp/><sp/><sp/><ref refid="class_network_1a2be9f8e48e135fa1e8ef145aaf8aaa26" kindref="member">corr_last_time</ref>;</highlight></codeline>
+<codeline lineno="395"><highlight class="normal"></highlight></codeline>
+<codeline lineno="397"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_network_1a6b36aa86aefe7446900333c321ba7aac" kindref="member">repeat_specific_I_e</ref>;</highlight></codeline>
+<codeline lineno="398"><highlight class="normal"></highlight></codeline>
+<codeline lineno="399"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TRAINING<sp/>MEMBERS</highlight></codeline>
+<codeline lineno="401"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_network_1ae9fa80cc0d9fe8b03c4dc08a547f6eb3" kindref="member">training_config_yaml</ref>;</highlight></codeline>
+<codeline lineno="402"><highlight class="normal"></highlight></codeline>
+<codeline lineno="407"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_network_1a7fa08085f960a6f01158ce53d8f95112" kindref="member">optimization_method</ref>;</highlight></codeline>
+<codeline lineno="409"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_network_1ae6c38ddbcb4a7e9149c08a28265ff7a8" kindref="member">optimization_method_id</ref>;</highlight></codeline>
+<codeline lineno="410"><highlight class="normal"></highlight></codeline>
+<codeline lineno="412"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_network_1a8c030349d2a3390c2c09f3670b5b867b" kindref="member">current_epoch</ref>;</highlight></codeline>
+<codeline lineno="414"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_network_1a17cb501402297781e9466cab1743ac1a" kindref="member">dur_batches_path</ref>;</highlight></codeline>
+<codeline lineno="416"><highlight class="normal"><sp/><sp/><sp/><sp/>vector&lt;double&gt;<sp/><sp/><ref refid="class_network_1aed97b482e96f740b3c15312883d61913" kindref="member">dur_batches</ref>;</highlight></codeline>
+<codeline lineno="418"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_network_1af08a2b2d0cd211f8f0446aad543ced02" kindref="member">window_res</ref>;</highlight></codeline>
+<codeline lineno="420"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_network_1aed931251d2ef4acc6edef16b71672d44" kindref="member">step_res</ref>;</highlight></codeline>
+<codeline lineno="422"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_network_1a70a6cc2c55659d47b057c0194f895ba9" kindref="member">w_cut</ref>;</highlight></codeline>
+<codeline lineno="424"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_network_1a11059ecb7fe91b01efa1b85cbf03aa29" kindref="member">POT</ref>;</highlight></codeline>
+<codeline lineno="426"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_network_1a9cdddb1323e2dc5672b00308958374f7" kindref="member">prob_noise</ref>;</highlight></codeline>
+<codeline lineno="428"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_network_1a371f877805a317c8ae966fde0b0cae96" kindref="member">amp_noise</ref>;</highlight></codeline>
+<codeline lineno="430"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_network_1a33f20cca42400f433e31ba65083e5683" kindref="member">l_decay</ref>;</highlight></codeline>
+<codeline lineno="432"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_network_1a59ed5d58c9e8624db4fdcd1fe3398273" kindref="member">l_rate0</ref>;</highlight></codeline>
+<codeline lineno="434"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_network_1aed3ab33542296402d085f07ebdcf066e" kindref="member">l_rate0_curr</ref>;</highlight></codeline>
+<codeline lineno="436"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_network_1a352f60a27e68ebb738f506e3d3c0491a" kindref="member">momentum_w</ref>;</highlight></codeline>
+<codeline lineno="438"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_network_1a1eb049074fc12898b5479758be98ef51" kindref="member">momentum_c</ref>;</highlight></codeline>
+<codeline lineno="440"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_network_1a4967232a2bd08a23e13102c66fef9d00" kindref="member">momentum2_w</ref>;</highlight></codeline>
+<codeline lineno="442"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_network_1a2b47870231f153b03d9be67e7d83979d" kindref="member">momentum2_c</ref>;</highlight></codeline>
+<codeline lineno="444"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_network_1a3a403ccb11363447812de19e133ec809" kindref="member">dF_dI_app</ref>;</highlight></codeline>
+<codeline lineno="446"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_network_1a0f159da22a52a1949bbff16a324df762" kindref="member">dF_dI_no_act_fact</ref>;</highlight></codeline>
+<codeline lineno="448"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_network_1a3fc4f8de34fbe3e6345cf080647821e3" kindref="member">error_lin_coeff</ref>;</highlight></codeline>
+<codeline lineno="450"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_network_1a6e37adbc1fe6bb22dac20ca0685ff4c3" kindref="member">epsilon_zero_act</ref>;</highlight></codeline>
+<codeline lineno="452"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_network_1a13c9e2361748050b83ec1bf948b4d1af" kindref="member">a_desid_zero</ref>;</highlight></codeline>
+<codeline lineno="454"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_network_1a9c05e09f7cb96da41e0c1c8532ca76f0" kindref="member">c_desid_zero</ref>;</highlight></codeline>
+<codeline lineno="456"><highlight class="normal"><sp/><sp/><sp/><sp/>vector&lt;double&gt;<sp/><sp/><ref refid="class_network_1a5b295816fc3590f587b77df7d8b8dff3" kindref="member">correct_l_rates</ref>;</highlight></codeline>
+<codeline lineno="458"><highlight class="normal"><sp/><sp/><sp/><sp/>vector&lt;int&gt;<sp/><sp/><sp/><sp/><sp/><ref refid="class_network_1a49bdde96eff0d1bfc0146b96d77c49dc" kindref="member">ord_target_subnets</ref>;</highlight></codeline>
+<codeline lineno="459"><highlight class="normal"></highlight></codeline>
+<codeline lineno="461"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_network_1a75577b29b985b45d399d76e97e9a264b" kindref="member">n_quant</ref>;</highlight></codeline>
+<codeline lineno="463"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_network_1ac9a28899d4966dd0c27ef352099b8724" kindref="member">quant_delta_weight_pos</ref>;</highlight></codeline>
+<codeline lineno="465"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_network_1a91157aa544c131c0affd23f58bcae882" kindref="member">quant_delta_weight_neg</ref>;</highlight></codeline>
+<codeline lineno="466"><highlight class="normal"></highlight></codeline>
+<codeline lineno="467"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="468"><highlight class="normal"></highlight></codeline>
+<codeline lineno="470"><highlight class="normal"><sp/><sp/><sp/><sp/>map&lt;string,<sp/>unsigned&gt;<sp/><sp/><sp/><ref refid="class_network_1a6298d616c1f04cde3470a9bc7582018d" kindref="member">supported_models</ref><sp/>=<sp/>{<sp/>{</highlight><highlight class="stringliteral">&quot;iaf_cond_alpha&quot;</highlight><highlight class="normal">,<sp/>5},<sp/>{</highlight><highlight class="stringliteral">&quot;aeif_cond_exp&quot;</highlight><highlight class="normal">,<sp/>4},<sp/>{</highlight><highlight class="stringliteral">&quot;aqif_cond_exp&quot;</highlight><highlight class="normal">,<sp/>4},<sp/>{</highlight><highlight class="stringliteral">&quot;aqif2_cond_exp&quot;</highlight><highlight class="normal">,<sp/>4},<sp/>{</highlight><highlight class="stringliteral">&quot;iaf_cond_exp&quot;</highlight><highlight class="normal">,<sp/>3},<sp/>\</highlight></codeline>
+<codeline lineno="471"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight><highlight class="stringliteral">&quot;iaf_curr_alpha&quot;</highlight><highlight class="normal">,<sp/>5},<sp/>{</highlight><highlight class="stringliteral">&quot;aeif_curr_exp&quot;</highlight><highlight class="normal">,<sp/>4},<sp/>{</highlight><highlight class="stringliteral">&quot;aqif_curr_exp&quot;</highlight><highlight class="normal">,<sp/>4},<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight><highlight class="stringliteral">&quot;iaf_curr_exp&quot;</highlight><highlight class="normal">,<sp/>3},<sp/>\</highlight></codeline>
+<codeline lineno="472"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight><highlight class="stringliteral">&quot;parrot_neuron&quot;</highlight><highlight class="normal">,<sp/><sp/>3}<sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="474"><highlight class="normal"><sp/><sp/><sp/><sp/>map&lt;string,<sp/>unsigned&gt;<sp/><sp/><sp/><ref refid="class_network_1a5369f03e39edc35f702be941f3b0b37b" kindref="member">subnet_model_id</ref><sp/>=<sp/>{<sp/>{</highlight><highlight class="stringliteral">&quot;iaf_cond_alpha&quot;</highlight><highlight class="normal">,<sp/>0},<sp/>{</highlight><highlight class="stringliteral">&quot;aeif_cond_exp&quot;</highlight><highlight class="normal">,<sp/>2},<sp/>{</highlight><highlight class="stringliteral">&quot;aqif_cond_exp&quot;</highlight><highlight class="normal">,<sp/>4},<sp/>{</highlight><highlight class="stringliteral">&quot;aqif2_cond_exp&quot;</highlight><highlight class="normal">,<sp/>8},<sp/>{</highlight><highlight class="stringliteral">&quot;iaf_cond_exp&quot;</highlight><highlight class="normal">,<sp/>6},<sp/>\</highlight></codeline>
+<codeline lineno="475"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight><highlight class="stringliteral">&quot;iaf_curr_alpha&quot;</highlight><highlight class="normal">,<sp/>1},<sp/>{</highlight><highlight class="stringliteral">&quot;aeif_curr_exp&quot;</highlight><highlight class="normal">,<sp/>3},<sp/>{</highlight><highlight class="stringliteral">&quot;aqif_curr_exp&quot;</highlight><highlight class="normal">,<sp/>5},<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight><highlight class="stringliteral">&quot;iaf_curr_exp&quot;</highlight><highlight class="normal">,<sp/>7},<sp/>\</highlight></codeline>
+<codeline lineno="476"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight><highlight class="stringliteral">&quot;parrot_neuron&quot;</highlight><highlight class="normal">,<sp/><sp/>9}<sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="478"><highlight class="normal"><sp/><sp/><sp/><sp/>map&lt;string,<sp/>bool&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_network_1a9589fb3fd7bf35605cb553b4eaf696ca" kindref="member">model_is_adaptive</ref><sp/>=<sp/>{<sp/>{</highlight><highlight class="stringliteral">&quot;iaf_cond_alpha&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">},<sp/>{</highlight><highlight class="stringliteral">&quot;aeif_cond_exp&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">},<sp/>{</highlight><highlight class="stringliteral">&quot;aqif_cond_exp&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">},<sp/>{</highlight><highlight class="stringliteral">&quot;aqif2_cond_exp&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">},<sp/>{</highlight><highlight class="stringliteral">&quot;iaf_cond_exp&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">},<sp/>\</highlight></codeline>
+<codeline lineno="479"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight><highlight class="stringliteral">&quot;iaf_curr_alpha&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">},<sp/>{</highlight><highlight class="stringliteral">&quot;aeif_curr_exp&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">},<sp/>{</highlight><highlight class="stringliteral">&quot;aqif_curr_exp&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">},<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight><highlight class="stringliteral">&quot;iaf_curr_exp&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">},<sp/>\</highlight></codeline>
+<codeline lineno="480"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight><highlight class="stringliteral">&quot;parrot_neuron&quot;</highlight><highlight class="normal">,<sp/><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">}<sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="481"><highlight class="normal"></highlight></codeline>
+<codeline lineno="483"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_network_1a580f1c7a0e38d2d7182a8a9cac545585" kindref="member">Network</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>_t_end,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>_dt,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>_input_mode,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>_subnets_config_yaml,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>_weights_config_yaml,<sp/>\</highlight></codeline>
+<codeline lineno="484"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>_connections_config_yaml,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>_to_save_config_yaml,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>_training_config_yaml,<sp/><sp/>\</highlight></codeline>
+<codeline lineno="485"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>_out_dir,<sp/><ref refid="class_random_generator" kindref="compound">RandomGenerator</ref><sp/>_g,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>_input_mode_config,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>_n_step,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>_repeat_specific_I_e,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>evolve_only);</highlight></codeline>
+<codeline lineno="486"><highlight class="normal"></highlight></codeline>
+<codeline lineno="491"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_network_1adc535d321ed28a82dc233b59ed4a40ca" kindref="member">createSubnets</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>evolve_only);</highlight></codeline>
+<codeline lineno="494"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_network_1aa68a46361193a1b354a21c5d5e47f955" kindref="member">createPops</ref>();</highlight></codeline>
+<codeline lineno="496"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_network_1ac53744c255614e9eace9cf6a8bf7ba99" kindref="member">load_specific_currents_and_offsets</ref>();</highlight></codeline>
+<codeline lineno="498"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_network_1a858aef1964636cf4c21e6f7f697de312" kindref="member">load_specific_weights</ref>();</highlight></codeline>
+<codeline lineno="499"><highlight class="normal"></highlight></codeline>
+<codeline lineno="501"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_network_1a7eae6d559399d727ee06d4ce5acd4aa2" kindref="member">set_up_training</ref>();</highlight></codeline>
+<codeline lineno="502"><highlight class="normal"></highlight></codeline>
+<codeline lineno="504"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_network_1aef57f7ee841084bed5f96fa28e0a57b7" kindref="member">train</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>dur);</highlight></codeline>
+<codeline lineno="505"><highlight class="normal"></highlight></codeline>
+<codeline lineno="507"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><ref refid="class_network_1afbf1dbc4a17cdf466242a106499f74e9" kindref="member">compute_gen_error</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>t_order,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>lenght,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>dur);</highlight></codeline>
+<codeline lineno="508"><highlight class="normal"></highlight></codeline>
+<codeline lineno="510"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_network_1ae26f7474f00c014bfb4ccf849b9cce2e" kindref="member">evolve</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>_T);</highlight></codeline>
+<codeline lineno="511"><highlight class="normal"></highlight></codeline>
+<codeline lineno="513"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_network_1ad270a6fa6e59a626f2e371135feb455a" kindref="member">externalInputUpdate</ref>();</highlight></codeline>
+<codeline lineno="514"><highlight class="normal"></highlight></codeline>
+<codeline lineno="516"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="class_network_1a5e4e7c65cca0baeffd2f6d7c2086373e" kindref="member">input_func</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>y_,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>r0_,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>A_,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>omega_,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>t0_,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>t_);</highlight></codeline>
+<codeline lineno="517"><highlight class="normal"></highlight></codeline>
+<codeline lineno="519"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="class_network_1ac24dca7a5237c0f35621093f7313ee91" kindref="member">find_sol_bisection</ref><sp/>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>y_,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>r0_,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>A_,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>omega_,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>t0_);</highlight></codeline>
+<codeline lineno="520"><highlight class="normal"></highlight></codeline>
+<codeline lineno="522"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_network_1aeffa2410bbf0f62bacabe9baf190e31c" kindref="member">parse_external_current</ref>(vector&lt;Neuron&gt;&amp;<sp/>vect,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>file,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>lenght);</highlight></codeline>
+<codeline lineno="523"><highlight class="normal"></highlight></codeline>
+<codeline lineno="525"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_network_1a86f36c8062fac0031ca89b15b45b3292" kindref="member">parse_specific_weight</ref>(vector&lt;Neuron&gt;&amp;<sp/>vect,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>target_p,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>file);</highlight></codeline>
+<codeline lineno="526"><highlight class="normal"></highlight></codeline>
+<codeline lineno="528"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_network_1ace5113297cc47d6c3e8644c2ad572c1b" kindref="member">save_specific_weights</ref>();</highlight></codeline>
+<codeline lineno="529"><highlight class="normal"></highlight></codeline>
+<codeline lineno="531"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_network_1ad5967e3c929164caca90e6ff3e0e82b4" kindref="member">save_offset_currents</ref>();</highlight></codeline>
+<codeline lineno="532"><highlight class="normal"></highlight></codeline>
+<codeline lineno="534"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_network_1a7311562340af0ed920b650f61b01e636" kindref="member">free_past</ref>();</highlight></codeline>
+<codeline lineno="535"><highlight class="normal"></highlight></codeline>
+<codeline lineno="539"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_network_1a70f60961c57eda350db981343134ef72" kindref="member">info</ref>();</highlight></codeline>
+<codeline lineno="540"><highlight class="normal"></highlight></codeline>
+<codeline lineno="542"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_network_1a6bf73f074142e3bbb79e0d8b734b2bd2" kindref="member">info_training</ref>();</highlight></codeline>
+<codeline lineno="543"><highlight class="normal"></highlight></codeline>
+<codeline lineno="545"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="class_network_1a21d19530120ca44da64b4881356c8a10" kindref="member">get_quant_weight_delta</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>w_quant,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>w_cum);</highlight></codeline>
+<codeline lineno="546"><highlight class="normal"></highlight></codeline>
+<codeline lineno="548"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_network_1aba346638cc19dc437890d7aa5f50c81e" kindref="member">parse_parrot_spikes</ref>(vector&lt;double&gt;&amp;<sp/>spikes,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>file);</highlight></codeline>
+<codeline lineno="549"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="550"><highlight class="normal"></highlight></codeline>
+<codeline lineno="551"><highlight class="normal"></highlight></codeline>
+<codeline lineno="552"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp"/>
+  </compounddef>
+</doxygen>

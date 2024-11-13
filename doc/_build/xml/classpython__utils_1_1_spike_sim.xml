@@ -1,0 +1,386 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="classpython__utils_1_1_spike_sim" kind="class" language="Python" prot="public">
+    <compoundname>python_utils::SpikeSim</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classpython__utils_1_1_spike_sim_1a9f10e66c363a075d2d294e3a716355e5" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>python_utils.SpikeSim::input_dir</definition>
+        <argsstring></argsstring>
+        <name>input_dir</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/python_utils.py" line="107" column="1" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/python_utils.py" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classpython__utils_1_1_spike_sim_1a43eeb7ffc39474e77279decc5877946b" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>python_utils.SpikeSim::sim_filename</definition>
+        <argsstring></argsstring>
+        <name>sim_filename</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/python_utils.py" line="108" column="1" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/python_utils.py" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classpython__utils_1_1_spike_sim_1a642971afa9a759c4778eabd196337d8d" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>python_utils.SpikeSim::t_start</definition>
+        <argsstring></argsstring>
+        <name>t_start</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/python_utils.py" line="110" column="1" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/python_utils.py" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classpython__utils_1_1_spike_sim_1ac580754ac37ea4773a9c5c9ea54f839f" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>python_utils.SpikeSim::t_end</definition>
+        <argsstring></argsstring>
+        <name>t_end</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/python_utils.py" line="111" column="1" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/python_utils.py" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classpython__utils_1_1_spike_sim_1ad511228a23b58e8668a3cedb67f5c215" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>python_utils.SpikeSim::dt</definition>
+        <argsstring></argsstring>
+        <name>dt</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/python_utils.py" line="112" column="1" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/python_utils.py" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classpython__utils_1_1_spike_sim_1a25e081f385ac036ff92a43b2c4de2330" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>python_utils.SpikeSim::input_mode</definition>
+        <argsstring></argsstring>
+        <name>input_mode</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/python_utils.py" line="113" column="1" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/python_utils.py" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classpython__utils_1_1_spike_sim_1a0cb526064a6ac969500c217ef0f94766" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>python_utils.SpikeSim::data</definition>
+        <argsstring></argsstring>
+        <name>data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/python_utils.py" line="115" column="1" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/python_utils.py" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classpython__utils_1_1_spike_sim_1a744b024fd9526100204d7564fcdbcc82" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>python_utils.SpikeSim::subnets</definition>
+        <argsstring></argsstring>
+        <name>subnets</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/python_utils.py" line="116" column="1" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/python_utils.py" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classpython__utils_1_1_spike_sim_1ab25a98a905a958a037b1dbd74c367a31" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>python_utils.SpikeSim::omegas</definition>
+        <argsstring></argsstring>
+        <name>omegas</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/python_utils.py" line="117" column="1" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/python_utils.py" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classpython__utils_1_1_spike_sim_1a50ad7c6da883b0defb7b91b6b8f4558b" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>python_utils.SpikeSim::Ns</definition>
+        <argsstring></argsstring>
+        <name>Ns</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/python_utils.py" line="118" column="1" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/python_utils.py" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classpython__utils_1_1_spike_sim_1acda86f9d59a80f3bd4a05b76e66b951c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def python_utils.SpikeSim.__init__</definition>
+        <argsstring>(self, path, sim_fname, neglect_t, neglect_t_end=-1, config_fname=&apos;&apos;)</argsstring>
+        <name>__init__</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>path</type>
+          <defname>path</defname>
+        </param>
+        <param>
+          <type>sim_fname</type>
+          <defname>sim_fname</defname>
+        </param>
+        <param>
+          <type>neglect_t</type>
+          <defname>neglect_t</defname>
+        </param>
+        <param>
+          <type>neglect_t_end</type>
+          <defname>neglect_t_end</defname>
+          <defval>-1</defval>
+        </param>
+        <param>
+          <type>config_fname</type>
+          <defname>config_fname</defname>
+          <defval>&apos;&apos;</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Class constructor:
+
+:param path: path to the directory with output simulation files and configuration files
+:type path: string
+
+:param sim_fname: name of the simulation configuration file (inside the directory matched by path)
+:type sim_fname: string
+
+:param neglect_t: time (in ms) to be neglected at the beginning of the simulation
+:type sim_fname: float
+
+:param neglect_t_end: time (in ms) to be neglected at the end of the simulation
+:type sim_fname: float
+
+:param config_fname: name of the subnets_config_yaml configuration file (inside the directory matched by path)
+:type sim_fname: string
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/python_utils.py" line="89" column="1" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/python_utils.py" bodystart="89" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="function" id="classpython__utils_1_1_spike_sim_1ac7879b09bf4a90bd5ab8882764651232" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def python_utils.SpikeSim.getParameterValues</definition>
+        <argsstring>(self)</argsstring>
+        <name>getParameterValues</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Method initializing the simulation parameters</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/python_utils.py" line="132" column="1" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/python_utils.py" bodystart="132" bodyend="154"/>
+      </memberdef>
+      <memberdef kind="function" id="classpython__utils_1_1_spike_sim_1a44434ae5902d8af65c26c3a4d5d810d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def python_utils.SpikeSim.loadData</definition>
+        <argsstring>(self)</argsstring>
+        <name>loadData</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Method loading spike times for each SubNetwork</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/python_utils.py" line="155" column="1" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/python_utils.py" bodystart="155" bodyend="166"/>
+      </memberdef>
+      <memberdef kind="function" id="classpython__utils_1_1_spike_sim_1a153669aadc621a0ea51a7a22b3345d5a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def python_utils.SpikeSim.necglectTime</definition>
+        <argsstring>(self)</argsstring>
+        <name>necglectTime</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Method removing the spikes occurring before t_start and after t_end (if &gt; 0)</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/python_utils.py" line="167" column="1" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/python_utils.py" bodystart="167" bodyend="176"/>
+      </memberdef>
+      <memberdef kind="function" id="classpython__utils_1_1_spike_sim_1a240f97626ab39ee7bec382158f49cd52" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def python_utils.SpikeSim.info</definition>
+        <argsstring>(self)</argsstring>
+        <name>info</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Method printing the simulation parameters</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/python_utils.py" line="177" column="1" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/python_utils.py" bodystart="177" bodyend="187"/>
+      </memberdef>
+      <memberdef kind="function" id="classpython__utils_1_1_spike_sim_1a191826445a42689ab2a7922bbb2bc236" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def python_utils.SpikeSim.saveData</definition>
+        <argsstring>(self, path)</argsstring>
+        <name>saveData</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>path</type>
+          <defname>path</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/python_utils.py" line="188" column="1" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/python_utils.py" bodystart="188" bodyend="190"/>
+      </memberdef>
+      <memberdef kind="function" id="classpython__utils_1_1_spike_sim_1a9386dc38a52e774f927386dbd58bae88" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def python_utils.SpikeSim.histogram</definition>
+        <argsstring>(self, pop=&apos;&apos;, res=1., save_img=&apos;&apos;)</argsstring>
+        <name>histogram</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>pop</type>
+          <defname>pop</defname>
+          <defval>&apos;&apos;</defval>
+        </param>
+        <param>
+          <type>res</type>
+          <defname>res</defname>
+          <defval>1.</defval>
+        </param>
+        <param>
+          <type>save_img</type>
+          <defname>save_img</defname>
+          <defval>&apos;&apos;</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Method showing or saving the spiking activity of a given subnet
+
+:param pop: desidered population; if &apos;all&apos; is passed all population are showed.
+:type pop: string
+
+:param res: time width of each bin in the histogram
+:type pop: float
+
+:param save_img: path and name of the file to be saved
+:type save_img: string
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/python_utils.py" line="191" column="1" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/python_utils.py" bodystart="191" bodyend="247"/>
+      </memberdef>
+      <memberdef kind="function" id="classpython__utils_1_1_spike_sim_1a45978f799feff9a818006d46e16fa868" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def python_utils.SpikeSim.MeanActivity</definition>
+        <argsstring>(self)</argsstring>
+        <name>MeanActivity</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>Method computing the mean spiking activity of the subnets</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/python_utils.py" line="248" column="1" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/python_utils.py" bodystart="248" bodyend="267"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><verbatim>Class loading and parsing files given by a simulation.
+The main attributes are the simulation parameters and results:
+
+* end_t: end time of simulation
+* dt: time resolution of the simulation
+* input_mode: external input mode:
+    - 0 (base mode): each neuron receives an indipendent poisson signal with mean frequency = SubNetwork::ext_in_rate
+    - 1 (not implemented)
+* data: dictionary with spike times corresponding to each population; data[&apos;pop&apos;] is a list of np.arrays each containing the activity of a neuron
+* subnets: a list of the SubNetworks in the simulation
+</verbatim> </para>
+    </detaileddescription>
+    <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/python_utils.py" line="76" column="1" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/python_utils.py" bodystart="76" bodyend="267"/>
+    <listofallmembers>
+      <member refid="classpython__utils_1_1_spike_sim_1acda86f9d59a80f3bd4a05b76e66b951c" prot="public" virt="non-virtual"><scope>python_utils::SpikeSim</scope><name>__init__</name></member>
+      <member refid="classpython__utils_1_1_spike_sim_1a0cb526064a6ac969500c217ef0f94766" prot="public" virt="non-virtual"><scope>python_utils::SpikeSim</scope><name>data</name></member>
+      <member refid="classpython__utils_1_1_spike_sim_1ad511228a23b58e8668a3cedb67f5c215" prot="public" virt="non-virtual"><scope>python_utils::SpikeSim</scope><name>dt</name></member>
+      <member refid="classpython__utils_1_1_spike_sim_1ac7879b09bf4a90bd5ab8882764651232" prot="public" virt="non-virtual"><scope>python_utils::SpikeSim</scope><name>getParameterValues</name></member>
+      <member refid="classpython__utils_1_1_spike_sim_1a9386dc38a52e774f927386dbd58bae88" prot="public" virt="non-virtual"><scope>python_utils::SpikeSim</scope><name>histogram</name></member>
+      <member refid="classpython__utils_1_1_spike_sim_1a240f97626ab39ee7bec382158f49cd52" prot="public" virt="non-virtual"><scope>python_utils::SpikeSim</scope><name>info</name></member>
+      <member refid="classpython__utils_1_1_spike_sim_1a9f10e66c363a075d2d294e3a716355e5" prot="public" virt="non-virtual"><scope>python_utils::SpikeSim</scope><name>input_dir</name></member>
+      <member refid="classpython__utils_1_1_spike_sim_1a25e081f385ac036ff92a43b2c4de2330" prot="public" virt="non-virtual"><scope>python_utils::SpikeSim</scope><name>input_mode</name></member>
+      <member refid="classpython__utils_1_1_spike_sim_1a44434ae5902d8af65c26c3a4d5d810d8" prot="public" virt="non-virtual"><scope>python_utils::SpikeSim</scope><name>loadData</name></member>
+      <member refid="classpython__utils_1_1_spike_sim_1a45978f799feff9a818006d46e16fa868" prot="public" virt="non-virtual"><scope>python_utils::SpikeSim</scope><name>MeanActivity</name></member>
+      <member refid="classpython__utils_1_1_spike_sim_1a153669aadc621a0ea51a7a22b3345d5a" prot="public" virt="non-virtual"><scope>python_utils::SpikeSim</scope><name>necglectTime</name></member>
+      <member refid="classpython__utils_1_1_spike_sim_1a50ad7c6da883b0defb7b91b6b8f4558b" prot="public" virt="non-virtual"><scope>python_utils::SpikeSim</scope><name>Ns</name></member>
+      <member refid="classpython__utils_1_1_spike_sim_1ab25a98a905a958a037b1dbd74c367a31" prot="public" virt="non-virtual"><scope>python_utils::SpikeSim</scope><name>omegas</name></member>
+      <member refid="classpython__utils_1_1_spike_sim_1a191826445a42689ab2a7922bbb2bc236" prot="public" virt="non-virtual"><scope>python_utils::SpikeSim</scope><name>saveData</name></member>
+      <member refid="classpython__utils_1_1_spike_sim_1a43eeb7ffc39474e77279decc5877946b" prot="public" virt="non-virtual"><scope>python_utils::SpikeSim</scope><name>sim_filename</name></member>
+      <member refid="classpython__utils_1_1_spike_sim_1a744b024fd9526100204d7564fcdbcc82" prot="public" virt="non-virtual"><scope>python_utils::SpikeSim</scope><name>subnets</name></member>
+      <member refid="classpython__utils_1_1_spike_sim_1ac580754ac37ea4773a9c5c9ea54f839f" prot="public" virt="non-virtual"><scope>python_utils::SpikeSim</scope><name>t_end</name></member>
+      <member refid="classpython__utils_1_1_spike_sim_1a642971afa9a759c4778eabd196337d8d" prot="public" virt="non-virtual"><scope>python_utils::SpikeSim</scope><name>t_start</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

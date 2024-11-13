@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.2" xml:lang="en-US">
+  <compounddef id="class_random_generator" kind="class" language="C++" prot="public">
+    <compoundname>RandomGenerator</compoundname>
+    <includes local="no">model.hpp</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_random_generator_1a921925a9228cbf29df166c6c99117549" prot="private" static="no" mutable="no">
+        <type>pcg32</type>
+        <definition>pcg32 RandomGenerator::gen</definition>
+        <argsstring></argsstring>
+        <name>gen</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="55" column="56" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_random_generator_1a4b03300a9624bf83c63a173136ee1949" prot="private" static="no" mutable="no">
+        <type>uniform_real_distribution&lt; double &gt;</type>
+        <definition>uniform_real_distribution&lt;double&gt; RandomGenerator::dis</definition>
+        <argsstring></argsstring>
+        <name>dis</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="56" column="48" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_random_generator_1ae39a18243e899bc3ddc0607b2862ce31" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>RandomGenerator::RandomGenerator</definition>
+        <argsstring>(double seed=DBL_MAX)</argsstring>
+        <name>RandomGenerator</name>
+        <param>
+          <type>double</type>
+          <declname>seed</declname>
+          <defval>DBL_MAX</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="58" column="5" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="58" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="class_random_generator_1a7c6fd6a5e35afb0b9973ee5937f94b3d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double RandomGenerator::getRandomUniform</definition>
+        <argsstring>()</argsstring>
+        <name>getRandomUniform</name>
+        <briefdescription>
+<para>Function returning a (pseudo)random double between 0 and 1. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="71" column="12" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="71" bodyend="73"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Class useful to generate a (pseudo)random double between 0 and 1 using the <bold>pcg</bold> generator. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" line="53" column="1" bodyfile="/Users/andrea/Documents/PhD/repo_git/Energy-Efficient-Touch-Localization/src/model.hpp" bodystart="53" bodyend="74"/>
+    <listofallmembers>
+      <member refid="class_random_generator_1a4b03300a9624bf83c63a173136ee1949" prot="private" virt="non-virtual"><scope>RandomGenerator</scope><name>dis</name></member>
+      <member refid="class_random_generator_1a921925a9228cbf29df166c6c99117549" prot="private" virt="non-virtual"><scope>RandomGenerator</scope><name>gen</name></member>
+      <member refid="class_random_generator_1a7c6fd6a5e35afb0b9973ee5937f94b3d" prot="public" virt="non-virtual"><scope>RandomGenerator</scope><name>getRandomUniform</name></member>
+      <member refid="class_random_generator_1ae39a18243e899bc3ddc0607b2862ce31" prot="public" virt="non-virtual"><scope>RandomGenerator</scope><name>RandomGenerator</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

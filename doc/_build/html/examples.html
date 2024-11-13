@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Examples &mdash; Energy-Efficient-Touch-Localization 1.0.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Code documentation" href="api/index.html" />
+    <link rel="prev" title="Setup" href="setup.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Energy-Efficient-Touch-Localization
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#simulation-of-snn">Simulation of SNN</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#simulation-configuration-and-execution">Simulation configuration and execution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#output-of-the-simulation">Output of the simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#basic-analysis-of-the-results">Basic analysis of the results</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#training-of-snn">Training of SNN</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/index.html">Code documentation</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Energy-Efficient-Touch-Localization</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Examples</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/examples.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="examples">
+<span id="id1"></span><h1>Examples<a class="headerlink" href="#examples" title="Permalink to this headline"></a></h1>
+<p>This page demonstrates two examples of how the implemented code can be used:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#simulation-of-snn"><span class="std std-ref">Simulation of SNN</span></a>: a network of adaptive LIF neurons is simulated for 10 seconds.</p></li>
+<li><p><a class="reference internal" href="#training-of-snn"><span class="std std-ref">Training of SNN</span></a>: a three-layer spiking neural network (SNN) with LIF neurons is trained to solve the XOR problem.</p></li>
+</ul>
+<p>The configuration files required to run these examples are provided in the <code class="docutils literal notranslate"><span class="pre">src/build</span></code> and <code class="docutils literal notranslate"><span class="pre">src/build/example</span></code> directories.</p>
+<section id="simulation-of-snn">
+<span id="id2"></span><h2>Simulation of SNN<a class="headerlink" href="#simulation-of-snn" title="Permalink to this headline"></a></h2>
+<p>In this example we simulate the network illustrated in the figure below, where red arrows represent excitatory projections and blue arrows indicate inhibitory connections:</p>
+<a class="reference internal image-reference" href="_images/NoTrain_network.png"><img alt="_images/NoTrain_network.png" src="_images/NoTrain_network.png" style="width: 500px;" /></a>
+<p>To build this network, the necesary configuration files are:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">subnets_config_yaml</span></code>: specify network composition and features of the neurons in each SubNetwork:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># list of the populations with their parameters</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span>                   <span class="l l-Scalar l-Scalar-Plain">S</span>
+  <span class="nt">neuron_model</span><span class="p">:</span>           <span class="l l-Scalar l-Scalar-Plain">aeif_cond_exp</span>
+  <span class="nt">desidered_output_path</span><span class="p">:</span>  <span class="l l-Scalar l-Scalar-Plain">none</span>
+  <span class="nt">specific_I_e_file</span><span class="p">:</span>      <span class="l l-Scalar l-Scalar-Plain">none</span>
+  <span class="nt">offset_I_e_file</span><span class="p">:</span>        <span class="l l-Scalar l-Scalar-Plain">none</span>
+  <span class="nt">train_offset_I_e</span><span class="p">:</span>       <span class="l l-Scalar l-Scalar-Plain">false</span>
+  <span class="nt">train_order</span><span class="p">:</span>            <span class="l l-Scalar l-Scalar-Plain">-1</span>
+  <span class="nt">N</span><span class="p">:</span>                      <span class="l l-Scalar l-Scalar-Plain">100</span>
+  <span class="nt">C_m</span><span class="p">:</span>                    <span class="l l-Scalar l-Scalar-Plain">40.</span>                   <span class="c1"># pF</span>
+  <span class="nt">E_L</span><span class="p">:</span>                    <span class="l l-Scalar l-Scalar-Plain">-55.1</span>                 <span class="c1"># mV</span>
+  <span class="nt">E_ex</span><span class="p">:</span>                   <span class="l l-Scalar l-Scalar-Plain">0.</span>                    <span class="c1"># mV</span>
+  <span class="nt">E_in</span><span class="p">:</span>                   <span class="l l-Scalar l-Scalar-Plain">-65.</span>                  <span class="c1"># mV</span>
+  <span class="nt">V_res</span><span class="p">:</span>                  <span class="l l-Scalar l-Scalar-Plain">-60.</span>                  <span class="c1"># mV</span>
+  <span class="nt">V_th</span><span class="p">:</span>                   <span class="l l-Scalar l-Scalar-Plain">-54.7</span>                 <span class="c1"># mV</span>
+  <span class="nt">g_L</span><span class="p">:</span>                    <span class="l l-Scalar l-Scalar-Plain">1.</span>                    <span class="c1"># nS</span>
+  <span class="nt">t_ref</span><span class="p">:</span>                  <span class="l l-Scalar l-Scalar-Plain">0.0</span>                   <span class="c1"># ms</span>
+  <span class="nt">I_e</span><span class="p">:</span>                    <span class="l l-Scalar l-Scalar-Plain">-38.0</span>                 <span class="c1"># pA</span>
+  <span class="nt">osc_amp</span><span class="p">:</span>                <span class="l l-Scalar l-Scalar-Plain">5.0</span>                   <span class="c1"># pA</span>
+  <span class="nt">osc_omega</span><span class="p">:</span>              <span class="l l-Scalar l-Scalar-Plain">0.314</span>                 <span class="c1"># kHz  (50 Hz)</span>
+  <span class="nt">dev_ext_weight</span><span class="p">:</span>         <span class="l l-Scalar l-Scalar-Plain">0.05</span>                  <span class="c1"># nS</span>
+  <span class="nt">ext_in_rate</span><span class="p">:</span>            <span class="l l-Scalar l-Scalar-Plain">0.25</span>                  <span class="c1"># kHz</span>
+  <span class="nt">osc_amp_poiss</span><span class="p">:</span>          <span class="l l-Scalar l-Scalar-Plain">0.</span>                    <span class="c1"># kHz</span>
+  <span class="nt">osc_omega_poiss</span><span class="p">:</span>        <span class="l l-Scalar l-Scalar-Plain">0.</span>                    <span class="c1"># kHz</span>
+  <span class="nt">tau_syn_ex</span><span class="p">:</span>             <span class="l l-Scalar l-Scalar-Plain">10.</span>                   <span class="c1"># ms</span>
+  <span class="nt">tau_syn_in</span><span class="p">:</span>             <span class="l l-Scalar l-Scalar-Plain">5.5</span>                   <span class="c1"># ms</span>
+  <span class="nt">a_adaptive</span><span class="p">:</span>             <span class="l l-Scalar l-Scalar-Plain">2.5</span>                   <span class="c1"># nS</span>
+  <span class="nt">b_adaptive</span><span class="p">:</span>             <span class="l l-Scalar l-Scalar-Plain">70.</span>                   <span class="c1"># pA</span>
+  <span class="nt">tau_w_adaptive</span><span class="p">:</span>         <span class="l l-Scalar l-Scalar-Plain">20.</span>                   <span class="c1"># ms</span>
+  <span class="nt">delta_T_aeif_cond_exp</span><span class="p">:</span>  <span class="l l-Scalar l-Scalar-Plain">1.7</span>                   <span class="c1"># mV</span>
+  <span class="nt">V_peak</span><span class="p">:</span>                 <span class="l l-Scalar l-Scalar-Plain">15.</span>                   <span class="c1"># mV</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span>                   <span class="l l-Scalar l-Scalar-Plain">T</span>
+  <span class="nt">neuron_model</span><span class="p">:</span>           <span class="l l-Scalar l-Scalar-Plain">aeif_cond_exp</span>
+  <span class="nt">desidered_output_path</span><span class="p">:</span>  <span class="l l-Scalar l-Scalar-Plain">none</span>
+  <span class="nt">specific_I_e_file</span><span class="p">:</span>      <span class="l l-Scalar l-Scalar-Plain">none</span>
+  <span class="nt">offset_I_e_file</span><span class="p">:</span>        <span class="l l-Scalar l-Scalar-Plain">none</span>
+  <span class="nt">train_offset_I_e</span><span class="p">:</span>       <span class="l l-Scalar l-Scalar-Plain">false</span>
+  <span class="nt">train_order</span><span class="p">:</span>            <span class="l l-Scalar l-Scalar-Plain">-1</span>
+  <span class="nt">N</span><span class="p">:</span>                      <span class="l l-Scalar l-Scalar-Plain">200</span>
+  <span class="nt">C_m</span><span class="p">:</span>                    <span class="l l-Scalar l-Scalar-Plain">40.</span>
+  <span class="nt">E_L</span><span class="p">:</span>                    <span class="l l-Scalar l-Scalar-Plain">-55.1</span>
+  <span class="nt">E_ex</span><span class="p">:</span>                   <span class="l l-Scalar l-Scalar-Plain">0.</span>
+  <span class="nt">E_in</span><span class="p">:</span>                   <span class="l l-Scalar l-Scalar-Plain">-65.</span>
+  <span class="nt">V_res</span><span class="p">:</span>                  <span class="l l-Scalar l-Scalar-Plain">-60.</span>
+  <span class="nt">V_th</span><span class="p">:</span>                   <span class="l l-Scalar l-Scalar-Plain">-54.7</span>
+  <span class="nt">g_L</span><span class="p">:</span>                    <span class="l l-Scalar l-Scalar-Plain">1.</span>
+  <span class="nt">t_ref</span><span class="p">:</span>                  <span class="l l-Scalar l-Scalar-Plain">0.0</span>
+  <span class="nt">I_e</span><span class="p">:</span>                    <span class="l l-Scalar l-Scalar-Plain">-150.0</span>
+  <span class="nt">osc_amp</span><span class="p">:</span>                <span class="l l-Scalar l-Scalar-Plain">0.0</span>
+  <span class="nt">osc_omega</span><span class="p">:</span>              <span class="l l-Scalar l-Scalar-Plain">0.0</span>
+  <span class="nt">dev_ext_weight</span><span class="p">:</span>         <span class="l l-Scalar l-Scalar-Plain">0.05</span>
+  <span class="nt">ext_in_rate</span><span class="p">:</span>            <span class="l l-Scalar l-Scalar-Plain">0.1</span>
+  <span class="nt">osc_amp_poiss</span><span class="p">:</span>          <span class="l l-Scalar l-Scalar-Plain">0.</span>
+  <span class="nt">osc_omega_poiss</span><span class="p">:</span>        <span class="l l-Scalar l-Scalar-Plain">0.</span>
+  <span class="nt">tau_syn_ex</span><span class="p">:</span>             <span class="l l-Scalar l-Scalar-Plain">10.</span>
+  <span class="nt">tau_syn_in</span><span class="p">:</span>             <span class="l l-Scalar l-Scalar-Plain">5.5</span>
+  <span class="nt">a_adaptive</span><span class="p">:</span>             <span class="l l-Scalar l-Scalar-Plain">2.5</span>
+  <span class="nt">b_adaptive</span><span class="p">:</span>             <span class="l l-Scalar l-Scalar-Plain">70.</span>
+  <span class="nt">tau_w_adaptive</span><span class="p">:</span>         <span class="l l-Scalar l-Scalar-Plain">20.</span>
+  <span class="nt">delta_T_aeif_cond_exp</span><span class="p">:</span>  <span class="l l-Scalar l-Scalar-Plain">1.7</span>
+  <span class="nt">V_peak</span><span class="p">:</span>                 <span class="l l-Scalar l-Scalar-Plain">15.</span>
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">weights_config_yaml</span></code>: connection weights (in nS) with the convention that</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>positive weights are excitatory</p></li>
+<li><p>negative weights are inhibitory</p></li>
+</ul>
+</div></blockquote>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># weights of connections TO :name:</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span>         <span class="l l-Scalar l-Scalar-Plain">S</span>
+  <span class="nt">S</span><span class="p">:</span>             <span class="l l-Scalar l-Scalar-Plain">-1.2</span>         <span class="c1"># S receives inhibitory inputs from S</span>
+  <span class="nt">ext</span><span class="p">:</span>           <span class="l l-Scalar l-Scalar-Plain">0.45</span>         <span class="c1"># S receives excitatory inputs from ext</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span>         <span class="l l-Scalar l-Scalar-Plain">T</span>
+  <span class="nt">S</span><span class="p">:</span>             <span class="l l-Scalar l-Scalar-Plain">0.3</span>          <span class="c1"># T receives excitatory inputs from S</span>
+  <span class="nt">ext</span><span class="p">:</span>           <span class="l l-Scalar l-Scalar-Plain">0.1</span>          <span class="c1"># T receives excitatory inputs from ext</span>
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">connections_config_yaml</span></code>: connectivity probabilities between subnetworks and corresponding delays (in ms)</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Connections probabilities and delays FROM &quot;name&quot;</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span>        <span class="l l-Scalar l-Scalar-Plain">S</span>
+  <span class="nt">S</span><span class="p">:</span>                <span class="l l-Scalar l-Scalar-Plain">0.2</span>       <span class="c1"># each S neuron project to each S neuron with probability 0.2</span>
+  <span class="nt">S_delay</span><span class="p">:</span>          <span class="l l-Scalar l-Scalar-Plain">0.5</span>
+  <span class="nt">S_file</span><span class="p">:</span>           <span class="l l-Scalar l-Scalar-Plain">none</span>
+  <span class="nt">S_train</span><span class="p">:</span>          <span class="l l-Scalar l-Scalar-Plain">false</span>
+  <span class="nt">S_quant_alpha</span><span class="p">:</span>    <span class="l l-Scalar l-Scalar-Plain">-1.</span>
+  <span class="nt">T</span><span class="p">:</span>                <span class="l l-Scalar l-Scalar-Plain">0.8</span>       <span class="c1"># each S neuron project to each T neuron with probability 0.8</span>
+  <span class="nt">T_delay</span><span class="p">:</span>          <span class="l l-Scalar l-Scalar-Plain">1.0</span>
+  <span class="nt">T_file</span><span class="p">:</span>           <span class="l l-Scalar l-Scalar-Plain">none</span>
+  <span class="nt">T_train</span><span class="p">:</span>          <span class="l l-Scalar l-Scalar-Plain">false</span>
+  <span class="nt">T_quant_alpha</span><span class="p">:</span>    <span class="l l-Scalar l-Scalar-Plain">-1.</span>
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">to_save_config_yaml</span></code>: list of neurons whose state you want to save at each step</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># list of the neurons whose state is to be saved at each time step</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">S</span><span class="p">:</span>        <span class="p p-Indicator">[</span><span class="nv">0</span><span class="p p-Indicator">,</span><span class="nv">1</span><span class="p p-Indicator">]</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">T</span><span class="p">:</span>        <span class="p p-Indicator">[</span><span class="nv">3</span><span class="p p-Indicator">,</span><span class="nv">5</span><span class="p p-Indicator">,</span><span class="nv">7</span><span class="p p-Indicator">]</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<section id="simulation-configuration-and-execution">
+<h3>Simulation configuration and execution<a class="headerlink" href="#simulation-configuration-and-execution" title="Permalink to this headline"></a></h3>
+<p>Once the Network is configured you can set the simulation control variables in a yaml file <code class="docutils literal notranslate"><span class="pre">&lt;sim-name&gt;.yaml</span></code> (e.g., example.yaml in src/build/example/NoTrain):</p>
+<blockquote>
+<div><div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">t_end</span><span class="p">:</span>                          <span class="l l-Scalar l-Scalar-Plain">10000</span>  <span class="c1"># ms</span>
+<span class="nt">dt</span><span class="p">:</span>                             <span class="l l-Scalar l-Scalar-Plain">0.1</span>    <span class="c1"># ms</span>
+<span class="nt">n_step</span><span class="p">:</span>                         <span class="l l-Scalar l-Scalar-Plain">20</span>
+<span class="nt">out_dir</span><span class="p">:</span>                        <span class="l l-Scalar l-Scalar-Plain">example/NoTrain/sim</span>
+<span class="nt">subnets_config_yaml</span><span class="p">:</span>            <span class="l l-Scalar l-Scalar-Plain">example/NoTrain/config.yaml</span>
+<span class="nt">weights_config_yaml</span><span class="p">:</span>            <span class="l l-Scalar l-Scalar-Plain">example/NoTrain/config_weights.yaml</span>
+<span class="nt">connections_config_yaml</span><span class="p">:</span>        <span class="l l-Scalar l-Scalar-Plain">example/NoTrain/config_connections.yaml</span>
+<span class="nt">to_save_config_yaml</span><span class="p">:</span>            <span class="l l-Scalar l-Scalar-Plain">example/NoTrain/config_to_save.yaml</span>
+<span class="nt">training_config_yaml</span><span class="p">:</span>           <span class="l l-Scalar l-Scalar-Plain">none</span>
+<span class="nt">input_mode</span><span class="p">:</span>                     <span class="l l-Scalar l-Scalar-Plain">0</span>
+<span class="nt">input_mode_config</span><span class="p">:</span>              <span class="l l-Scalar l-Scalar-Plain">unused</span>
+<span class="nt">train</span><span class="p">:</span>                          <span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="nt">repeat_specific_I_e</span><span class="p">:</span>            <span class="l l-Scalar l-Scalar-Plain">1</span>
+</pre></div>
+</div>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>the variable <code class="docutils literal notranslate"><span class="pre">n_step</span></code> can be used to execute the simulation in more than one step. This is useful for issues related to memory consumption (in case of long simulations with many neurons increase the value of n_step for better performance)</p></li>
+<li><p>the <code class="docutils literal notranslate"><span class="pre">example/NoTrain/sim</span></code> output directory is automatically created</p></li>
+</ul>
+</div>
+<p>And finally run the simulation using (from the build directory):</p>
+<blockquote>
+<div><p>$ ./main example/NoTrain/example.yaml</p>
+</div></blockquote>
+</section>
+<section id="output-of-the-simulation">
+<h3>Output of the simulation<a class="headerlink" href="#output-of-the-simulation" title="Permalink to this headline"></a></h3>
+<p>After the simulation has finished, you will find the following files in the output directory:</p>
+<ul>
+<li><p>a copy of the configuration files used for the simulation</p></li>
+<li><p>some files containing the spiking times of the neurons separately for each SubNetwork and with format:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">neuron</span><span class="o">-</span><span class="n">index</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="nb">list</span><span class="o">-</span><span class="n">of</span><span class="o">-</span><span class="n">spike</span><span class="o">-</span><span class="n">times</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</li>
+<li><p>a directory <code class="docutils literal notranslate"><span class="pre">neuron_states</span></code> containing:</p>
+<ul class="simple">
+<li><p>a file <code class="docutils literal notranslate"><span class="pre">t.txt</span></code> containing the time steps of the simulation</p></li>
+<li><p>a file <code class="docutils literal notranslate"><span class="pre">&lt;SubNetwork-name&gt;_&lt;neuron-index&gt;.txt</span></code> for each neuron indicated in <code class="docutils literal notranslate"><span class="pre">to_save_config_yaml</span></code> containing the state <code class="docutils literal notranslate"><span class="pre">x</span></code> of the neuron at each time step</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>if no neuron is indicated in <code class="docutils literal notranslate"><span class="pre">to_save_config_yaml</span></code>, the <code class="docutils literal notranslate"><span class="pre">neuron_states</span></code> directory will not be produced</p>
+</div>
+</li>
+</ul>
+</section>
+<section id="basic-analysis-of-the-results">
+<h3>Basic analysis of the results<a class="headerlink" href="#basic-analysis-of-the-results" title="Permalink to this headline"></a></h3>
+<p>Using the code below (in the build directory):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;..&#39;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">python_utils</span> <span class="k">as</span> <span class="nn">utils</span>
+
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">SpikeSim</span><span class="p">(</span><span class="s2">&quot;example/NoTrain/sim&quot;</span><span class="p">,</span> <span class="s1">&#39;example.yaml&#39;</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mf">10000.</span><span class="p">,</span> <span class="s1">&#39;config.yaml&#39;</span><span class="p">)</span>
+
+<span class="n">s</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+
+<span class="n">s</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="n">res</span> <span class="o">=</span> <span class="mf">10.</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">v</span><span class="p">)</span> <span class="ow">in</span> <span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">MeanActivity</span><span class="p">())</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Mean activity of </span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s1"> </span><span class="se">\t</span><span class="s1"> </span><span class="si">{</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> kHz</span><span class="se">\t</span><span class="s1"> N_neurons = </span><span class="si">{</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1"> </span><span class="se">\t</span><span class="s1"> Activity per Neuron = </span><span class="si">{</span><span class="n">v</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="mi">1000</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1"> Hz&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>you can easily visualize the results of the simulation.</p>
+</section>
+</section>
+<section id="training-of-snn">
+<span id="id3"></span><h2>Training of SNN<a class="headerlink" href="#training-of-snn" title="Permalink to this headline"></a></h2>
+<p>In this example we solve the XOR problem employing a SNN of LIF neurons with exponential synapses. The XOR problem is a classic problem in artificial neural network research which consists into training a neural network to predict the outputs of XOR logic gates given two binary inputs.
+A XOR function returns true when the inputs are different and false when they are the same:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 29%" />
+<col style="width: 29%" />
+<col style="width: 41%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>A</p></th>
+<th class="head"><p>B</p></th>
+<th class="head"><p>A XOR B</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>False</p></td>
+<td><p>False</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-odd"><td><p>True</p></td>
+<td><p>False</p></td>
+<td><p>True</p></td>
+</tr>
+<tr class="row-even"><td><p>False</p></td>
+<td><p>True</p></td>
+<td><p>True</p></td>
+</tr>
+<tr class="row-odd"><td><p>True</p></td>
+<td><p>True</p></td>
+<td><p>False</p></td>
+</tr>
+</tbody>
+</table>
+<p>To do so, we employ a three layer architecture:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">L1</span></code>: input layer (2 neurons, associated with inputs A and B respectively)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">L2</span></code>: hidden layer (8 neurons)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">L3</span></code>: output layer (2 neurons, associated with the labels True and False respectively)</p></li>
+</ul>
+<p>To encode the input values A and B we set a high input current (50 pA) for True and low input current (30  pA) for False, independently for the two neurons in <code class="docutils literal notranslate"><span class="pre">L1</span></code>.
+For demonstration purposes, we set the configuration files to train all weights from L1 to L2, and from L2 to L3, as well as the input baseline currents of L2.</p>
+<p>To setup the described architecture we employ the following configuration files:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">subnets_config_yaml</span></code>: specify network composition and features of the neurons in each SubNetwork:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># list of the layers with their parameters</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span>                   <span class="l l-Scalar l-Scalar-Plain">L1</span>
+  <span class="nt">neuron_model</span><span class="p">:</span>           <span class="l l-Scalar l-Scalar-Plain">iaf_curr_exp</span>
+  <span class="nt">desidered_output_path</span><span class="p">:</span>  <span class="l l-Scalar l-Scalar-Plain">none</span>
+  <span class="nt">specific_I_e_file</span><span class="p">:</span>      <span class="l l-Scalar l-Scalar-Plain">example/Train/specific_Ie/L1.txt</span>
+  <span class="nt">offset_I_e_file</span><span class="p">:</span>        <span class="l l-Scalar l-Scalar-Plain">none</span>
+  <span class="nt">train_offset_I_e</span><span class="p">:</span>       <span class="l l-Scalar l-Scalar-Plain">false</span>
+  <span class="nt">offset_I_e_min</span><span class="p">:</span>         <span class="l l-Scalar l-Scalar-Plain">0.</span>
+  <span class="nt">offset_I_e_max</span><span class="p">:</span>         <span class="l l-Scalar l-Scalar-Plain">0.</span>
+  <span class="nt">offset_I_e_ref</span><span class="p">:</span>         <span class="l l-Scalar l-Scalar-Plain">0.</span>
+  <span class="nt">ldecay_offset</span><span class="p">:</span>          <span class="l l-Scalar l-Scalar-Plain">0.</span>
+  <span class="nt">train_order</span><span class="p">:</span>            <span class="l l-Scalar l-Scalar-Plain">-1</span>
+  <span class="nt">N</span><span class="p">:</span>                      <span class="l l-Scalar l-Scalar-Plain">2</span>
+  <span class="nt">C_m</span><span class="p">:</span>                    <span class="l l-Scalar l-Scalar-Plain">40.</span>
+  <span class="nt">g_L</span><span class="p">:</span>                    <span class="l l-Scalar l-Scalar-Plain">2.</span>
+  <span class="nt">E_L</span><span class="p">:</span>                    <span class="l l-Scalar l-Scalar-Plain">-70.</span>
+  <span class="nt">V_res</span><span class="p">:</span>                  <span class="l l-Scalar l-Scalar-Plain">-70.</span>
+  <span class="nt">V_th</span><span class="p">:</span>                   <span class="l l-Scalar l-Scalar-Plain">-50.</span>
+  <span class="nt">t_ref</span><span class="p">:</span>                  <span class="l l-Scalar l-Scalar-Plain">2.</span>
+  <span class="nt">I_e</span><span class="p">:</span>                    <span class="l l-Scalar l-Scalar-Plain">0.</span>
+  <span class="nt">ext_in_rate</span><span class="p">:</span>            <span class="l l-Scalar l-Scalar-Plain">1.</span>
+  <span class="nt">tau_syn_ex</span><span class="p">:</span>             <span class="l l-Scalar l-Scalar-Plain">10.</span>
+  <span class="nt">tau_syn_in</span><span class="p">:</span>             <span class="l l-Scalar l-Scalar-Plain">10.</span>
+  <span class="nt">osc_amp</span><span class="p">:</span>                <span class="l l-Scalar l-Scalar-Plain">0.</span>
+  <span class="nt">osc_omega</span><span class="p">:</span>              <span class="l l-Scalar l-Scalar-Plain">0.</span>
+  <span class="nt">dev_ext_weight</span><span class="p">:</span>         <span class="l l-Scalar l-Scalar-Plain">0.</span>
+  <span class="nt">osc_amp_poiss</span><span class="p">:</span>          <span class="l l-Scalar l-Scalar-Plain">0.</span>
+  <span class="nt">osc_omega_poiss</span><span class="p">:</span>        <span class="l l-Scalar l-Scalar-Plain">0.</span>
+  <span class="nt">w_max</span><span class="p">:</span>                  <span class="l l-Scalar l-Scalar-Plain">1000.</span>
+  <span class="nt">w_min</span><span class="p">:</span>                  <span class="l l-Scalar l-Scalar-Plain">-1000</span>
+  <span class="nt">decay_factor_max</span><span class="p">:</span>       <span class="l l-Scalar l-Scalar-Plain">0.</span>
+  <span class="nt">decay_factor_steepness</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0.</span>
+  <span class="nt">decay_factor_position</span><span class="p">:</span>  <span class="l l-Scalar l-Scalar-Plain">0.</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span>                   <span class="l l-Scalar l-Scalar-Plain">L2</span>
+  <span class="nt">neuron_model</span><span class="p">:</span>           <span class="l l-Scalar l-Scalar-Plain">iaf_curr_exp</span>
+  <span class="nt">desidered_output_path</span><span class="p">:</span>  <span class="l l-Scalar l-Scalar-Plain">none</span>
+  <span class="nt">specific_I_e_file</span><span class="p">:</span>      <span class="l l-Scalar l-Scalar-Plain">none</span>
+  <span class="nt">offset_I_e_file</span><span class="p">:</span>        <span class="l l-Scalar l-Scalar-Plain">example/Train/specific_w/L2.txt</span>
+  <span class="nt">train_offset_I_e</span><span class="p">:</span>       <span class="l l-Scalar l-Scalar-Plain">true</span>
+  <span class="nt">offset_I_e_min</span><span class="p">:</span>         <span class="l l-Scalar l-Scalar-Plain">-100</span>
+  <span class="nt">offset_I_e_max</span><span class="p">:</span>         <span class="l l-Scalar l-Scalar-Plain">100.</span>
+  <span class="nt">offset_I_e_ref</span><span class="p">:</span>         <span class="l l-Scalar l-Scalar-Plain">0.</span>
+  <span class="nt">ldecay_offset</span><span class="p">:</span>          <span class="l l-Scalar l-Scalar-Plain">0.</span>
+  <span class="nt">train_order</span><span class="p">:</span>            <span class="l l-Scalar l-Scalar-Plain">1</span>
+  <span class="nt">N</span><span class="p">:</span>                      <span class="l l-Scalar l-Scalar-Plain">8</span>
+  <span class="nt">C_m</span><span class="p">:</span>                    <span class="l l-Scalar l-Scalar-Plain">40.</span>
+  <span class="nt">g_L</span><span class="p">:</span>                    <span class="l l-Scalar l-Scalar-Plain">2.</span>
+  <span class="nt">E_L</span><span class="p">:</span>                    <span class="l l-Scalar l-Scalar-Plain">-70.</span>
+  <span class="nt">V_res</span><span class="p">:</span>                  <span class="l l-Scalar l-Scalar-Plain">-70.</span>
+  <span class="nt">V_th</span><span class="p">:</span>                   <span class="l l-Scalar l-Scalar-Plain">-50.</span>
+  <span class="nt">t_ref</span><span class="p">:</span>                  <span class="l l-Scalar l-Scalar-Plain">2.</span>
+  <span class="nt">I_e</span><span class="p">:</span>                    <span class="l l-Scalar l-Scalar-Plain">36.</span>
+  <span class="nt">ext_in_rate</span><span class="p">:</span>            <span class="l l-Scalar l-Scalar-Plain">1.</span>
+  <span class="nt">tau_syn_ex</span><span class="p">:</span>             <span class="l l-Scalar l-Scalar-Plain">10.</span>
+  <span class="nt">tau_syn_in</span><span class="p">:</span>             <span class="l l-Scalar l-Scalar-Plain">10.</span>
+  <span class="nt">osc_amp</span><span class="p">:</span>                <span class="l l-Scalar l-Scalar-Plain">0.</span>
+  <span class="nt">osc_omega</span><span class="p">:</span>              <span class="l l-Scalar l-Scalar-Plain">0.</span>
+  <span class="nt">dev_ext_weight</span><span class="p">:</span>         <span class="l l-Scalar l-Scalar-Plain">0.</span>
+  <span class="nt">osc_amp_poiss</span><span class="p">:</span>          <span class="l l-Scalar l-Scalar-Plain">0.</span>
+  <span class="nt">osc_omega_poiss</span><span class="p">:</span>        <span class="l l-Scalar l-Scalar-Plain">0.</span>
+  <span class="nt">w_max</span><span class="p">:</span>                  <span class="l l-Scalar l-Scalar-Plain">1000.</span>
+  <span class="nt">w_min</span><span class="p">:</span>                  <span class="l l-Scalar l-Scalar-Plain">-1000</span>
+  <span class="nt">decay_factor_max</span><span class="p">:</span>       <span class="l l-Scalar l-Scalar-Plain">0.</span>
+  <span class="nt">decay_factor_steepness</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0.</span>
+  <span class="nt">decay_factor_position</span><span class="p">:</span>  <span class="l l-Scalar l-Scalar-Plain">0.</span>
+
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span>                   <span class="l l-Scalar l-Scalar-Plain">L3</span>
+  <span class="nt">neuron_model</span><span class="p">:</span>           <span class="l l-Scalar l-Scalar-Plain">iaf_curr_exp</span>
+  <span class="nt">desidered_output_path</span><span class="p">:</span>  <span class="l l-Scalar l-Scalar-Plain">example/Train/desired_out/L3.txt</span>
+  <span class="nt">specific_I_e_file</span><span class="p">:</span>      <span class="l l-Scalar l-Scalar-Plain">none</span>
+  <span class="nt">offset_I_e_file</span><span class="p">:</span>        <span class="l l-Scalar l-Scalar-Plain">none</span>
+  <span class="nt">train_offset_I_e</span><span class="p">:</span>       <span class="l l-Scalar l-Scalar-Plain">false</span>
+  <span class="nt">offset_I_e_min</span><span class="p">:</span>         <span class="l l-Scalar l-Scalar-Plain">-100</span>
+  <span class="nt">offset_I_e_max</span><span class="p">:</span>         <span class="l l-Scalar l-Scalar-Plain">100.</span>
+  <span class="nt">offset_I_e_ref</span><span class="p">:</span>         <span class="l l-Scalar l-Scalar-Plain">0.</span>
+  <span class="nt">ldecay_offset</span><span class="p">:</span>          <span class="l l-Scalar l-Scalar-Plain">0.</span>
+  <span class="nt">train_order</span><span class="p">:</span>            <span class="l l-Scalar l-Scalar-Plain">0</span>
+  <span class="nt">N</span><span class="p">:</span>                      <span class="l l-Scalar l-Scalar-Plain">2</span>
+  <span class="nt">C_m</span><span class="p">:</span>                    <span class="l l-Scalar l-Scalar-Plain">40.</span>
+  <span class="nt">g_L</span><span class="p">:</span>                    <span class="l l-Scalar l-Scalar-Plain">2.</span>
+  <span class="nt">E_L</span><span class="p">:</span>                    <span class="l l-Scalar l-Scalar-Plain">-70.</span>
+  <span class="nt">V_res</span><span class="p">:</span>                  <span class="l l-Scalar l-Scalar-Plain">-70.</span>
+  <span class="nt">V_th</span><span class="p">:</span>                   <span class="l l-Scalar l-Scalar-Plain">-50.</span>
+  <span class="nt">t_ref</span><span class="p">:</span>                  <span class="l l-Scalar l-Scalar-Plain">2.</span>
+  <span class="nt">I_e</span><span class="p">:</span>                    <span class="l l-Scalar l-Scalar-Plain">31.</span>
+  <span class="nt">ext_in_rate</span><span class="p">:</span>            <span class="l l-Scalar l-Scalar-Plain">1.</span>
+  <span class="nt">tau_syn_ex</span><span class="p">:</span>             <span class="l l-Scalar l-Scalar-Plain">10.</span>
+  <span class="nt">tau_syn_in</span><span class="p">:</span>             <span class="l l-Scalar l-Scalar-Plain">10.</span>
+  <span class="nt">osc_amp</span><span class="p">:</span>                <span class="l l-Scalar l-Scalar-Plain">0.</span>
+  <span class="nt">osc_omega</span><span class="p">:</span>              <span class="l l-Scalar l-Scalar-Plain">0.</span>
+  <span class="nt">dev_ext_weight</span><span class="p">:</span>         <span class="l l-Scalar l-Scalar-Plain">0.</span>
+  <span class="nt">osc_amp_poiss</span><span class="p">:</span>          <span class="l l-Scalar l-Scalar-Plain">0.</span>
+  <span class="nt">osc_omega_poiss</span><span class="p">:</span>        <span class="l l-Scalar l-Scalar-Plain">0.</span>
+  <span class="nt">w_max</span><span class="p">:</span>                  <span class="l l-Scalar l-Scalar-Plain">1000.</span>
+  <span class="nt">w_min</span><span class="p">:</span>                  <span class="l l-Scalar l-Scalar-Plain">-1000</span>
+  <span class="nt">decay_factor_max</span><span class="p">:</span>       <span class="l l-Scalar l-Scalar-Plain">0.</span>
+  <span class="nt">decay_factor_steepness</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0.</span>
+  <span class="nt">decay_factor_position</span><span class="p">:</span>  <span class="l l-Scalar l-Scalar-Plain">0.</span>
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">weights_config_yaml</span></code>: connection weights (in nS, positive weights are excitatory):</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span>      <span class="l l-Scalar l-Scalar-Plain">L1</span>
+  <span class="nt">ext</span><span class="p">:</span>              <span class="l l-Scalar l-Scalar-Plain">0.</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span>      <span class="l l-Scalar l-Scalar-Plain">L2</span>
+  <span class="nt">ext</span><span class="p">:</span>              <span class="l l-Scalar l-Scalar-Plain">0.</span>
+  <span class="nt">L1</span><span class="p">:</span>               <span class="l l-Scalar l-Scalar-Plain">none</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span>      <span class="l l-Scalar l-Scalar-Plain">L3</span>
+  <span class="nt">ext</span><span class="p">:</span>              <span class="l l-Scalar l-Scalar-Plain">0.</span>
+  <span class="nt">L2</span><span class="p">:</span>               <span class="l l-Scalar l-Scalar-Plain">none</span>
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">connections_config_yaml</span></code>: connectivity probabilities between subnetworks, corresponding delays (in ms) and path to initialization weights:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span>        <span class="l l-Scalar l-Scalar-Plain">L1</span>
+  <span class="nt">L2</span><span class="p">:</span>                   <span class="l l-Scalar l-Scalar-Plain">1.</span>          <span class="c1"># probability</span>
+  <span class="nt">L2_delay</span><span class="p">:</span>             <span class="l l-Scalar l-Scalar-Plain">2.</span>
+  <span class="nt">L2_file</span><span class="p">:</span>              <span class="l l-Scalar l-Scalar-Plain">example/Train/specific_w/L1_to_L2.txt</span>
+  <span class="nt">L2_train</span><span class="p">:</span>             <span class="l l-Scalar l-Scalar-Plain">true</span>
+  <span class="nt">L2_quant_alpha</span><span class="p">:</span>       <span class="l l-Scalar l-Scalar-Plain">-1.</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span>        <span class="l l-Scalar l-Scalar-Plain">L2</span>
+  <span class="nt">L3</span><span class="p">:</span>                   <span class="l l-Scalar l-Scalar-Plain">1.</span>          <span class="c1"># probability</span>
+  <span class="nt">L3_delay</span><span class="p">:</span>             <span class="l l-Scalar l-Scalar-Plain">2.</span>
+  <span class="nt">L3_file</span><span class="p">:</span>              <span class="l l-Scalar l-Scalar-Plain">example/Train/specific_w/L2_to_L3.txt</span>
+  <span class="nt">L3_train</span><span class="p">:</span>             <span class="l l-Scalar l-Scalar-Plain">true</span>
+  <span class="nt">L3_quant_alpha</span><span class="p">:</span>       <span class="l l-Scalar l-Scalar-Plain">-1.</span>
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">to_save_config_yaml</span></code>: list of neurons whose state you want to save at each step</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">L1</span><span class="p">:</span>      <span class="p p-Indicator">[</span><span class="nv">0</span><span class="p p-Indicator">]</span>
+<span class="p p-Indicator">-</span> <span class="nt">L2</span><span class="p">:</span>      <span class="p p-Indicator">[</span><span class="nv">0</span><span class="p p-Indicator">]</span>
+<span class="p p-Indicator">-</span> <span class="nt">L3</span><span class="p">:</span>      <span class="p p-Indicator">[</span><span class="nv">0</span><span class="p p-Indicator">,</span><span class="nv">1</span><span class="p p-Indicator">]</span>
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">batches_dur_file</span></code>: contains the duration of the mini-batches employed during training</p>
+<blockquote>
+<div><div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">1000.</span>
+<span class="l l-Scalar l-Scalar-Plain">1000.</span>
+<span class="l l-Scalar l-Scalar-Plain">1000.</span>
+<span class="l l-Scalar l-Scalar-Plain">1000.</span>
+<span class="l l-Scalar l-Scalar-Plain">1000.</span>
+<span class="l l-Scalar l-Scalar-Plain">1000.</span>
+<span class="l l-Scalar l-Scalar-Plain">1000.</span>
+<span class="l l-Scalar l-Scalar-Plain">1000.</span>
+<span class="l l-Scalar l-Scalar-Plain">1000.</span>
+<span class="l l-Scalar l-Scalar-Plain">1000.</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+<p>To handle the training process we employ a python3 script which:</p>
+<ul>
+<li><p>set up initialization weights and baseline currents (of L2);</p></li>
+<li><p>set up the configuration files:</p>
+<blockquote>
+<div><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">general_config_yaml</span></code>: sets the general configuration variables:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">t_end</span><span class="p">:</span>                          <span class="l l-Scalar l-Scalar-Plain">10000</span>   <span class="c1"># ms</span>
+<span class="nt">dt</span><span class="p">:</span>                             <span class="l l-Scalar l-Scalar-Plain">1.</span>      <span class="c1"># ms</span>
+<span class="nt">n_step</span><span class="p">:</span>                         <span class="l l-Scalar l-Scalar-Plain">1</span>       <span class="c1"># unused</span>
+<span class="nt">out_dir</span><span class="p">:</span>                        <span class="l l-Scalar l-Scalar-Plain">example_config/Train/res0/0</span>
+<span class="nt">training_config_yaml</span><span class="p">:</span>           <span class="l l-Scalar l-Scalar-Plain">example_config/Train/config_training1.yaml</span>
+<span class="nt">subnets_config_yaml</span><span class="p">:</span>            <span class="l l-Scalar l-Scalar-Plain">example_config/Train/config1.yaml</span>
+<span class="nt">weights_config_yaml</span><span class="p">:</span>            <span class="l l-Scalar l-Scalar-Plain">example_config/Train/config_weights1.yaml</span>
+<span class="nt">connections_config_yaml</span><span class="p">:</span>        <span class="l l-Scalar l-Scalar-Plain">example_config/Train/config_connections1.yaml</span>
+<span class="nt">to_save_config_yaml</span><span class="p">:</span>            <span class="l l-Scalar l-Scalar-Plain">example_config/Train/config_to_save1.yaml</span>
+<span class="nt">input_mode</span><span class="p">:</span>                     <span class="l l-Scalar l-Scalar-Plain">0</span>       <span class="c1"># unused</span>
+<span class="nt">input_mode_config</span><span class="p">:</span>              <span class="l l-Scalar l-Scalar-Plain">unused</span>
+<span class="nt">train</span><span class="p">:</span>                          <span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">repeat_specific_I_e</span><span class="p">:</span>            <span class="l l-Scalar l-Scalar-Plain">1</span>
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">general_config_yaml</span></code>: sets the general configuration variable for training:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">epoch</span><span class="p">:</span>                   <span class="l l-Scalar l-Scalar-Plain">0</span>
+<span class="nt">dur_batches_path</span><span class="p">:</span>        <span class="l l-Scalar l-Scalar-Plain">example_config/Train/batches_dur.txt</span>
+<span class="nt">window_res</span><span class="p">:</span>              <span class="l l-Scalar l-Scalar-Plain">1000.0</span>
+<span class="nt">step_res</span><span class="p">:</span>                <span class="l l-Scalar l-Scalar-Plain">500.0</span>
+<span class="nt">w_cut</span><span class="p">:</span>                   <span class="l l-Scalar l-Scalar-Plain">100.</span>
+<span class="nt">POT</span><span class="p">:</span>                     <span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="nt">error_lin_coeff</span><span class="p">:</span>         <span class="l l-Scalar l-Scalar-Plain">0.</span>
+<span class="nt">prob_noise</span><span class="p">:</span>              <span class="l l-Scalar l-Scalar-Plain">0.</span>
+<span class="nt">amp_noise</span><span class="p">:</span>               <span class="l l-Scalar l-Scalar-Plain">0.</span>
+<span class="nt">l_decay</span><span class="p">:</span>                 <span class="l l-Scalar l-Scalar-Plain">0.</span>
+<span class="nt">l_rate0</span><span class="p">:</span>                 <span class="l l-Scalar l-Scalar-Plain">25.0</span>
+<span class="nt">l_rate0_curr</span><span class="p">:</span>            <span class="l l-Scalar l-Scalar-Plain">50</span>  <span class="c1"># 2.5</span>
+<span class="nt">optimization_method</span><span class="p">:</span>     <span class="l l-Scalar l-Scalar-Plain">SGD</span>
+<span class="nt">momentum_w</span><span class="p">:</span>              <span class="l l-Scalar l-Scalar-Plain">0.0</span>
+<span class="nt">momentum_c</span><span class="p">:</span>              <span class="l l-Scalar l-Scalar-Plain">0.0</span>
+<span class="nt">momentum2_w</span><span class="p">:</span>             <span class="l l-Scalar l-Scalar-Plain">0.95</span>     <span class="c1"># used only in ADAM</span>
+<span class="nt">momentum2_c</span><span class="p">:</span>             <span class="l l-Scalar l-Scalar-Plain">0.95</span>     <span class="c1"># used only in ADAM</span>
+<span class="nt">correct_l_rates</span><span class="p">:</span>         <span class="p p-Indicator">[</span> <span class="nv">1.</span><span class="p p-Indicator">,</span> <span class="nv">1.</span> <span class="p p-Indicator">]</span>
+<span class="nt">dF_dI_app</span><span class="p">:</span>               <span class="l l-Scalar l-Scalar-Plain">0.002</span>
+<span class="nt">dF_dI_no_act_fact</span><span class="p">:</span>       <span class="l l-Scalar l-Scalar-Plain">0.1</span>
+<span class="nt">epsilon_zero_act</span><span class="p">:</span>        <span class="l l-Scalar l-Scalar-Plain">0.1</span>
+<span class="nt">a_desid_zero</span><span class="p">:</span>            <span class="l l-Scalar l-Scalar-Plain">0.</span>
+<span class="nt">c_desid_zero</span><span class="p">:</span>            <span class="l l-Scalar l-Scalar-Plain">1.</span>
+<span class="nt">n_quant</span><span class="p">:</span>                 <span class="l l-Scalar l-Scalar-Plain">-1.</span>
+<span class="nt">quant_delta_weight_neg</span><span class="p">:</span>  <span class="l l-Scalar l-Scalar-Plain">0.</span>
+<span class="nt">quant_delta_weight_pos</span><span class="p">:</span>  <span class="l l-Scalar l-Scalar-Plain">0.</span>
+    
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>compute the accuracy</p></li>
+<li><p>repeat the training protocol for 10 times.</p></li>
+</ul>
+<p>As shown below, the problem is resolved after only a few data points are presented during training.</p>
+<a class="reference internal image-reference" href="_images/training_perf.png"><img alt="_images/training_perf.png" src="_images/training_perf.png" style="width: 700px;" /></a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>for simplicity, in this example we processed each input data point individually in separate epochs. This strategy is not raccomended in more complex problems.</p>
+</div>
+<p>The employed code is provided below:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">subprocess</span> <span class="kn">import</span> <span class="n">run</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;../&#39;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">python_utils</span> <span class="k">as</span> <span class="nn">utils</span>
+
+<span class="n">REPS</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">out_dir</span> <span class="o">=</span> <span class="s1">&#39;example/Train&#39;</span>
+
+<span class="sd">&#39;&#39;&#39; The out_dir should already exists with the following files:</span>
+<span class="sd">        - config1.yaml</span>
+<span class="sd">        - config_connections1.yaml</span>
+<span class="sd">        - config_weights1</span>
+<span class="sd">        - config_to_save1.yaml</span>
+<span class="sd">        - batches_dur.txt</span>
+
+<span class="sd">    These files should be initialized as indicated in the tutorials.</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="n">total_datapoints</span> <span class="o">=</span> <span class="mi">160</span>
+<span class="n">single_input_dur</span> <span class="o">=</span> <span class="mi">10</span>       <span class="c1"># seconds   change also in batches.txt</span>
+<span class="n">n_hidden</span> <span class="o">=</span> <span class="mi">8</span>               <span class="c1">#           change also in config1.yaml</span>
+
+<span class="n">high_inp</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">low_inp</span>  <span class="o">=</span> <span class="mi">30</span>
+<span class="n">high_out_fr</span> <span class="o">=</span> <span class="mi">15</span>            <span class="c1"># hertz</span>
+<span class="n">low_out_fr</span>  <span class="o">=</span> <span class="mi">5</span>
+<span class="n">noise_sigma</span> <span class="o">=</span> <span class="mf">0.1</span>
+
+<span class="n">time_shift</span>  <span class="o">=</span> <span class="mf">0.5</span>           <span class="c1"># seconds</span>
+<span class="n">time_window</span> <span class="o">=</span> <span class="mf">1.0</span>           <span class="c1"># seconds</span>
+
+<span class="k">for</span> <span class="nb">dir</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;specific_w&#39;</span><span class="p">,</span> <span class="s1">&#39;specific_Ie&#39;</span><span class="p">,</span> <span class="s1">&#39;desired_out&#39;</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">out_dir</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="nb">dir</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">):</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">out_dir</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="nb">dir</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">rep</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">REPS</span><span class="p">):</span>
+
+    <span class="n">res_dir</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;res</span><span class="si">{</span><span class="n">rep</span><span class="si">}</span><span class="s1">&#39;</span>
+
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">out_dir</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">res_dir</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">out_dir</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">res_dir</span><span class="si">}</span><span class="s1"> already exists&#39;</span><span class="p">)</span>
+        <span class="n">exit</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">out_dir</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">res_dir</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">out_dir</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">res_dir</span><span class="si">}</span><span class="s1">/log&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">str_line</span><span class="p">(</span><span class="n">ind</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+        <span class="n">str_i</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">ind</span><span class="p">)</span>
+        <span class="n">str_v</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">j</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">v</span> <span class="p">])</span>
+        <span class="k">return</span> <span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span> <span class="n">str_i</span><span class="p">,</span> <span class="n">str_v</span> <span class="p">])</span>
+
+    <span class="n">hist_acc</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="n">pbar</span> <span class="o">=</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">total_datapoints</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">data_point</span> <span class="ow">in</span> <span class="n">pbar</span><span class="p">:</span>
+        <span class="n">input_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+        <span class="c1"># print(f&#39;starting datapoint {data_point}  ({input_data})&#39;)</span>
+
+        <span class="c1"># setup data points</span>
+        <span class="n">outT</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">single_input_dur</span><span class="o">/</span><span class="n">time_shift</span><span class="p">))</span> <span class="o">+</span> <span class="n">low_out_fr</span><span class="o">*</span><span class="n">time_window</span>          <span class="c1"># out True</span>
+        <span class="n">outF</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">single_input_dur</span><span class="o">/</span><span class="n">time_shift</span><span class="p">))</span> <span class="o">+</span> <span class="n">low_out_fr</span><span class="o">*</span><span class="n">time_window</span>          <span class="c1"># out False</span>
+        <span class="k">if</span> <span class="n">input_data</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+            <span class="n">inp0</span> <span class="o">=</span> <span class="n">low_inp</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">noise_sigma</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">single_input_dur</span><span class="o">*</span><span class="mi">1000</span><span class="p">)</span>
+            <span class="n">inp1</span> <span class="o">=</span> <span class="n">low_inp</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">noise_sigma</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">single_input_dur</span><span class="o">*</span><span class="mi">1000</span><span class="p">)</span>
+            <span class="n">outF</span> <span class="o">=</span> <span class="n">outF</span> <span class="o">+</span> <span class="n">high_out_fr</span><span class="o">*</span><span class="n">time_window</span>
+            <span class="n">des_out</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="n">input_data</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span>
+            <span class="n">inp0</span> <span class="o">=</span> <span class="n">high_inp</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">noise_sigma</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">single_input_dur</span><span class="o">*</span><span class="mi">1000</span><span class="p">)</span>
+            <span class="n">inp1</span> <span class="o">=</span> <span class="n">low_inp</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">noise_sigma</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">single_input_dur</span><span class="o">*</span><span class="mi">1000</span><span class="p">)</span>
+            <span class="n">outT</span> <span class="o">=</span> <span class="n">outT</span> <span class="o">+</span> <span class="n">high_out_fr</span><span class="o">*</span><span class="n">time_window</span>
+            <span class="n">des_out</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">elif</span> <span class="n">input_data</span><span class="o">==</span><span class="mi">2</span><span class="p">:</span>
+            <span class="n">inp0</span> <span class="o">=</span> <span class="n">low_inp</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">noise_sigma</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">single_input_dur</span><span class="o">*</span><span class="mi">1000</span><span class="p">)</span>
+            <span class="n">inp1</span> <span class="o">=</span> <span class="n">high_inp</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">noise_sigma</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">single_input_dur</span><span class="o">*</span><span class="mi">1000</span><span class="p">)</span>
+            <span class="n">outT</span> <span class="o">=</span> <span class="n">outT</span> <span class="o">+</span> <span class="n">high_out_fr</span><span class="o">*</span><span class="n">time_window</span>
+            <span class="n">des_out</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">elif</span> <span class="n">input_data</span><span class="o">==</span><span class="mi">3</span><span class="p">:</span>
+            <span class="n">inp0</span> <span class="o">=</span> <span class="n">high_inp</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">noise_sigma</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">single_input_dur</span><span class="o">*</span><span class="mi">1000</span><span class="p">)</span>
+            <span class="n">inp1</span> <span class="o">=</span> <span class="n">high_inp</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">noise_sigma</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">single_input_dur</span><span class="o">*</span><span class="mi">1000</span><span class="p">)</span>
+            <span class="n">outF</span> <span class="o">=</span> <span class="n">outF</span> <span class="o">+</span> <span class="n">high_out_fr</span><span class="o">*</span><span class="n">time_window</span>
+            <span class="n">des_out</span> <span class="o">=</span> <span class="mi">1</span>
+
+        <span class="c1"># setting up input</span>
+        <span class="n">input_string</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="k">for</span> <span class="n">i_inp</span><span class="p">,</span> <span class="n">inp</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="n">inp0</span><span class="p">,</span> <span class="n">inp1</span><span class="p">]):</span>
+            <span class="n">input_string</span> <span class="o">+=</span> <span class="n">str_line</span><span class="p">(</span><span class="n">i_inp</span><span class="p">,</span> <span class="n">inp</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">out_dir</span><span class="si">}</span><span class="s1">/specific_Ie/L1.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">input_string</span><span class="p">)</span>
+
+        <span class="c1"># setting up output</span>
+        <span class="n">out_string</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="k">for</span> <span class="n">i_out</span><span class="p">,</span> <span class="n">out</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="n">outT</span><span class="p">,</span> <span class="n">outF</span><span class="p">]):</span>
+            <span class="n">out_string</span> <span class="o">+=</span> <span class="n">str_line</span><span class="p">(</span><span class="n">i_out</span><span class="p">,</span> <span class="n">out</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">out_dir</span><span class="si">}</span><span class="s1">/desired_out/L3.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">out_string</span><span class="p">)</span>
+
+        <span class="c1"># setting up weights</span>
+        <span class="k">if</span> <span class="n">data_point</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+            <span class="c1"># L1_to_L2</span>
+            <span class="n">temp_str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+            <span class="k">for</span> <span class="n">i_neur</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+                <span class="n">v_zero</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">15</span><span class="o">+</span><span class="mf">0.010</span><span class="p">,</span><span class="n">n_hidden</span><span class="p">))</span>
+                <span class="n">temp_str</span> <span class="o">+=</span> <span class="n">str_line</span><span class="p">(</span><span class="n">i_neur</span><span class="p">,</span><span class="n">v_zero</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">out_dir</span><span class="si">}</span><span class="s1">/specific_w/L1_to_L2.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">temp_str</span><span class="p">)</span>
+
+            <span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">out_dir</span><span class="si">}</span><span class="s1">/specific_w/L2.txt&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_hidden</span><span class="p">))</span>
+
+            <span class="c1"># L2_to_L3</span>
+            <span class="n">temp_str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+            <span class="k">for</span> <span class="n">i_neur</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_hidden</span><span class="p">):</span>
+                <span class="n">v_zero</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="o">+</span><span class="mf">0.010</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+                <span class="n">temp_str</span> <span class="o">+=</span> <span class="n">str_line</span><span class="p">(</span><span class="n">i_neur</span><span class="p">,</span><span class="n">v_zero</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">out_dir</span><span class="si">}</span><span class="s1">/specific_w/L2_to_L3.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">temp_str</span><span class="p">)</span>
+
+            <span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">out_dir</span><span class="si">}</span><span class="s1">/specific_w/L3.txt&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;cp </span><span class="si">{</span><span class="n">out_dir</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">res_dir</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">data_point</span><span class="o">-</span><span class="mi">1</span><span class="si">}</span><span class="s1">/specific_weights/L1_to_L2_</span><span class="si">{</span><span class="n">data_point</span><span class="o">-</span><span class="mi">1</span><span class="si">}</span><span class="s1">.txt </span><span class="si">{</span><span class="n">out_dir</span><span class="si">}</span><span class="s1">/specific_w/L1_to_L2.txt&#39;</span><span class="p">)</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;cp </span><span class="si">{</span><span class="n">out_dir</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">res_dir</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">data_point</span><span class="o">-</span><span class="mi">1</span><span class="si">}</span><span class="s1">/specific_weights/L2_to_L3_</span><span class="si">{</span><span class="n">data_point</span><span class="o">-</span><span class="mi">1</span><span class="si">}</span><span class="s1">.txt </span><span class="si">{</span><span class="n">out_dir</span><span class="si">}</span><span class="s1">/specific_w/L2_to_L3.txt&#39;</span><span class="p">)</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;cp </span><span class="si">{</span><span class="n">out_dir</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">res_dir</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">data_point</span><span class="o">-</span><span class="mi">1</span><span class="si">}</span><span class="s1">/specific_weights/L2_</span><span class="si">{</span><span class="n">data_point</span><span class="o">-</span><span class="mi">1</span><span class="si">}</span><span class="s1">.txt </span><span class="si">{</span><span class="n">out_dir</span><span class="si">}</span><span class="s1">/specific_w/L2.txt&#39;</span><span class="p">)</span>
+
+
+        <span class="n">training_string</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;&#39;&#39;t_end:                          </span><span class="si">{</span><span class="n">single_input_dur</span><span class="o">*</span><span class="mi">1000</span><span class="si">}</span><span class="s1">      # ms</span>
+<span class="s1">dt:                             1.   # ms</span>
+<span class="s1">n_step:                         1    # unused</span>
+<span class="s1">out_dir:                        </span><span class="si">{</span><span class="n">out_dir</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">res_dir</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">data_point</span><span class="si">}</span><span class="s1"></span>
+<span class="s1">training_config_yaml:           </span><span class="si">{</span><span class="n">out_dir</span><span class="si">}</span><span class="s1">/config_training1.yaml</span>
+<span class="s1">subnets_config_yaml:            </span><span class="si">{</span><span class="n">out_dir</span><span class="si">}</span><span class="s1">/config1.yaml</span>
+<span class="s1">weights_config_yaml:            </span><span class="si">{</span><span class="n">out_dir</span><span class="si">}</span><span class="s1">/config_weights1.yaml</span>
+<span class="s1">connections_config_yaml:        </span><span class="si">{</span><span class="n">out_dir</span><span class="si">}</span><span class="s1">/config_connections1.yaml</span>
+<span class="s1">to_save_config_yaml:            </span><span class="si">{</span><span class="n">out_dir</span><span class="si">}</span><span class="s1">/config_to_save1.yaml</span>
+<span class="s1">input_mode:                     0   # unused</span>
+<span class="s1">input_mode_config:              unused</span>
+<span class="s1">train:                          true</span>
+<span class="s1">repeat_specific_I_e:            1</span>
+<span class="s1">&#39;&#39;&#39;</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">out_dir</span><span class="si">}</span><span class="s1">/training.yaml&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">training_string</span><span class="p">)</span>
+
+        <span class="n">config_training_string</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;&#39;&#39;epoch:                   </span><span class="si">{</span><span class="n">data_point</span><span class="si">}</span><span class="s1"></span>
+<span class="s1">dur_batches_path:        </span><span class="si">{</span><span class="n">out_dir</span><span class="si">}</span><span class="s1">/batches_dur.txt</span>
+<span class="s1">window_res:              </span><span class="si">{</span><span class="n">time_window</span><span class="o">*</span><span class="mi">1000</span><span class="si">}</span><span class="s1"></span>
+<span class="s1">step_res:                </span><span class="si">{</span><span class="n">time_shift</span><span class="o">*</span><span class="mi">1000</span><span class="si">}</span><span class="s1"></span>
+<span class="s1">w_cut:                   100.</span>
+<span class="s1">POT:                     1</span>
+<span class="s1">error_lin_coeff:         0.</span>
+<span class="s1">prob_noise:              0.</span>
+<span class="s1">amp_noise:               0.</span>
+<span class="s1">l_decay:                 0.</span>
+<span class="s1">l_rate0:                 </span><span class="si">{</span><span class="mf">0.5</span><span class="o">*</span><span class="mi">50</span><span class="si">}</span><span class="s1"></span>
+<span class="s1">l_rate0_curr:            </span><span class="si">{</span><span class="mi">50</span><span class="si">}</span><span class="s1">  # </span><span class="si">{</span><span class="mf">0.5</span><span class="o">*</span><span class="mi">5</span><span class="si">}</span><span class="s1"></span>
+<span class="s1">optimization_method:     SGD</span>
+<span class="s1">momentum_w:              </span><span class="si">{</span><span class="mf">0.</span><span class="si">}</span><span class="s1"></span>
+<span class="s1">momentum_c:              </span><span class="si">{</span><span class="mf">0.</span><span class="si">}</span><span class="s1"></span>
+<span class="s1">momentum2_w:             </span><span class="si">{</span><span class="mf">0.95</span><span class="si">}</span><span class="s1">     # used only in ADAM</span>
+<span class="s1">momentum2_c:             </span><span class="si">{</span><span class="mf">0.95</span><span class="si">}</span><span class="s1">     # used only in ADAM</span>
+<span class="s1">correct_l_rates:         [ 1., 1. ]</span>
+<span class="s1">dF_dI_app:               </span><span class="si">{</span><span class="mf">0.002</span><span class="si">}</span><span class="s1"></span>
+<span class="s1">dF_dI_no_act_fact:       </span><span class="si">{</span><span class="mf">0.1</span><span class="si">}</span><span class="s1"></span>
+<span class="s1">epsilon_zero_act:        0.1</span>
+<span class="s1">a_desid_zero:            0.</span>
+<span class="s1">c_desid_zero:            1.</span>
+<span class="s1">n_quant:                 -1.</span>
+<span class="s1">quant_delta_weight_neg:  0.</span>
+<span class="s1">quant_delta_weight_pos:  0.</span>
+<span class="s1">&#39;&#39;&#39;</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">out_dir</span><span class="si">}</span><span class="s1">/config_training1.yaml&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">config_training_string</span><span class="p">)</span>
+
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">out_dir</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">res_dir</span><span class="si">}</span><span class="s1">/log/std_out_</span><span class="si">{</span><span class="n">data_point</span><span class="si">}</span><span class="s1">.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f_out</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">out_dir</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">res_dir</span><span class="si">}</span><span class="s1">/log/std_err_</span><span class="si">{</span><span class="n">data_point</span><span class="si">}</span><span class="s1">.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f_err</span><span class="p">:</span>
+                <span class="n">run</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;./main </span><span class="si">{</span><span class="n">out_dir</span><span class="si">}</span><span class="s1">/training.yaml&#39;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">f_out</span><span class="p">,</span> <span class="n">stderr</span><span class="o">=</span><span class="n">f_err</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="n">sim</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">SpikeSim</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">out_dir</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">res_dir</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">data_point</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;training.yaml&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">neglect_t_end</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">config_fname</span><span class="o">=</span><span class="s1">&#39;config1.yaml&#39;</span> <span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sim</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;L3&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span><span class="o">&gt;</span><span class="nb">len</span><span class="p">(</span><span class="n">sim</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;L3&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">]):</span>
+            <span class="n">most_active</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">most_active</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">most_active</span><span class="o">==</span><span class="n">des_out</span><span class="p">:</span>
+            <span class="n">hist_acc</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">hist_acc</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+        <span class="n">pbar</span><span class="o">.</span><span class="n">set_description</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;rep </span><span class="si">{</span><span class="n">rep</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">REPS</span><span class="si">}</span><span class="s1"> -- accuracy (mean 20): </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">hist_acc</span><span class="p">[</span><span class="o">-</span><span class="mi">20</span><span class="p">:])</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+    <span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">out_dir</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">res_dir</span><span class="si">}</span><span class="s1">/hist_acc.txt&#39;</span><span class="p">,</span> <span class="n">hist_acc</span><span class="p">)</span>
+    <span class="n">mean_hist</span> <span class="o">=</span> <span class="mi">20</span>
+    <span class="n">hist_acc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">hist_acc</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">mean_hist</span><span class="p">)</span><span class="o">/</span><span class="n">mean_hist</span><span class="p">,</span> <span class="s1">&#39;valid&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hist_acc</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;presented data points&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;accuracy (average across </span><span class="si">{</span><span class="n">mean_hist</span><span class="si">}</span><span class="s1"> data points)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Please set up the configuration files <code class="docutils literal notranslate"><span class="pre">subnets_config_yaml</span></code>, <code class="docutils literal notranslate"><span class="pre">weights_config_yaml</span></code>, <code class="docutils literal notranslate"><span class="pre">connections_config_yaml</span></code>, <code class="docutils literal notranslate"><span class="pre">to_save_config_yaml</span></code>, <code class="docutils literal notranslate"><span class="pre">batches_dur_file</span></code> in the output directory <code class="docutils literal notranslate"><span class="pre">src/build/example/Train</span></code> and run this code from the <code class="docutils literal notranslate"><span class="pre">build</span></code> to replicate the experiment.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="setup.html" class="btn btn-neutral float-left" title="Setup" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="api/index.html" class="btn btn-neutral float-right" title="Code documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Andrea Ortone.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

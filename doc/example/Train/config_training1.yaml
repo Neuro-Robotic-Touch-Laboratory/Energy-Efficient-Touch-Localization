@@ -1,0 +1,27 @@
+epoch:                   0
+dur_batches_path:        example_config/Train/batches_dur.txt
+window_res:              1000.0
+step_res:                500.0
+w_cut:                   100.
+POT:                     1
+error_lin_coeff:         0.
+prob_noise:              0.
+amp_noise:               0.
+l_decay:                 0.
+l_rate0:                 25.0
+l_rate0_curr:            50  # 2.5
+optimization_method:     SGD
+momentum_w:              0.0
+momentum_c:              0.0
+momentum2_w:             0.95     # used only in ADAM
+momentum2_c:             0.95     # used only in ADAM
+correct_l_rates:         [ 1., 1. ]
+dF_dI_app:               0.002
+dF_dI_no_act_fact:       0.1
+epsilon_zero_act:        0.1
+a_desid_zero:            0.
+c_desid_zero:            1.
+n_quant:                 -1.
+quant_delta_weight_neg:  0.
+quant_delta_weight_pos:  0.
+    
