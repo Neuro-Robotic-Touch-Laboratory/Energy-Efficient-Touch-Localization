@@ -2,6 +2,8 @@
 
 XXX links
 
+This repository contains the code used to conduct the experiments detailed in the paper: "Bioinspired Spiking Architecture Enables Energy-Constrained Touch Encoding".
+
 ### Overview
 This repo includes code for:
 1. simulating Spiking Neural Network (SNN);
