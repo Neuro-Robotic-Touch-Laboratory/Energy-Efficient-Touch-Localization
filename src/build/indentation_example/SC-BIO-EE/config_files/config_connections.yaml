@@ -1,0 +1,19 @@
+# Connections probabilities and delays FROM "name"
+- name:         L1
+  L2:             1.
+  L2_delay:       2.
+  L2_file:        indentation_example/SC-BIO-EE/weights_currs/weights12.txt
+  L2_train:       false
+  L2_quant_alpha: -1
+  L3:             1.
+  L3_delay:       2.
+  L3_file:        indentation_example/SC-BIO-EE/weights_currs/weights13.txt
+  L3_train:       false
+  L3_quant_alpha: -1
+
+- name:         L2
+  L3:             1.
+  L3_delay:       2.
+  L3_file:        indentation_example/SC-BIO-EE/weights_currs/weights23.txt
+  L3_train:       false
+  L3_quant_alpha: -1

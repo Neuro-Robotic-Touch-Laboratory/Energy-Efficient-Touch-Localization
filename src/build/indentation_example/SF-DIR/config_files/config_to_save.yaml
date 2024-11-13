@@ -1,0 +1,3 @@
+# list of the neurons whose state is to be saved at each time step
+- L1:     [0]
+- L2:     [0]

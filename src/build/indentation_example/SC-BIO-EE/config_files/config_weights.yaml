@@ -1,0 +1,12 @@
+# weights of connections TO :name:
+- name:         L1
+  ext:          2.
+
+- name:         L2
+  L1:           none
+  ext:          2.
+
+- name:         L3
+  L1:           none
+  L2:           none
+  ext:          2.

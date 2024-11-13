@@ -264,3 +264,30 @@ class SpikeSim:
                 MActPerN.append(0)
 
         return {self.subnets[i] : [ MAct[i], Ns[i], MActPerN[i] ] for i in range(len(self.subnets))}
+
+
+
+
+def cartesian_to_cilindric(x,y,z, xv=0.,yv=-50.):
+    r = np.sqrt((x-xv)**2+(y-yv)**2)
+
+    if y>yv:                        # I/II quad (I:[0,pi/2], II:[pi/2,pi])
+        if abs(x-xv) < 1e-8:
+            theta = 1/2*np.pi
+        else:
+            theta = np.arctan((y-yv)/(x-xv))
+
+        if theta<0:
+            theta = np.pi+theta
+
+        return r,theta,z
+    else:                           # III/IV quad (III:[pi,3pi/2], IV:[-pi/2,0])
+        if abs(x-xv) < 1e-8:
+            theta = 3/2*np.pi
+        else:
+            theta = np.arctan((y-yv)/(x-xv))
+
+        if theta>0:
+            theta = np.pi+theta
+
+        return r,theta,z

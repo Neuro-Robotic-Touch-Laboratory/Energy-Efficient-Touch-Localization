@@ -1,0 +1,13 @@
+t_end:                          7000  # ms  assuming 1. millisecond as resolution
+dt:                             1.   # ms
+n_step:                         10
+out_dir:                        indentation_example/SC-BIO-EE/sim
+training_config_yaml:           none
+subnets_config_yaml:            indentation_example/SC-BIO-EE/config_files/config.yaml
+weights_config_yaml:            indentation_example/SC-BIO-EE/config_files/config_weights.yaml
+connections_config_yaml:        indentation_example/SC-BIO-EE/config_files/config_connections.yaml
+to_save_config_yaml:            indentation_example/SC-BIO-EE/config_files/config_to_save.yaml
+input_mode:                     0               # not used
+input_mode_config:              unused
+train:                          false           # handles evolve_only
+repeat_specific_I_e:            10

@@ -1,0 +1,6 @@
+text.usetex: True
+font.size: 18 # 10 per activity
+font.family: "serif"
+lines.linewidth: 0.8
+savefig.dpi: 600
+savefig.bbox: tight

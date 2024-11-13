@@ -1,0 +1,7 @@
+# Connections probabilities and delays FROM "name"
+- name:         L1
+  L2:             1.
+  L2_delay:       2.
+  L2_file:        indentation_example/SF-DIR/weights_currs/weights12.txt
+  L2_train:       false
+  L2_quant_alpha: -1
