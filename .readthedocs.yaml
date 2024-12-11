@@ -9,3 +9,12 @@ build:
   os: ubuntu-24.04
   tools:
     python: "3.9"
+
+# sphinx configuration
+sphinx:
+  configuration: doc/conf.py
+
+# python
+python:
+  install:
+    - requirements: requirements.txt
