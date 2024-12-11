@@ -5,7 +5,7 @@ Examples
 
 This page demonstrates two examples of how the implemented code can be used:
 
-- :ref:`Simulation of SNN`: a network of adaptive LIF neurons is simulated for 10 seconds.
+- :ref:`Simulation of SNN`: a network consisting of two populations of adaptive LIF neurons is simulated over a duration of 10 seconds.
 - :ref:`Training of SNN`: a three-layer spiking neural network (SNN) with LIF neurons is trained to solve the XOR problem.
 
 The configuration files required to run these examples are provided in the ``src/build`` and ``src/build/example`` directories.
