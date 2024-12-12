@@ -45,7 +45,7 @@ string join_and_correct_config(string conf, string dest);
 /// Function computing the CDF of the poissonian distribution (with some approximations)
 double poissonian_CDF(unsigned x, double mu);
 
-/// Function counting the spike number of spikes of v_t in time windows of half-width half_w with "stride" equal tostep_res.
+/// Function counting the spike number of spikes of v_t in time windows of half-width half_w with "stride" equal to step_res.
 void count_spikes(vector<unsigned> & v_out, vector<double> & v_t, unsigned lenght, double step_res, double half_w, double dur, double tt0 );
 
 
@@ -96,9 +96,11 @@ public:
     /// First outwards neighbors weight.
     /// A dictionary is implemetnted with format: {target SubNetwork index : list of weights (corresponding to the neuron-index stored in neighbors)}
     map<unsigned, vector<double>>   neighbors_out_weights;
-    /// Auxiliary variables for momentum and ADAM optimezers.
-    /// A dictionary is implemetnted with format: {target SubNetwork index : list of weights (corresponding to the neuron-index stored in neighbors)}
+    /// Auxiliary variable1 for momentum and ADAM optimezers.
+    /// A dictionary is implemetnted with format: {target SubNetwork index : list of auxiliary variable1 (corresponding to the neuron-index stored in neighbors)}
     map<unsigned, vector<double>>   weight_aux1; // neighbors_out_delta_weights;
+    /// Auxiliary variable2 for the ADAM optimezer.
+    /// A dictionary is implemetnted with format: {target SubNetwork index : list of auxiliary variable2 (corresponding to the neuron-index stored in neighbors)}
     map<unsigned, vector<double>>   weight_aux2;
 
     /// Cumulative update weight (used only in case of training with quantized weights: alpha_quantized_weights>0)
@@ -124,15 +126,16 @@ public:
     /// Vector of the neuron spike times [ms]
     vector<double>                  t_spikes;
 
-    // Specific external current bool
+    /// Defines whether the subnetwork receive specific external current or not (if true, the vector #specific_I_e is used to store the specific currents)
     bool                            specific_I_e_bool;
-    // Specific external current vector
+    /// Specific external current vector (used only if #specific_I_e_bool is true)
     vector<double>                  specific_I_e;
 
-    // Offset in external current (acts in both specific or general I_e)
+    /// Offset in external current (acts in both specific or general I_e)
     double                          offset_I_e;
-    // Auxiliary variables for momentum and ADAM optimezers.
+    /// Auxiliary variable1 for momentum and ADAM optimezers.
     double                          offset_aux1;  // delta_offset_I_e
+    /// Auxiliary variable2 for the ADAM optimezer.
     double                          offset_aux2;
 
     /// Vector containing the desired number of spikes for each time interval, if provided
@@ -339,8 +342,7 @@ public:
                double _osc_amp_poiss, double _osc_omega_poiss,                        \
                double _tau_syn_ex, double _tau_syn_in, RandomGenerator _g);
 
-    /// Method which save Neuron::t_spikes of each Neuron in #pop
-    /// \param out_file output file XXX scrivi come viene stampato
+    /// Method which saves Neuron::t_spikes of each Neuron in #pop
     void save_t_spikes(string out_file);
 
     /// Method printing a list of the attributes and their value
@@ -479,7 +481,7 @@ public:
                                                   {"iaf_curr_alpha", false}, {"aeif_curr_exp", true}, {"aqif_curr_exp", true},                           {"iaf_curr_exp", false}, \
                                                   {"parrot_neuron",  false}   };
 
-    /// Class constructor  // XXX handle errors in createSubnet
+    /// Class constructor
     Network(double _t_end, double _dt, unsigned _input_mode, string _subnets_config_yaml, string _weights_config_yaml, \
         string _connections_config_yaml, string _to_save_config_yaml, string _training_config_yaml,  \
         string _out_dir, RandomGenerator _g, string _input_mode_config, unsigned _n_step, unsigned _repeat_specific_I_e, bool evolve_only);

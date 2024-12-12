@@ -732,7 +732,7 @@ Network::Network(double _t_end, double _dt, unsigned _input_mode, string _subnet
     else {
         set_up_training();
         info_training();
-        /// XXXA
+        // XXXA
         // int STOP_AFTER_ind =0;
         for (auto T : dur_batches) {
             // cout << "evolving starting from " << t << " to " <<  t+T << endl;
@@ -740,7 +740,7 @@ Network::Network(double _t_end, double _dt, unsigned _input_mode, string _subnet
             // cout << "training starting from " << t-T << " to " <<  t << endl;
             train(T);
             free_past();
-            /// XXXA
+            // XXXA
             // STOP_AFTER_ind+=1;
             // if (STOP_AFTER_ind == 5) break;
         }
@@ -974,7 +974,7 @@ void Network::createSubnets(bool evolve_only) {
                         if (j.second.as<string>()!="none") {        // if different (!) from "none"
                             // general weights
 
-                            /// initialize specific_in_weight and specific_out_weight
+                            // initialize specific_in_weight and specific_out_weight
                             k->specific_in_weight[population_id] = false;
                             if (population_id!=UINT_MAX) subnets[population_id].specific_out_weight[k->id_subnet] = false;
 
@@ -1231,7 +1231,7 @@ void Network::load_specific_currents_and_offsets() {
                 }
             }
             else {
-                parse_external_current( k->pop, k->specific_I_e_file, floor(t_end/(dt*repeat_specific_I_e)) );      // XXX floor or floor+1?
+                parse_external_current( k->pop, k->specific_I_e_file, floor(t_end/(dt*repeat_specific_I_e)) );
             }
         }
     } catch (...) {
@@ -1324,17 +1324,6 @@ double Network::find_sol_bisection(double y_, double r0_, double A_, double omeg
 
 // INTEGRATORS with EULER METHOD: XXX check overflow if necessary...
 
-// void integrator_iaf_cond_alpha(const state_type_iaf_cond_alpha &x, state_type_iaf_cond_alpha &dxdt, const double t,          \
-//         double s_C_m, double s_g_L, double s_E_L, double s_E_ex, double s_E_in, double s_I_e, double s_osc_amp, double s_osc_omega, \
-//         double s_tau_syn_ex, double s_tau_syn_in) {
-//     dxdt[0] = 1/s_C_m * ( - s_g_L*(x[0]-s_E_L) - x[1]*(x[0]-s_E_ex) - x[3]*(x[0]-s_E_in) + s_I_e \
-//                           + s_osc_amp*sin(s_osc_omega*t) );                                             // membrain potential
-//     dxdt[1] = -x[1]/s_tau_syn_ex + x[2];                                                                // excitatory syn conductance
-//     dxdt[2] = -x[2]/s_tau_syn_ex;                                                                       // excitatory backup variable
-//     dxdt[3] = -x[3]/s_tau_syn_in + x[4];                                                                // inhibitory syn conductance
-//     dxdt[4] = -x[4]/s_tau_syn_in;                                                                       // inhibitory backup variable
-// }
-
 void euler_step_iaf_cond_alpha(vector<double> &x, double t, double dt, \
         double s_C_m, double s_g_L, double s_E_L, double s_E_ex, double s_E_in, double s_I_e, double s_osc_amp, double s_osc_omega, \
         double s_tau_syn_ex, double s_tau_syn_in) {
@@ -1396,16 +1385,6 @@ void euler_step_aeif_curr_exp(vector<double> &x, double t, double dt, \
     x[3] += (-x[3]/s_tau_w + s_a/s_tau_w * (init[0]-s_E_L)) * dt;                                          // adaptation variable
 }
 
-// void integrator_aqif_cond_exp(const state_type_aqif_cond_exp &x, state_type_aqif_cond_exp &dxdt, const double t,             \
-//         double s_C_m, double s_k, double s_E_L, double s_E_ex, double s_E_in, double s_I_e, double s_osc_amp, double s_osc_omega,   \
-//         double s_tau_syn_ex, double s_tau_syn_in, double s_V_th, double s_a, double s_tau_w) {
-//     dxdt[0] = 1/s_C_m * ( s_k*(x[0]-s_E_L)*(x[0]-s_V_th) - x[1]*(x[0]-s_E_ex) - x[2]*(x[0]-s_E_in) \
-//                         - x[3] + s_I_e + s_osc_amp*sin(s_osc_omega*t) );                                // membrain potential
-//     dxdt[1] = -x[1]/s_tau_syn_ex;                                                                       // excitatory syn conductance
-//     dxdt[2] = -x[2]/s_tau_syn_in;                                                                       // inhibitory syn conductance
-//     dxdt[3] = -x[3]/s_tau_w + s_a/s_tau_w * (x[0]-s_E_L);                                               // adaptation variable
-// }
-
 void euler_step_aqif_cond_exp(vector<double> &x, double t, double dt, \
         double s_C_m, double s_k, double s_E_L, double s_E_ex, double s_E_in, double s_I_e, double s_osc_amp, double s_osc_omega,   \
         double s_tau_syn_ex, double s_tau_syn_in, double s_V_th, double s_a, double s_tau_w) {
@@ -1432,19 +1411,6 @@ void euler_step_aqif_curr_exp(vector<double> &x, double t, double dt, \
     x[3] += (-x[3]/s_tau_w + s_a/s_tau_w * (init[0]-s_E_L)) * dt;                                          // adaptation variable
 }
 
-
-// XXX these could be delated...
-// void integrator_aqif2_cond_exp(const state_type_aqif_cond_exp &x, state_type_aqif_cond_exp &dxdt, const double t,             \
-//         double s_C_m, double s_k, double s_E_L, double s_E_ex, double s_E_in, double s_I_e, double s_osc_amp, double s_osc_omega,    \
-//         double s_tau_syn_ex, double s_tau_syn_in, double s_V_th, double s_a, double s_tau_w, double s_V_b) {
-//     dxdt[0] = 1/s_C_m * ( s_k*(x[0]-s_E_L)*(x[0]-s_V_th) - x[1]*(x[0]-s_E_ex) \
-//                           - x[2]*(x[0]-s_E_in) - x[3] + s_I_e + s_osc_amp*sin(s_osc_omega*t) );         // membrain potential
-//     dxdt[1] = -x[1]/s_tau_syn_ex;                                                                       // excitatory syn conductance
-//     dxdt[2] = -x[2]/s_tau_syn_in;                                                                       // inhibitory syn conductance
-//     if (x[0] < s_V_b)   dxdt[3] = -x[3]/s_tau_w + s_a/s_tau_w * pow((x[0]-s_V_b),3);
-//     else                dxdt[3] = -x[3]/s_tau_w;                                                        // adaptation variable
-// }
-
 void euler_step_aqif2_cond_exp(vector<double> &x, double t, double dt, \
         double s_C_m, double s_k, double s_E_L, double s_E_ex, double s_E_in, double s_I_e, double s_osc_amp, double s_osc_omega,    \
         double s_tau_syn_ex, double s_tau_syn_in, double s_V_th, double s_a, double s_tau_w, double s_V_b) {
@@ -1458,15 +1424,6 @@ void euler_step_aqif2_cond_exp(vector<double> &x, double t, double dt, \
     if (init[0] < s_V_b)   x[3] += (-x[3]/s_tau_w + s_a/s_tau_w * pow((init[0]-s_V_b),3)) * dt;
     else                   x[3] += (-x[3]/s_tau_w) * dt;                                                     // adaptation variable
 }
-
-// void integrator_iaf_cond_exp(const state_type_iaf_cond_exp &x, state_type_iaf_cond_exp &dxdt, const double t,                  \
-//         double s_C_m, double s_g_L, double s_E_L, double s_E_ex, double s_E_in, double s_I_e, double s_osc_amp, double s_osc_omega,   \
-//         double s_tau_syn_ex, double s_tau_syn_in) {
-//     dxdt[0] = 1/s_C_m * ( -s_g_L*(x[0]-s_E_L) - x[1]*(x[0]-s_E_ex) - x[2]*(x[0]-s_E_in) + s_I_e \
-//                           + s_osc_amp*sin(s_osc_omega*t) );                                             // membrain potential
-//     dxdt[1] = -x[1]/s_tau_syn_ex;                                                                       // excitatory syn conductance
-//     dxdt[2] = -x[2]/s_tau_syn_in;                                                                       // inhibitory syn conductance
-// }
 
 void euler_step_iaf_cond_exp(vector<double> &x, double t, double dt, \
         double s_C_m, double s_g_L, double s_E_L, double s_E_ex, double s_E_in, double s_I_e, double s_osc_amp, double s_osc_omega,   \
@@ -1490,7 +1447,7 @@ void euler_step_iaf_curr_exp(vector<double> &x, double t, double dt, \
 
 }
 
-/// parrot neuron evolve
+// parrot neuron evolve
 void euler_step_parrot_neuron(vector<double> &x, double t, double dt, \
         double v_thr, vector<double> &parrot_spikes ) {
     if (parrot_spikes.size()>0) {
@@ -1504,6 +1461,7 @@ void euler_step_parrot_neuron(vector<double> &x, double t, double dt, \
     // x[1] = 0;                                                                                           // excitatory syn current  (not used)
     // x[2] = 0;                                                                                           // inhibitory syn current  (not used)
 }
+
 
 void Network::evolve(double _T) {
 
@@ -1617,12 +1575,7 @@ void Network::evolve(double _T) {
                       exit(1);
                   }
 
-                // /// TEMPORARY modification
-                // for (unsigned d=0; d<(k->pop[i]).dim; d++) {
-                //     (k->pop[i]).x[d] += 2 * (g.getRandomUniform()-0.5);
-                // }
-
-                /// XXX correct here and above; insert it in the euler_integration functions; consider the possibility of passing init also in order to not initialize it...
+                // XXX you could improve here and above: insert it in the euler_integration functions; consider the possibility of passing init also in order to not initialize it...
                 if (isnan((k->pop)[i].x[0]) || abs(V_before - (k->pop)[i].x[0]) > 150. ) {
                     // if (k->id_model == 2 || k->id_model == 3 || k->id_model ==4) {
                     if (true) {
@@ -1637,7 +1590,7 @@ void Network::evolve(double _T) {
 
                 for (auto item : (k->pop)[i].input_t_ex) {
                     if ((k->pop)[i].next_sp_ex_index[item.first] == item.second.size()) continue;
-                    // questo caso sopra forse inutile, ma non fa male
+                    // this case should never occur, but it is better to check it
 
                     if (t > item.second[(k->pop)[i].next_sp_ex_index[item.first]]) {
                         // zzz
@@ -2050,15 +2003,9 @@ unsigned Network::compute_gen_error( int t_order, unsigned lenght, double dur ) 
     vector<double>              zero_error(lenght, 0);
     double                      sum, sum_2;
     double                      dF_dI;
-    // // XXXA
-    // cout << "\tcompute_gen_error " << t_order << endl;
     for (unsigned k=0; k<subnets.size(); k++) {
 
         if ( subnets[k].train_order == t_order ) {
-            // // XXXA
-            // cout << "\t\t " << subnets[k].name << "  " << subnets[k].train_order << endl;
-
-            // compute the error of the OUTPUT LAYER
             if ( k==ord_target_subnets[0] ) {
                 computed_errors += 1;
                 subnets[k].errors_computed = true;
@@ -2079,9 +2026,6 @@ unsigned Network::compute_gen_error( int t_order, unsigned lenght, double dur ) 
 
                     sum = 0;
                     sum_2 = 0;
-                    // compute E[desidered, actual]      (actual=(subnets[output_pop_id].pop)[i].R_actual)
-                    // /// XXXA
-                    // ofstream                    time_error_file( (out_dir + "/errors/" + "time_e_"+to_string(current_epoch)+".txt").c_str(), ios::app );
 
                     c_des = (c_desid_zero<0) ? (subnets[output_pop_id].pop)[i].optimal_c_desid_zero : c_desid_zero;
                     for (unsigned j=0; j<lenght; j++) {
@@ -2090,7 +2034,7 @@ unsigned Network::compute_gen_error( int t_order, unsigned lenght, double dur ) 
                             (subnets[output_pop_id].pop)[i].error[j] = 0;
                         }
                         else {
-                            /// MODIFICATION: modulation of external input
+                            // MODIFICATION: modulation of the error
                             // factor = (1-c)/( 1+ pow(M_E, -a*( (*(iterator+j))-b )) ) + c;
                             factor = 1. - (1.-c_des)*pow( M_E, -a_desid_zero* (*(iterator+j)) );
                             (subnets[output_pop_id].pop)[i].error[j] = - norm_factor*pow(0.5 - poissonian_CDF( (subnets[output_pop_id].pop)[i].R_actual[j], *(iterator+j) ), POT) * ( factor )  + error_lin_coeff * ( (subnets[output_pop_id].pop)[i].R_actual[j] - *(iterator+j)  ) ;
@@ -2099,8 +2043,6 @@ unsigned Network::compute_gen_error( int t_order, unsigned lenght, double dur ) 
                         }
                         sum += abs( (subnets[output_pop_id].pop)[i].error[j] );
                         sum_2+= abs( (subnets[output_pop_id].pop)[i].R_actual[j] - (*(iterator+j)) );
-                        // /// XXXA
-                        // time_error_file << sum_2  << " " << (subnets[output_pop_id].pop[i]).R_actual[j] << " "<< *(iterator+j) << " " << (subnets[output_pop_id].pop)[i].error[j] << endl;
                     }
                     error_file << i << " " << sum/dur*1000 << " " << sum_2 << endl;
 
@@ -2144,19 +2086,6 @@ unsigned Network::compute_gen_error( int t_order, unsigned lenght, double dur ) 
                     }
                 }
             }
-            // // compute the "generalized" error of the LAYER L-1
-            // // generalized_error = sum_o w_oh E_o : assuming that each presyn neuron is connected to all post_syn neurons
-            // else if ( subnets[k].id_subnet==one_pop_id ) {
-            //     for (unsigned i=0; i<subnets[one_pop_id].N; i++) {
-            //         (subnets[one_pop_id].pop)[i].error = zero_error;
-            //         for (unsigned j=0; j<lenght; j++) {
-            //             for (unsigned i_out=0; i_out<subnets[output_pop_id].N; i_out++) {
-            //                 //                                                          UPDATED w_oh                            *   E_o
-            //                 (subnets[one_pop_id].pop)[i].error[j] +=  (subnets[one_pop_id].pop)[i].neighbors_out_weights[output_pop_id][i_out] * (subnets[output_pop_id].pop)[i_out].error[j];
-            //             }
-            //         }
-            //     }
-            // } // end if pop_id==one_pop_id
         }
     } // end for over subnets
     return computed_errors;
@@ -2175,7 +2104,7 @@ double Network::get_quant_weight_delta( double w_quant, double w_cum ) {
 }
 
 
-/// using original weights to compute the errors of hidden layers (correct gradient descent)
+// using original weights to compute the errors of hidden layers (correct gradient descent)
 void Network::train( double dur ) {         // dur:     batch duration
 
     unsigned                    lenght=floor(dur/step_res);
@@ -2292,7 +2221,7 @@ void Network::train( double dur ) {         // dur:     batch duration
                                 sum = sum*tau;
 
                                 switch(optimization_method_id) {
-                                    case 0:     // SGD   unchanged
+                                    case 0:     // SGD
                                         if (momentum_w>0.) {
                                             if (t>dur) {
                                                 // in case we dont save the momentum in a specific file, at batch zero we use sum directly
@@ -2328,28 +2257,17 @@ void Network::train( double dur ) {         // dur:     batch duration
                                         subnets[id_it->first].pop[i_pre].weight_aux1[subnets[k].id_subnet][i] = (1-momentum_w) *sum     + momentum_w *subnets[id_it->first].pop[i_pre].weight_aux1[subnets[k].id_subnet][i];
                                         subnets[id_it->first].pop[i_pre].weight_aux2[subnets[k].id_subnet][i] = (1-momentum2_w)*sum*sum + momentum2_w*subnets[id_it->first].pop[i_pre].weight_aux2[subnets[k].id_subnet][i];
                                         sum = subnets[id_it->first].pop[i_pre].weight_aux1[subnets[k].id_subnet][i] / ( sqrt(subnets[id_it->first].pop[i_pre].weight_aux2[subnets[k].id_subnet][i]) + EPSILON );
-                                        // if (t-EPSILON<dur*DO_NOT_TRAIN_IN_FIRST_BATCHES) {
-                                        //     sum = 0;
-                                        // }
-                                        // else {
-                                        //     sum = subnets[id_it->first].pop[i_pre].weight_aux1[subnets[k].id_subnet][i] / ( sqrt(subnets[id_it->first].pop[i_pre].weight_aux2[subnets[k].id_subnet][i]) + EPSILON );
-                                        // }
+                                        if (t-EPSILON<dur*DO_NOT_TRAIN_IN_FIRST_BATCHES) {
+                                            sum = 0;
+                                        }
+                                        else {
+                                            sum = subnets[id_it->first].pop[i_pre].weight_aux1[subnets[k].id_subnet][i] / ( sqrt(subnets[id_it->first].pop[i_pre].weight_aux2[subnets[k].id_subnet][i]) + EPSILON );
+                                        }
                                         break;
                                     default:
                                         cerr << "optimization method id not supported" << endl;
                                         exit(1);
                                  }
-
-
-                                // momentum
-
-                                // if (momentum_w>0.) {
-                                //     if (t>dur) {
-                                //         // in case we dont save the momentum in a specific file, at batch zero we use sum directly
-                                //         sum = ( sum + momentum_w*subnets[id_it->first].pop[i_pre].neighbors_out_delta_weights[subnets[k].id_subnet][i] );
-                                //     }
-                                //     subnets[id_it->first].pop[i_pre].neighbors_out_delta_weights[subnets[k].id_subnet][i] = sum;
-                                // }
 
                                 sum = -sum*l_rate0*correct_l_rates[current_t_order];
 
@@ -2364,7 +2282,7 @@ void Network::train( double dur ) {         // dur:     batch duration
                                     TEMP_dw[i_pre] = sum \
                                                      - decay_factor*l_decay*subnets[id_it->first].pop[i_pre].neighbors_out_weights[subnets[k].id_subnet][i];
                                 }
-                                /// apply weight update
+                                // apply weight update
                                 if ((subnets[id_it->first]).alpha_quantized_weights[subnets[k].id_subnet]>0) {
                                     // quantized training
                                     (subnets[id_it->first]).pop[i_pre].weight_quant_cumul[subnets[k].id_subnet][i] += TEMP_dw[i_pre];
@@ -2398,7 +2316,7 @@ void Network::train( double dur ) {         // dur:     batch duration
                                     subnets[id_it->first].pop[i_pre].neighbors_out_weights[subnets[k].id_subnet][i] *= sum;
                                 }
 
-                                /// MODIFICATION w_min/w_max
+                                // w_min/w_max
                                 if (subnets[id_it->first].pop[i_pre].neighbors_out_weights[subnets[k].id_subnet][i] < subnets[id_it->first].w_min) {
                                     subnets[id_it->first].pop[i_pre].neighbors_out_weights[subnets[k].id_subnet][i] = subnets[id_it->first].w_min;
                                 }
@@ -2480,30 +2398,17 @@ void Network::train( double dur ) {         // dur:     batch duration
                             (k->pop[i]).offset_aux1 = (1-momentum_c) *sum     + momentum_c *(k->pop[i]).offset_aux1;
                             (k->pop[i]).offset_aux2 = (1-momentum2_c)*sum*sum + momentum2_c*(k->pop[i]).offset_aux2;
                             sum = (k->pop[i]).offset_aux1 / ( sqrt((k->pop[i]).offset_aux2) + EPSILON );
-                            // if (t-EPSILON<dur*DO_NOT_TRAIN_IN_FIRST_BATCHES) {
-                            //     sum = 0;
-                            // }
-                            // else {
-                            //     sum = (k->pop[i]).offset_aux1 / ( sqrt((k->pop[i]).offset_aux2) + EPSILON );
-                            // }
+                            if (t-EPSILON<dur*DO_NOT_TRAIN_IN_FIRST_BATCHES) {
+                                sum = 0;
+                            }
+                            else {
+                                sum = (k->pop[i]).offset_aux1 / ( sqrt((k->pop[i]).offset_aux2) + EPSILON );
+                            }
                             break;
                         default:
                             cerr << "optimization method id not supported" << endl;
                             exit(1);
                       }
-
-
-
-
-
-                    // momentum
-                    // if (momentum_c>0.) {
-                    //     if (t>dur) {
-                    //         // in case we dont save the momentum in a specific file, at batch zero we use sum directly
-                    //         sum = ( sum + momentum_c* (k->pop[i]).delta_offset_I_e );
-                    //     }
-                    //     (k->pop[i]).delta_offset_I_e = sum;
-                    // }
 
                     sum = -sum*l_rate0_curr;
                 }
