@@ -49,7 +49,7 @@ print('Number of samples:', len(X_ind))
 # ### Visualization of the FBG signals
 
 # %%
-to_plot_ind = 1                                     # index of the signal to plot (0 to 8)
+to_plot_ind = 2                                    # index of the signal to plot (0 to 8)
 
 ind_dur_cs = len(FBG_signal[1][to_plot_ind])        # duration of the signal in cs
 ind_dur_ms = 10*ind_dur_cs                          # duration of the signal in ms
@@ -62,7 +62,7 @@ for i_k, k in enumerate(FBG_signal.keys()):
 plt.ylabel('FBG signal [pm]')
 plt.xlabel('time [ms]')
 plt.legend(ncol=3)
-plt.savefig('input_signals.png')
+plt.savefig('out_imgs/input_signals.pdf')
 plt.close()
 # plt.show()
 
@@ -145,6 +145,8 @@ if not os.path.isdir(sim_dir):
     # run simulation
     setup_L1_currents(f'{L1_curr_dir}/sp_currL1.txt', f'{weight_bias_dir}/currL1.txt', input_currs)
     run(f'./main {config_dir}/sim.yaml', shell=True) #, stdout=f_out, stderr=f_err, text=True)
+    if os.path.exists(f'{sim_dir}_{to_plot_ind}'):
+        os.system(f'rm -r {sim_dir}_{to_plot_ind}')
     os.system(f'mv {sim_dir} {sim_dir}_{to_plot_ind}')
 
 # %% [markdown]
@@ -174,7 +176,7 @@ plt.ylabel(f'{variable_to_show} [{"pA" if variable_to_show in ["I_in", "I_ex"] e
 plt.xlabel('time [ms]')
 plt.legend()
 # plt.show()
-plt.savefig('hidden_states.png')
+plt.savefig('out_imgs/hidden_states.pdf')
 plt.close()
 
 
@@ -188,7 +190,7 @@ plt.eventplot(sim.data[pop], linelengths=0.5)
 plt.xlim(0, ind_dur_ms)
 plt.xlabel('time [ms]')
 plt.ylabel(f'{pop} neuron ids')
-plt.savefig(f'spiking_activity_{pop}.png')
+plt.savefig(f'out_imgs/spiking_activity_{pop}.pdf')
 plt.close()
 # plt.show()
 
@@ -236,8 +238,15 @@ plt.ylabel(r'$z$ [mm]')
 plt.legend(loc='upper right')
 
 # plt.show()
-plt.savefig('localization.png')
+plt.savefig('out_imgs/localization.pdf')
 plt.close()
+
+
+path_to_results = f'../../../../results/{NETWORK_MODEL}_{to_plot_ind}'
+if not os.path.exists(path_to_results):
+    os.makedirs(path_to_results)
+os.system(f'mv out_imgs/* {path_to_results}/')
+
 print('--- End of run')
 
 
